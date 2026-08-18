@@ -1,0 +1,15 @@
+Poppins e Inter se distribuyen bajo la SIL Open Font License, versión 1.1.
+
+  Poppins  — Copyright (c) Indian Type Foundry, Jonny Pinhorn
+  Inter    — Copyright (c) The Inter Project Authors
+
+La licencia permite usarlas, incrustarlas y redistribuirlas dentro de una
+aplicación, incluso comercial, con dos condiciones que esta app cumple: las
+fuentes no se venden por separado y este aviso las acompaña.
+
+El texto completo de la licencia está en:
+https://openfontlicense.org
+
+Estos archivos se descargaron de Google Fonts y se empaquetan para que la app
+no tenga que salir a la red a buscarlos. Se regeneran con las URLs que sirve
+la API de Google Fonts para cada familia y peso.

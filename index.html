@@ -4,27 +4,60 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Recuadrao</title>
-<style>
-  :root { --marca:#0F6E56; --texto:#1A1D1F; --suave:#6B7280; }
-  body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-         color:var(--texto); background:#F8F9FA; }
-  header { background:var(--marca); color:#fff; padding:48px 24px; }
-  .caja { max-width:720px; margin:0 auto; }
-  h1 { margin:0 0 6px; font-size:32px; letter-spacing:-.5px; }
-  header p { margin:0; opacity:.85; }
-  main { padding:36px 24px 64px; }
-  a { color:var(--marca); }
-  .nota { color:var(--suave); font-size:14px; }
-</style>
+<link rel="icon" href="icono.png">
+<link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-  <header><div class="caja">
-    <h1>Recuadrao</h1>
-    <p>Lleva la cuenta de tus transferencias desde la foto del comprobante.</p>
-  </div></header>
-  <main><div class="caja">
-    <p><a href="privacidad.html">Política de privacidad</a></p>
-    <p class="nota">Hecho por VELXOS · velxos.contacto@gmail.com</p>
-  </div></main>
+
+<header>
+  <div class="caja">
+    <div class="marca">
+      <img src="icono.png" alt="">
+      <span>Recuadrao</span>
+    </div>
+    <h1>La cuenta del día,<br>desde la foto del comprobante</h1>
+    <p>Para quien cobra por transferencia y necesita saber cuánto entró.</p>
+  </div>
+</header>
+
+<main class="caja">
+
+  <h2>Qué hace</h2>
+  <p>Fotografías el comprobante de la transferencia en el momento de la venta.
+  La app lee el monto, la fecha y la referencia, y los suma al día. Cuando toca
+  rendir cuentas, arma un PDF con cada comprobante y el total.</p>
+  <p>La lectura la hace el propio teléfono, así que funciona sin señal y sin
+  gastar datos.</p>
+
+  <h2>Cómo está pensada</h2>
+  <div class="tarjeta">
+    <h3>Una foto por venta, con el cliente enfrente</h3>
+    <p class="suave">No es una app para sentarse a digitalizar montones de
+    papeles al final del día. Está hecha para el momento en que la venta ocurre,
+    y por eso guardar un comprobante son dos toques.</p>
+
+    <h3>Una caja por persona</h3>
+    <p class="suave">Si en el negocio son varios, cada uno lleva su propia
+    cuenta, con candado si quiere. Y si un mismo comprobante aparece en dos
+    cajas, las dos reciben un aviso: contar la misma venta dos veces es el error
+    que más caro sale.</p>
+
+    <h3>Las cuentas no salen del teléfono</h3>
+    <p class="suave">No hay cuenta de usuario ni servidores. Lo que registras se
+    queda en tu equipo, y solo sale cuando tú compartes un reporte o un
+    respaldo.</p>
+  </div>
+
+  <h2>Enlaces</h2>
+  <p><a href="privacidad.html">Política de privacidad</a></p>
+  <p>Escribe a <a href="mailto:velxos.contacto@gmail.com">velxos.contacto@gmail.com</a>
+  si algo no funciona o echas algo en falta.</p>
+
+</main>
+
+<footer class="caja">
+  <p>Recuadrao — hecho por VELXOS</p>
+</footer>
+
 </body>
 </html>

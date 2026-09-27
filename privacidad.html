@@ -16,7 +16,7 @@
       <span>Recuadrao</span>
     </div>
     <h1>Política de privacidad</h1>
-    <p>Última actualización: 18 de agosto de 2026</p>
+    <p>Última actualización: 27 de septiembre de 2026</p>
   </div>
 </header>
 
@@ -24,11 +24,26 @@
 
   <div class="resumen">
     <h2>Lo corto</h2>
-    <p>Recuadrao no recoge nada. No hay cuenta, no hay servidores nuestros y tus
-    comprobantes no salen de tu teléfono. Lo que la app guarda se queda ahí, y
-    si la desinstalas se borra con ella.</p>
-    <p>Lo que sigue explica eso mismo con detalle, y también lo que la app
-    <em>no</em> puede hacer por ti.</p>
+    <p>Tus comprobantes se quedan en tu teléfono. La app no pide cuenta, no mide
+    lo que haces y no muestra publicidad.</p>
+    <p>Hay <strong>una sola excepción, y la enciendes tú</strong>: si vinculas tu
+    caja con el teléfono de quien lleva el cuadre del negocio, los datos de tus
+    comprobantes empiezan a viajar hacia ese teléfono, y también la foto del
+    comprobante cuando esa persona la pide. Todo viaja cerrado con una clave que
+    solo tienen esos dos aparatos.</p>
+    <p>Mientras no vincules nada, la app no usa internet.</p>
+  </div>
+
+  <div class="tarjeta">
+    <p><strong>Qué cambió en esta versión.</strong> Hasta la 1.0.0, Recuadrao no
+    tenía servidores y nada salía del teléfono. Desde la <strong>1.1.0</strong>
+    existe el envío al cuadre, y con él un servidor nuestro por el que pasan
+    bloques cifrados. Esta política se reescribió por eso. Si nunca vinculas tu
+    caja, para ti no cambia nada.</p>
+    <p>Esta política describe también el envío de las fotos bajo petición, que
+    forma parte de esa misma función y se está terminando. Está escrito antes de
+    que exista a propósito: preferimos que sepas de antemano todo lo que el
+    vínculo puede llegar a mandar, y no enterarte el día que empiece.</p>
   </div>
 
   <h2>Qué es Recuadrao</h2>
@@ -67,20 +82,143 @@
         de tu dedo no pasa por la app en ningún momento: la comprueba Android y
         solo responde sí o no.</td>
       </tr>
+      <tr>
+        <th>La clave del vínculo, si vinculas</th>
+        <td>El secreto que se acuerda al leer el código QR. Se guarda en la
+        misma carpeta privada y sin cifrar, igual que el resto: protege lo que
+        viaja, no lo que ya está en tu teléfono.</td>
+      </tr>
     </table>
   </div>
+
+  <h2>Cuando conectas tu caja con quien hace el cuadre</h2>
+
+  <p>Es la única función que envía información, y <strong>viene
+  apagada</strong>. No pasa nada hasta que alguien muestra un código QR en su
+  teléfono y otra persona lo lee desde el suyo. Si nunca lo haces, puedes
+  saltarte esta sección entera.</p>
+
+  <h3>Qué viaja y qué no</h3>
+  <div class="tarjeta">
+    <table>
+      <tr>
+        <th>Sí viaja</th>
+        <td>Monto, fecha y hora, referencia, concepto, categoría, entidad de
+        origen y de destino, el nombre de la caja, si el comprobante fue
+        corregido a mano, y <em>si tiene foto o no</em>.</td>
+      </tr>
+      <tr>
+        <th>La foto, cuando la piden</th>
+        <td><strong>La captura del comprobante.</strong> No sale con cada
+        comprobante: lo que viaja siempre es el aviso de que existe una, y la
+        imagen se manda cuando quien hace el cuadre la abre porque necesita ver
+        la prueba. Va cerrada con la misma clave, así que por el camino nadie
+        puede verla.</td>
+      </tr>
+      <tr>
+        <th>No viaja</th>
+        <td>La transcripción completa que hizo el lector de texto, el nombre de
+        tus otros perfiles y tu PIN. Tampoco ninguna otra imagen de tu galería:
+        solo las que tú registraste como comprobante en esa caja.</td>
+      </tr>
+      <tr>
+        <th>Los borrados también viajan</th>
+        <td>Si borras un comprobante, se avisa al otro teléfono para que lo
+        borre también. Ese aviso lleva solo el identificador y la fecha del
+        borrado, no las cifras de lo borrado.</td>
+      </tr>
+    </table>
+  </div>
+
+  <h3>Cómo viaja</h3>
+  <p>Al leer el código QR, los dos teléfonos acuerdan una clave que no sale de
+  ellos. Con esa clave, el que envía cierra cada envío antes de que salga, y el
+  que recibe lo abre al llegar.</p>
+  <p>Entre medias hay un servidor nuestro —un <em>buzón</em>— que guarda esos
+  bloques hasta que el otro teléfono los recoge. <strong>Ese servidor no puede
+  abrirlos.</strong> No tiene la clave, y no hay forma de que la tenga: nunca
+  pasa por él.</p>
+
+  <h3>Qué ve el buzón, dicho sin adornos</h3>
+  <div class="tarjeta">
+    <table>
+      <tr>
+        <th>Ve</th>
+        <td>La dirección del buzón, la dirección IP desde la que te conectas,
+        el tamaño de cada bloque y la hora a la que llegó.</td>
+      </tr>
+      <tr>
+        <th>No ve</th>
+        <td>Nada de lo que hay dentro. Ni montos, ni referencias, ni nombres,
+        ni cuántos comprobantes van en un bloque. Las fotos que pasan por él
+        también van cerradas: para el servidor son bytes sin forma, no
+        imágenes.</td>
+      </tr>
+    </table>
+  </div>
+  <p>O sea: el servidor sabe que alguien dejó algo de cierto tamaño en cierta
+  dirección a cierta hora. No sabe quién, ni cuánto, ni de qué. La dirección del
+  buzón es un número derivado de la clave y no contiene tu nombre, tu correo ni
+  tu teléfono.</p>
+
+  <h3>Dónde está ese servidor</h3>
+  <p>El buzón lo opera VELXOS sobre la infraestructura de
+  <strong>Cloudflare, Inc.</strong> El código que recibe los bloques corre en la
+  red global de Cloudflare, y los bloques quedan guardados en
+  <strong>Estados Unidos</strong>.</p>
+  <p>Eso es una <strong>transferencia internacional de datos</strong>. Al
+  vincular tu caja la estás autorizando, y por eso está escrito aquí antes y no
+  después. Cloudflare actúa como nuestro proveedor de infraestructura y almacena
+  bloques que tampoco puede leer.</p>
+
+  <h3>Cuánto tiempo se queda</h3>
+  <ul>
+    <li><strong>Los bloques se borran a los 7 días</strong>, los haya recogido
+    alguien o no.</li>
+    <li><strong>Las fotos que se piden se borran a los 7 días</strong> de
+    haberse subido. Son de paso: el sitio donde se quedan es el teléfono que
+    las pidió, no el servidor.</li>
+    <li><strong>La dirección de un buzón se borra a los 30 días</strong> sin
+    usarse.</li>
+    <li>No hay copias de seguridad del buzón. Lo que se borra, se fue.</li>
+  </ul>
+  <p>El destino final de esos datos no es el servidor sino el otro teléfono, que
+  los guarda en su propia base local con las mismas reglas de esta política.</p>
+
+  <h3>Cómo se corta</h3>
+  <p>En cualquier momento y sin pedirle permiso a nadie:</p>
+  <ul>
+    <li>En el teléfono que envía: ajustes de la caja → <em>Enviar al cuadre</em>
+    → <strong>Dejar de enviar</strong>.</li>
+    <li>En el teléfono que recibe: <em>Cajas vinculadas</em> →
+    <strong>Olvidar</strong>.</li>
+  </ul>
+  <p>A partir de ahí no sale ni entra nada más por ese vínculo. Lo que ya llegó
+  al otro teléfono sigue allí: para que desaparezca hay que pedírselo a quien lo
+  tiene. Cada caja tiene su propio código, así que cortar uno no afecta a los
+  demás.</p>
+
+  <h3>Lo que significa compartir</h3>
+  <p>Cuando vinculas tu caja, los datos de las personas que te pagaron pasan a
+  otro teléfono y a otra persona. Esa persona pasa a ser también responsable de
+  ellos, con las mismas obligaciones que tenías tú. Conviene que lo sepa antes
+  de leer el código, no después.</p>
 
   <h2>Qué no hace</h2>
   <ul>
     <li><strong>No pide cuenta ni registro.</strong> Ni correo, ni teléfono, ni
-    contraseña. Se abre y funciona.</li>
-    <li><strong>No tiene servidores.</strong> No existe ningún lugar fuera de tu
-    teléfono donde estén tus cuentas, ni siquiera uno al que nosotros podamos
-    entrar.</li>
+    contraseña. Se abre y funciona. El buzón tampoco tiene cuentas: no sabe
+    quién eres.</li>
     <li><strong>No mide el uso ni muestra publicidad.</strong> No hay analítica,
-    ni identificadores de publicidad, ni redes de anuncios. Nadie del otro lado
-    está mirando cuánto vendes.</li>
-    <li><strong>No comparte nada con terceros.</strong> No hay terceros.</li>
+    ni identificadores de publicidad, ni redes de anuncios, ni informes de fallos
+    automáticos. Nadie del otro lado está mirando cuánto vendes.</li>
+    <li><strong>No envía nada si no lo vinculas.</strong> Sin un vínculo activo
+    la app no hace ninguna petición a internet.</li>
+    <li><strong>No manda tus fotos a nadie más que a la caja que vinculaste</strong>,
+    y solo cuando allí las piden. Sin vínculo no sale ninguna.</li>
+    <li><strong>No vende ni cede datos a terceros.</strong> El único tercero que
+    interviene es Cloudflare, como proveedor de infraestructura del buzón, y
+    guarda bloques que no puede leer.</li>
     <li><strong>No lee tu galería.</strong> Solo abre la imagen que tú eliges,
     cuando tú la eliges.</li>
   </ul>
@@ -90,8 +228,8 @@
     <table>
       <tr>
         <th>Cámara</th>
-        <td>Para fotografiar el comprobante. Solo se activa cuando tocas el
-        botón de la cámara.</td>
+        <td>Para fotografiar el comprobante, y para leer el código QR cuando
+        vinculas una caja. Solo se activa cuando tocas el botón.</td>
       </tr>
       <tr>
         <th>Fotos</th>
@@ -103,14 +241,17 @@
         <td>Opcional. Solo si decides proteger un perfil. Android hace la
         comprobación y la app únicamente recibe la respuesta.</td>
       </tr>
+      <tr>
+        <th>Red</th>
+        <td>Para el envío al cuadre. Si no has vinculado ninguna caja, la app no
+        lo usa.</td>
+      </tr>
     </table>
   </div>
-  <p class="dato">La app declara el permiso de red para poder crecer más
-  adelante, pero hoy no lo usa: no hace ninguna petición a internet.</p>
 
   <h2>Lo que sale del teléfono lo sacas tú</h2>
-  <p>Hay dos momentos en que un archivo puede salir de la app, y los dos los
-  inicias tú:</p>
+  <p>Aparte del vínculo que ya expliqué, hay dos momentos en que un archivo
+  puede salir de la app, y los dos los inicias tú:</p>
   <ul>
     <li><strong>El reporte en PDF</strong>, cuando lo exportas y eliges a quién
     enviarlo.</li>
@@ -129,6 +270,8 @@
   almacenamiento de la app, y alguien con el teléfono en la mano y conocimientos
   técnicos podría llegar a ella de todas formas. Es un candado de cajón, no una
   caja fuerte, y preferimos decírtelo a que lo supongas.</p>
+  <p>Lo mismo vale para la clave del vínculo: cifra lo que viaja por internet,
+  no lo que está guardado en el aparato.</p>
 
   <h2>Los datos de quien te paga</h2>
   <p>Un comprobante suele traer el nombre —y a veces el teléfono— de la persona
@@ -138,45 +281,58 @@
   no tenga por qué verla. En Colombia esto lo regula la
   <strong>Ley 1581 de 2012</strong> y sus normas reglamentarias. Frente a esa
   ley, el responsable de esos datos eres tú: están en tu equipo, en tus
-  archivos, y solo tú decides qué se hace con ellos.</p>
+  archivos, y solo tú decides qué se hace con ellos —incluido decidir si los
+  compartes con quien hace el cuadre.</p>
 
   <h2>Quién responde por qué</h2>
-  <p>Recuadrao lo desarrolla <strong>VELXOS</strong>. Como la aplicación no
-  recibe, transmite ni almacena información en ningún sistema nuestro,
-  <strong>VELXOS no actúa como responsable ni como encargado del tratamiento de
-  tus datos</strong>: no hay tratamiento que hacer, porque nunca llegan a
-  nosotros.</p>
-  <p>Esto no es una fórmula para eludir responsabilidad, es una consecuencia del
-  diseño. Y tiene una contrapartida que conviene tener clara: como no tenemos
-  copia de nada, tampoco podemos recuperarte nada. Si pierdes el teléfono sin
+  <p>Recuadrao lo desarrolla <strong>VELXOS</strong>. Conviene separar dos cosas
+  que antes eran una sola.</p>
+  <p><strong>Sobre el contenido de tus comprobantes:</strong> VELXOS no puede
+  tratarlo. Está cifrado con una clave que no tenemos y que nunca pasa por
+  nuestros sistemas. Aunque quisiéramos —y aunque nos lo exigieran— no podríamos
+  entregar lo que hay dentro de un bloque, porque no sabemos abrirlo.</p>
+  <p><strong>Sobre los datos del buzón:</strong> aquí sí hay tratamiento y
+  <strong>VELXOS es el responsable</strong>. Son la dirección del buzón, la IP,
+  el tamaño y la hora. Se usan para una sola cosa —entregarle cada bloque a
+  quien corresponde y frenar abusos— y se borran en los plazos de arriba.</p>
+  <p>Hay una contrapartida que conviene tener clara: como no tenemos copia
+  legible de nada, tampoco podemos recuperarte nada. Si pierdes el teléfono sin
   haber hecho un respaldo, esa información no está en ningún otro sitio.</p>
 
   <h2>Tus derechos, y cómo se ejercen aquí</h2>
   <p>La ley colombiana te reconoce el derecho a conocer, actualizar, rectificar
   y suprimir tus datos personales. En la mayoría de las aplicaciones eso se
   ejerce escribiendo a la empresa que los tiene.</p>
-  <p>Aquí no hace falta pedirnos permiso, porque los datos ya están en tus
-  manos:</p>
+  <p>Aquí casi todo se ejerce solo, porque los datos ya están en tus manos:</p>
   <ul>
     <li><strong>Conocerlos:</strong> están en la app, a la vista.</li>
-    <li><strong>Corregirlos:</strong> cualquier comprobante se puede editar.</li>
+    <li><strong>Corregirlos:</strong> cualquier comprobante se puede editar, y
+    la corrección viaja al otro teléfono si hay vínculo.</li>
     <li><strong>Suprimirlos:</strong> se borran uno a uno, por perfil completo, o
-    del todo desinstalando la aplicación.</li>
+    del todo desinstalando la aplicación. El borrado también viaja.</li>
     <li><strong>Llevártelos:</strong> el respaldo y el PDF son tuyos y se abren
     fuera de la app.</li>
+    <li><strong>Dejar de enviarlos:</strong> cortando el vínculo, cuando
+    quieras.</li>
   </ul>
+  <p>Para lo único que hace falta escribirnos es para los datos del buzón —la
+  dirección, la IP, la hora—. Escribe al correo de abajo y te decimos qué hay y
+  lo borramos. Sin eso, se borra solo en los plazos indicados.</p>
 
   <h2>Menores de edad</h2>
   <p>Recuadrao está pensada para llevar las cuentas de un trabajo o un negocio y
-  no está dirigida a menores de edad. No recogemos información de nadie, así que
-  tampoco de ellos.</p>
+  no está dirigida a menores de edad. No recogemos información de nadie para
+  perfilarlo, y tampoco de ellos.</p>
 
   <h2>Si esta política cambia</h2>
-  <p>Si alguna vez cambia lo que la app hace con la información, esta página se
-  actualiza y cambia la fecha de arriba. Si el cambio fuera de fondo —por
-  ejemplo, si en el futuro apareciera alguna función que sí necesite enviar
-  datos— se avisaría dentro de la propia aplicación antes de que ocurriera, y
-  nunca de forma automática sin tu consentimiento.</p>
+  <p>Si cambia lo que la app hace con la información, esta página se actualiza y
+  cambia la fecha de arriba.</p>
+  <p>La versión anterior de esta política prometía que, si algún día apareciera
+  una función que necesitara enviar datos, se avisaría dentro de la propia
+  aplicación y nunca ocurriría de forma automática sin tu consentimiento. Esa
+  función es el envío al cuadre, y la promesa se cumple así: viene apagada,
+  explica en pantalla qué se envía y qué no antes de que enciendas nada, y no
+  manda nada mientras no leas un código con otro teléfono.</p>
 
   <h2>Contacto</h2>
   <p>Si algo no funciona, si una lectura sale mal, si tienes una duda sobre esta

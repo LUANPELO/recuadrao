@@ -4,59 +4,173 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Recuadrao</title>
+<meta name="description" content="Fotografías el comprobante, la app lleva la cuenta, se la manda a quien cuadra y el aviso del banco confirma que el pago entró.">
 <link rel="icon" href="icono.png">
 <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
 
-<header>
-  <div class="caja">
-    <div class="marca">
-      <img src="icono.png" alt="">
-      <span>Recuadrao</span>
+<header class="grande">
+  <div class="caja portada">
+    <div class="portada-texto">
+      <div class="marca">
+        <img src="icono.png" alt="">
+        <span>Recuadrao</span>
+      </div>
+      <h1>Del comprobante al cuadre,<br class="solo-ancho">sin apuntar nada a mano</h1>
+      <p>Tomas la foto. La app lee el monto, lleva la cuenta del día, se la
+      manda a quien cuadra y espera a que el banco confirme que el pago entró
+      de verdad.</p>
+      <a class="boton" href="https://play.google.com/apps/testing/com.velxos.recuadrao">
+        <svg viewBox="0 0 16 18" fill="currentColor" aria-hidden="true"><path d="M1.2.4a.9.9 0 0 0-.7.9v15.4a.9.9 0 0 0 1.4.8l13.1-7.7a.9.9 0 0 0 0-1.6L1.9.5A.9.9 0 0 0 1.2.4Z"/></svg>
+        Únete a la prueba
+      </a>
+      <p class="nota">Prueba cerrada en Google Play · Android · Gratis</p>
     </div>
-    <h1>La cuenta del día,<br>desde la foto del comprobante</h1>
-    <p>Para quien cobra por transferencia y necesita saber cuánto entró.</p>
+    <div class="portada-foto">
+      <img src="pantalla.jpg" width="640" height="1291"
+           alt="La pantalla principal de Recuadrao: el total acumulado arriba y
+                debajo las transferencias recibidas, cada una con el logo de su
+                banco, la hora y la referencia.">
+    </div>
   </div>
 </header>
 
 <main class="caja">
 
-  <h2>Qué hace</h2>
-  <p>Fotografías el comprobante de la transferencia en el momento de la venta.
-  La app lee el monto, la fecha y la referencia, y los suma al día. Cuando toca
-  rendir cuentas, arma un PDF con cada comprobante y el total.</p>
-  <p>La lectura la hace el propio teléfono, así que funciona sin señal y sin
-  gastar datos.</p>
+  <h2>La cadena entera, en cuatro pasos</h2>
+  <p>Cada paso resuelve algo que hoy se hace a mano, y el último resuelve algo
+  que hoy no se hace.</p>
 
-  <h2>Cómo está pensada</h2>
-  <div class="tarjeta">
-    <h3>Una foto por venta, con el cliente enfrente</h3>
-    <p class="suave">No es una app para sentarse a digitalizar montones de
-    papeles al final del día. Está hecha para el momento en que la venta ocurre,
-    y por eso guardar un comprobante son dos toques.</p>
+  <ol class="pasos">
+    <li>
+      <h3>La foto</h3>
+      <p>Fotografías el comprobante con el cliente todavía enfrente. El
+      teléfono lee el monto, la fecha y la referencia por su cuenta: sin señal,
+      sin gastar datos y sin que la imagen salga de ahí. Son dos toques, porque
+      está hecha para el momento de la venta y no para sentarse a digitalizar
+      un montón al final del día.</p>
+    </li>
+    <li>
+      <h3>La cuenta</h3>
+      <p>Se suma al día sola. Si en el negocio son varios, cada uno lleva su
+      propia caja, con candado si quiere. Y si un mismo comprobante aparece en
+      dos cajas, las dos reciben un aviso: contar la misma venta dos veces es
+      el error que más caro sale.</p>
+    </li>
+    <li>
+      <h3>El cuadre</h3>
+      <p>Quien lleva las cuentas del negocio enlaza su teléfono leyendo un
+      código, una sola vez. Desde ahí cada comprobante le llega solo, cifrado y
+      en segundos, con su foto detrás. Se acabó mandar capturas por WhatsApp y
+      contarlas a mano al cierre del turno.</p>
+    </li>
+    <li>
+      <h3>La confirmación <span class="nuevo">Nuevo</span></h3>
+      <p>La app lee el aviso que manda el banco al teléfono donde cae la plata
+      y lo cruza con el comprobante. Si cuadran, queda marcado. Y lo ven los
+      dos: quien cobró y quien cuadra, cada uno en su teléfono, aunque la app
+      esté cerrada y el teléfono bloqueado.</p>
+    </li>
+  </ol>
 
-    <h3>Una caja por persona</h3>
-    <p class="suave">Si en el negocio son varios, cada uno lleva su propia
-    cuenta, con candado si quiere. Y si un mismo comprobante aparece en dos
-    cajas, las dos reciben un aviso: contar la misma venta dos veces es el error
-    que más caro sale.</p>
-
-    <h3>Las cuentas no salen del teléfono</h3>
-    <p class="suave">No hay cuenta de usuario ni servidores. Lo que registras se
-    queda en tu equipo, y solo sale cuando tú compartes un reporte o un
-    respaldo.</p>
+  <h2>Por qué el cuarto paso es el que importa</h2>
+  <div class="resumen">
+    <p>Un comprobante es una foto, y la foto la enseña quien quiere cobrar. El
+    aviso del banco no: ese lo manda el banco, al teléfono donde entra el
+    dinero. Es <strong>el único dato de toda la app que no escribe ninguna de
+    las dos partes</strong>.</p>
+    <p>Hay apps que leen recibos. Hay apps que llevan la caja. Lo que faltaba
+    era cerrar el círculo: que lo que se anotó se confirme solo, contra lo que
+    entró de verdad.</p>
+    <p>No decide si un pago es válido —eso no le toca a una app—. Dice si hay
+    un movimiento del banco que le corresponde, y con eso, cuánta confianza
+    merece la cifra del día.</p>
   </div>
 
-  <h2>Enlaces</h2>
-  <p><a href="privacidad.html">Política de privacidad</a></p>
-  <p>Escribe a <a href="mailto:velxos.contacto@gmail.com">velxos.contacto@gmail.com</a>
-  si algo no funciona o echas algo en falta.</p>
+  <h2>Para quién es</h2>
+  <div class="duo">
+    <div class="tarjeta">
+      <h3>Si eres quien cobra</h3>
+      <p class="suave">No vuelves a discutir si mandaste el comprobante o no:
+      se envía solo. Y cuando el banco confirma, lo ves marcado en tu propio
+      teléfono, no en el de otro.</p>
+    </div>
+    <div class="tarjeta">
+      <h3>Si eres quien cuadra</h3>
+      <p class="suave">Dejas de perseguir capturas al final del turno. Ves lo
+      que entró en cada caja, con la foto detrás y el visto del banco, según va
+      pasando.</p>
+    </div>
+  </div>
+
+  <h2>Lo que no hace</h2>
+  <ul class="garantias">
+    <li>No pide cuenta de usuario, ni correo, ni número de teléfono.</li>
+    <li>No mide lo que haces ni muestra publicidad.</li>
+    <li>Mientras no enlaces nada, no usa internet.</li>
+    <li>Tus cuentas viven en tu teléfono. Si enlazas, viajan cerradas con una
+    clave que solo tienen esos dos aparatos.</li>
+    <li>Los avisos del banco que lee no salen del teléfono, y la función viene
+    apagada hasta que tú la enciendas.</li>
+  </ul>
+  <p class="dato">Todo esto está explicado en detalle, y con sus límites, en la
+  <a href="privacidad.html">política de privacidad</a>.</p>
+
+  <div class="llamada">
+    <h2>Ahora mismo está en prueba</h2>
+    <p>Recuadrao está en prueba cerrada en Google Play. Si cobras por
+    transferencia y quieres usarla —y decirme qué le falta—, entra por aquí.</p>
+    <a class="boton verde" href="https://play.google.com/apps/testing/com.velxos.recuadrao">
+      <svg viewBox="0 0 16 18" fill="currentColor" aria-hidden="true"><path d="M1.2.4a.9.9 0 0 0-.7.9v15.4a.9.9 0 0 0 1.4.8l13.1-7.7a.9.9 0 0 0 0-1.6L1.9.5A.9.9 0 0 0 1.2.4Z"/></svg>
+      Únete a la prueba
+    </a>
+    <p class="dato">Escribe a
+    <a href="mailto:velxos.contacto@gmail.com">velxos.contacto@gmail.com</a>
+    si algo no funciona o echas algo en falta. Detrás de esto hay una persona,
+    no un formulario.</p>
+  </div>
 
 </main>
 
-<footer class="caja">
-  <p>Recuadrao — hecho por VELXOS</p>
+<footer>
+  <div class="caja pie">
+    <div class="pie-marca">
+      <div class="marca">
+        <img src="icono.png" alt="">
+        <span>Recuadrao</span>
+      </div>
+      <p>La cuenta del día, desde la foto del comprobante. Para quien cobra por
+      transferencia y necesita saber cuánto entró.</p>
+      <a class="play" href="https://play.google.com/apps/testing/com.velxos.recuadrao">
+        <svg viewBox="0 0 16 18" fill="currentColor" aria-hidden="true"><path d="M1.2.4a.9.9 0 0 0-.7.9v15.4a.9.9 0 0 0 1.4.8l13.1-7.7a.9.9 0 0 0 0-1.6L1.9.5A.9.9 0 0 0 1.2.4Z"/></svg>
+        <span><small>Únete a la prueba en</small><b>Google Play</b></span>
+      </a>
+    </div>
+
+    <nav class="pie-col" aria-label="Páginas">
+      <p class="rotulo">Páginas</p>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+        <li><a href="eliminar-datos.html">Eliminar mis datos</a></li>
+      </ul>
+    </nav>
+
+    <div class="pie-col">
+      <p class="rotulo">Contacto</p>
+      <ul>
+        <li><a href="mailto:velxos.contacto@gmail.com">velxos.contacto@gmail.com</a></li>
+        <li><a href="https://wa.me/573128603576">WhatsApp +57 312 860 3576</a></li>
+        <li>Barranquilla, Atlántico<br>Colombia</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="caja pie-abajo">
+    <p>© 2026 VELXOS</p>
+    <p>Detrás de esto hay una persona, no un formulario.</p>
+  </div>
 </footer>
 
 </body>

@@ -16,14 +16,14 @@
       <span>Recuadrao</span>
     </div>
     <h1>Política de privacidad</h1>
-    <p>Última actualización: 16 de octubre de 2026</p>
+    <p class="sello">Última actualización: 19 de octubre de 2026</p>
   </div>
 </header>
 
 <main class="caja">
 
   <div class="resumen">
-    <h2>Lo corto</h2>
+    <h2 id="lo-corto">Lo corto</h2>
     <p>Tus comprobantes se quedan en tu teléfono. La app no pide cuenta, no mide
     lo que haces y no muestra publicidad.</p>
     <p>Hay <strong>una sola excepción, y la enciendes tú</strong>: si vinculas
@@ -32,6 +32,10 @@
     viajar hacia ese teléfono, y sus fotos detrás. Todo viaja cerrado con una
     clave que solo tienen esos dos aparatos.</p>
     <p>Mientras no vincules nada, la app no usa internet.</p>
+    <p>Hay <strong>una segunda cosa que también enciendes tú</strong>: la app
+    puede leer los avisos que te manda tu banco para confirmar que un pago
+    entró de verdad. Viene apagada, la activas en los ajustes de Android, y lo
+    que lee <strong>no sale del teléfono</strong>.</p>
   </div>
 
   <div class="tarjeta">
@@ -47,7 +51,27 @@
     comprobante.</p>
   </div>
 
-  <h2>Qué es Recuadrao</h2>
+
+  <nav class="indice" aria-label="Contenido">
+    <p class="rotulo">Qué hay aquí</p>
+    <ol>
+      <li><a href="#que-es-recuadrao">Qué es Recuadrao</a></li>
+      <li><a href="#que-guarda-la-app-y-donde">Qué guarda la app, y dónde</a></li>
+      <li><a href="#permisos-que-pide-y-para-que">Permisos que pide, y para qué</a></li>
+      <li><a href="#cuando-conectas-tu-caja-con-quien-hace-el-cuadre">Cuando le mandas tus cifras a quien cuadra</a></li>
+      <li><a href="#los-avisos-del-banco">Los avisos del banco</a></li>
+      <li><a href="#que-no-hace">Qué no hace la app</a></li>
+      <li><a href="#lo-que-sale-del-telefono-lo-sacas-tu">Lo que sale del teléfono lo sacas tú</a></li>
+      <li><a href="#sobre-el-candado-de-los-perfiles">Sobre el candado de los perfiles</a></li>
+      <li><a href="#los-datos-de-quien-te-paga">Los datos de quien te paga</a></li>
+      <li><a href="#quien-es-el-responsable-y-como-encontrarlo">Quién es el responsable</a></li>
+      <li><a href="#tus-derechos-y-como-se-ejercen-aqui">Tus derechos, y cómo se ejercen</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ol>
+  </nav>
+
+  <p class="grupo">Lo esencial</p>
+  <h2 id="que-es-recuadrao">Qué es Recuadrao</h2>
   <p>Una aplicación para trabajadores y comerciantes que reciben pagos por
   transferencia. Lee la foto de un comprobante, saca el monto, la fecha y la
   referencia, y lleva la cuenta de lo que entró. Al final permite armar un
@@ -56,7 +80,7 @@
   eso funciona en un puesto sin señal, y por eso la foto no necesita viajar a
   ninguna parte para poder leerse.</p>
 
-  <h2>Qué guarda la app, y dónde</h2>
+  <h2 id="que-guarda-la-app-y-donde">Qué guarda la app, y dónde</h2>
   <p>Todo lo que registras vive en una carpeta privada de la aplicación, dentro
   de tu teléfono. Android impide que otras aplicaciones entren ahí.</p>
 
@@ -92,7 +116,8 @@
     </table>
   </div>
 
-  <h2>Cuando conectas tu caja con quien hace el cuadre</h2>
+  <p class="grupo">Cuando compartes con quien cuadra</p>
+  <h2 id="cuando-conectas-tu-caja-con-quien-hace-el-cuadre">Cuando conectas tu caja con quien hace el cuadre</h2>
 
   <p>Es la única función que envía información, y <strong>viene
   apagada</strong>. No pasa nada hasta que alguien muestra un código QR en su
@@ -216,7 +241,55 @@
   ellos, con las mismas obligaciones que tenías tú. Conviene que lo sepa antes
   de leer el código, no después.</p>
 
-  <h2>Qué no hace</h2>
+  <p class="grupo">Confirmar que el pago entró</p>
+  <h2 id="los-avisos-del-banco">Los avisos del banco</h2>
+  <p>Un comprobante es una foto, y una foto la enseña quien quiere cobrar. El
+  aviso que manda el banco cuando entra una transferencia no: ese no pasa por
+  las manos de nadie. Por eso la app puede leerlos, y así decirte si el pago
+  <em>entró</em> en vez de decirte solo que la foto se leyó bien.</p>
+  <p><strong>Viene apagado.</strong> Android no permite que una app se dé sola
+  este permiso: hay que ir a sus ajustes y activarlo a mano, y desde ahí mismo
+  se quita cuando quieras. Si no lo activas, esta sección entera no te aplica.</p>
+
+  <h3>Qué se lee y qué no</h3>
+  <div class="tarjeta">
+    <table>
+      <tr>
+        <th>Sí se lee</th>
+        <td>El título y el texto de las notificaciones de una
+        <strong>lista cerrada de apps</strong>: las de los bancos y billeteras
+        que la app reconoce, y la app de mensajes, porque algunos bancos avisan
+        por SMS.</td>
+      </tr>
+      <tr>
+        <th>No se lee</th>
+        <td>Todo lo demás. El filtro va <strong>antes</strong> que la lectura:
+        de una notificación que no sea de esa lista no se lee ni el título ni
+        el texto. Solo se anota de qué app vino y cuántas veces, y eso sirve
+        para reconocer bancos nuevos sin guardar la conversación de nadie.</td>
+      </tr>
+      <tr>
+        <th>Dónde queda</th>
+        <td>En un archivo dentro de la carpeta privada de la app, en tu
+        teléfono. Se recorta solo cuando crece, y se borra entero desde la
+        propia pantalla de avisos.</td>
+      </tr>
+    </table>
+  </div>
+
+  <h3>Qué viaja de esto, si hay vínculo</h3>
+  <p>Solo el veredicto: el identificador del comprobante y si quedó confirmado,
+  sin aviso o con varios posibles. <strong>Nunca el texto del aviso, ni el
+  nombre de quien pagó, ni el número de cuenta.</strong> Esos son datos de un
+  cliente y no tienen por qué acabar en el teléfono de otra persona.</p>
+  <p>Y al revés de lo que podría parecer, esto no es un juicio sobre nadie. Que
+  no haya llegado un aviso no significa que el comprobante sea falso: una
+  notificación se pierde si el teléfono estaba apagado, si el sistema cerró la
+  app o si la cuenta que recibe es de otra persona. La app lo dice con esas
+  palabras, a propósito.</p>
+
+  <p class="grupo">Límites y garantías</p>
+  <h2 id="que-no-hace">Qué no hace</h2>
   <ul>
     <li><strong>No pide cuenta ni registro.</strong> Ni correo, ni teléfono, ni
     contraseña. Se abre y funciona. El buzón tampoco tiene cuentas: no sabe
@@ -236,7 +309,7 @@
     cuando tú la eliges.</li>
   </ul>
 
-  <h2>Permisos que pide, y para qué</h2>
+  <h2 id="permisos-que-pide-y-para-que">Permisos que pide, y para qué</h2>
   <div class="tarjeta">
     <table>
       <tr>
@@ -259,10 +332,23 @@
         <td>Para el envío al cuadre. Si no has vinculado ninguna caja, la app no
         lo usa.</td>
       </tr>
+      <tr>
+        <th>Acceso a<br>notificaciones</th>
+        <td>Opcional y apagado de fábrica. Solo si quieres que la app confirme
+        tus pagos con los avisos de tu banco. Android obliga a concederlo desde
+        sus propios ajustes, y ahí mismo se revoca. Ver la sección
+        <em>Los avisos del banco</em>.</td>
+      </tr>
+      <tr>
+        <th>Arranque del<br>teléfono</th>
+        <td>Solo si activaste lo anterior: sirve para que la app vuelva a
+        escuchar los avisos del banco después de reiniciar. No abre nada ni
+        muestra nada.</td>
+      </tr>
     </table>
   </div>
 
-  <h2>Lo que sale del teléfono lo sacas tú</h2>
+  <h2 id="lo-que-sale-del-telefono-lo-sacas-tu">Lo que sale del teléfono lo sacas tú</h2>
   <p>Aparte del vínculo que ya expliqué, hay dos momentos en que un archivo
   puede salir de la app, y los dos los inicias tú:</p>
   <ul>
@@ -275,7 +361,7 @@
   condiciones de esa aplicación, no por las nuestras. Nosotros no recibimos una
   copia ni sabemos que lo enviaste.</p>
 
-  <h2>Sobre el candado de los perfiles</h2>
+  <h2 id="sobre-el-candado-de-los-perfiles">Sobre el candado de los perfiles</h2>
   <p>Puedes proteger un perfil con un PIN y, si el teléfono lo permite, con la
   huella. Sirve para que otra persona no entre a tus cuentas desde tu propio
   teléfono. Para eso alcanza.</p>
@@ -286,7 +372,8 @@
   <p>Lo mismo vale para la clave del vínculo: cifra lo que viaja por internet,
   no lo que está guardado en el aparato.</p>
 
-  <h2>Los datos de quien te paga</h2>
+  <p class="grupo">Lo legal, en claro</p>
+  <h2 id="los-datos-de-quien-te-paga">Los datos de quien te paga</h2>
   <p>Un comprobante suele traer el nombre —y a veces el teléfono— de la persona
   que te transfirió. Esa información es de ella, no tuya, y no deja de serlo
   porque esté en tu teléfono.</p>
@@ -297,7 +384,24 @@
   archivos, y solo tú decides qué se hace con ellos —incluido decidir si los
   compartes con quien hace el cuadre.</p>
 
-  <h2>Quién responde por qué</h2>
+  <h2 id="quien-es-el-responsable-y-como-encontrarlo">Quién es el responsable, y cómo encontrarlo</h2>
+  <p>La ley colombiana exige que una política de tratamiento diga quién
+  responde y por dónde se le escribe. Aquí está:</p>
+  <div class="tarjeta">
+    <table>
+      <tr><th>Responsable</th><td>VELXOS</td></tr>
+      <tr><th>Domicilio</th><td>Barranquilla, Atlántico (Colombia)</td></tr>
+      <tr><th>Dirección</th><td>No hay oficina al público. Las notificaciones se reciben por correo y por WhatsApp, y se contestan por el mismo medio.</td></tr>
+      <tr><th>Correo</th>
+          <td><a href="mailto:velxos.contacto@gmail.com">velxos.contacto@gmail.com</a></td></tr>
+      <tr><th>WhatsApp</th><td><a href="https://wa.me/573128603576">+57 312 860 3576</a> <span class="dato">(solo mensajes, no llamadas)</span></td></tr>
+      <tr><th>Atiende consultas<br>y reclamos</th>
+          <td>El propio desarrollador, por ese correo. No hay formulario ni
+          call center: contesta una persona.</td></tr>
+    </table>
+  </div>
+
+  <h2 id="quien-responde-por-que">Quién responde por qué</h2>
   <p>Recuadrao lo desarrolla <strong>VELXOS</strong>. Conviene separar dos cosas
   que antes eran una sola.</p>
   <p><strong>Sobre el contenido de tus comprobantes:</strong> VELXOS no puede
@@ -312,7 +416,7 @@
   legible de nada, tampoco podemos recuperarte nada. Si pierdes el teléfono sin
   haber hecho un respaldo, esa información no está en ningún otro sitio.</p>
 
-  <h2>Tus derechos, y cómo se ejercen aquí</h2>
+  <h2 id="tus-derechos-y-como-se-ejercen-aqui">Tus derechos, y cómo se ejercen aquí</h2>
   <p>La ley colombiana te reconoce el derecho a conocer, actualizar, rectificar
   y suprimir tus datos personales. En la mayoría de las aplicaciones eso se
   ejerce escribiendo a la empresa que los tiene.</p>
@@ -329,15 +433,76 @@
     quieras.</li>
   </ul>
   <p>Para lo único que hace falta escribirnos es para los datos del buzón —la
-  dirección, la IP, la hora—. Escribe al correo de abajo y te decimos qué hay y
-  lo borramos. Sin eso, se borra solo en los plazos indicados.</p>
+  dirección, la IP, la hora—. Escribe al correo de arriba y te decimos qué hay
+  y lo borramos. Sin eso, se borra solo en los plazos indicados.</p>
 
-  <h2>Menores de edad</h2>
+  <h3>Lo que la ley te reconoce, en sus palabras</h3>
+  <p>La <strong>Ley 1581 de 2012</strong> le da a cualquier titular de datos
+  personales el derecho a conocerlos, actualizarlos, rectificarlos y
+  suprimirlos; a pedir prueba de la autorización que dio; a ser informado del
+  uso que se les ha dado; a revocar la autorización; a acceder a ellos
+  gratuitamente; y a presentar quejas ante la Superintendencia de Industria y
+  Comercio.</p>
+
+  <h3>Cómo se pide, y en cuánto se contesta</h3>
+  <p>Escribiendo al correo de arriba, desde cualquier dirección, diciendo qué
+  quieres y cómo contactarte. Los plazos no los ponemos nosotros, los pone la
+  ley:</p>
+  <div class="tarjeta">
+    <table>
+      <tr>
+        <th>Consultas</th>
+        <td>Saber qué datos hay. <strong>Máximo 10 días hábiles</strong>. Si no
+        se puede en ese plazo, se te explica por qué y se fija una fecha, que no
+        puede pasar de 5 días hábiles más.</td>
+      </tr>
+      <tr>
+        <th>Reclamos</th>
+        <td>Pedir que se corrija, se actualice o se borre algo, o denunciar un
+        incumplimiento. <strong>Máximo 15 días hábiles</strong> desde el día
+        siguiente al recibo, prorrogables 8 días hábiles explicando el motivo.
+        Si el reclamo llega incompleto, se te pide completarlo dentro de los 5
+        días siguientes.</td>
+      </tr>
+      <tr>
+        <th>Queja ante la SIC</th>
+        <td>Es tu derecho, pero la ley pide un paso previo: haber elevado antes
+        la consulta o el reclamo aquí. Es lo que la norma llama
+        <em>requisito de procedibilidad</em>.</td>
+      </tr>
+    </table>
+  </div>
+  <p>Una advertencia honesta sobre el alcance de todo esto: a lo que de verdad
+  podemos responder es a los datos del buzón, que son los únicos que tratamos.
+  Los comprobantes están en tu teléfono y en el de quien cuadra, cifrados con
+  una clave que no tenemos. Si lo que quieres suprimir está ahí, lo borras tú
+  o se lo pides a quien lo tenga — y esa persona también responde por ello,
+  como se explica más arriba.</p>
+
+  <h3>La autorización, y cómo se revoca</h3>
+  <p>Cada función que trata datos se enciende a mano y esa es la autorización:
+  vincular una caja leyendo un código QR, y activar la lectura de los avisos del
+  banco en los ajustes de Android. Ninguna de las dos se activa sola ni viene
+  activada.</p>
+  <p>Y se revocan igual de fácil: cortando el vínculo desde la pantalla donde
+  eliges el perfil, o quitando el acceso a notificaciones en los ajustes del
+  teléfono. A partir de ahí no sale ni entra nada más por esa vía.</p>
+
+  <h2 id="menores-de-edad">Menores de edad</h2>
   <p>Recuadrao está pensada para llevar las cuentas de un trabajo o un negocio y
   no está dirigida a menores de edad. No recogemos información de nadie para
   perfilarlo, y tampoco de ellos.</p>
 
-  <h2>Si esta política cambia</h2>
+  <h2 id="desde-cuando-rige-y-cuanto-duran-los-datos">Desde cuándo rige, y cuánto duran los datos</h2>
+  <p>Esta política rige desde la fecha que aparece arriba y queda vigente
+  mientras la app se siga distribuyendo.</p>
+  <p>De los datos, cada uno dura lo suyo. Los del buzón se borran solos: los
+  bloques a los 7 días, las direcciones a los 30 sin usarse. Los avisos del
+  banco viven en tu teléfono hasta que los borres o el archivo se recorte. Y
+  los comprobantes duran lo que tú quieras: son tuyos, están en tu equipo, y
+  se van del todo al desinstalar la aplicación.</p>
+
+  <h2 id="si-esta-politica-cambia">Si esta política cambia</h2>
   <p>Si cambia lo que la app hace con la información, esta página se actualiza y
   cambia la fecha de arriba.</p>
   <p>La versión anterior de esta política prometía que, si algún día apareciera
@@ -347,7 +512,7 @@
   explica en pantalla qué se envía y qué no antes de que enciendas nada, y no
   manda nada mientras no leas un código con otro teléfono.</p>
 
-  <h2>Contacto</h2>
+  <h2 id="contacto">Contacto</h2>
   <p>Si algo no funciona, si una lectura sale mal, si tienes una duda sobre esta
   política o quieres pedir algo, escribe a
   <a href="mailto:velxos.contacto@gmail.com">velxos.contacto@gmail.com</a>.
@@ -355,9 +520,69 @@
 
 </main>
 
-<footer class="caja">
-  <p>Recuadrao — hecho por VELXOS · <a href="index.html">Inicio</a></p>
+<a class="arriba" href="#" aria-label="Volver arriba">↑</a>
+
+<footer>
+  <div class="caja pie">
+    <div class="pie-marca">
+      <div class="marca">
+        <img src="icono.png" alt="">
+        <span>Recuadrao</span>
+      </div>
+      <p>La cuenta del día, desde la foto del comprobante. Para quien cobra por
+      transferencia y necesita saber cuánto entró.</p>
+      <a class="play" href="https://play.google.com/apps/testing/com.velxos.recuadrao">
+        <svg viewBox="0 0 16 18" fill="currentColor" aria-hidden="true"><path d="M1.2.4a.9.9 0 0 0-.7.9v15.4a.9.9 0 0 0 1.4.8l13.1-7.7a.9.9 0 0 0 0-1.6L1.9.5A.9.9 0 0 0 1.2.4Z"/></svg>
+        <span><small>Únete a la prueba en</small><b>Google Play</b></span>
+      </a>
+    </div>
+
+    <nav class="pie-col" aria-label="Páginas">
+      <p class="rotulo">Páginas</p>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+        <li><a href="eliminar-datos.html">Eliminar mis datos</a></li>
+      </ul>
+    </nav>
+
+    <div class="pie-col">
+      <p class="rotulo">Contacto</p>
+      <ul>
+        <li><a href="mailto:velxos.contacto@gmail.com">velxos.contacto@gmail.com</a></li>
+        <li><a href="https://wa.me/573128603576">WhatsApp +57 312 860 3576</a></li>
+        <li>Barranquilla, Atlántico<br>Colombia</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="caja pie-abajo">
+    <p>© 2026 VELXOS</p>
+    <p>Detrás de esto hay una persona, no un formulario.</p>
+  </div>
 </footer>
+
+<script>
+  // El botón de volver arriba. Aparece pasado el primer scroll largo para no
+  // estorbar a quien solo viene a leer el resumen.
+  (function () {
+    var arriba = document.querySelector('.arriba');
+    if (!arriba) return;
+    function mirar() {
+      arriba.classList.toggle('verse', scrollY > 600);
+    }
+    addEventListener('scroll', mirar, { passive: true });
+    // También al cargar: quien llega con un ancla —privacidad.html#contacto,
+    // que es como se enlaza desde la app— aparece ya abajo del todo, y sin
+    // esta línea el botón no sale hasta que arrastre, que es justo lo que se
+    // quería evitar.
+    mirar();
+    arriba.addEventListener('click', function (e) {
+      e.preventDefault();
+      scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
 
 </body>
 </html>

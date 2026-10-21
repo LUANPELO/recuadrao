@@ -257,16 +257,27 @@
       <tr>
         <th>Sí se lee</th>
         <td>El título y el texto de las notificaciones de una
-        <strong>lista cerrada de apps</strong>: las de los bancos y billeteras
-        que la app reconoce, y la app de mensajes, porque algunos bancos avisan
-        por SMS.</td>
+        <strong>lista cerrada de apps</strong>, por tres caminos: las apps de
+        los bancos y billeteras que reconoce, la app de mensajes —porque
+        algunos bancos solo avisan por SMS— y la de correo, porque otros solo
+        avisan por ahí.</td>
       </tr>
       <tr>
         <th>No se lee</th>
-        <td>Todo lo demás. El filtro va <strong>antes</strong> que la lectura:
-        de una notificación que no sea de esa lista no se lee ni el título ni
-        el texto. Solo se anota de qué app vino y cuántas veces, y eso sirve
-        para reconocer bancos nuevos sin guardar la conversación de nadie.</td>
+        <td>Todo lo demás. De una notificación que no sea de esa lista no se
+        lee ni el título ni el texto: solo se anota de qué app vino y cuántas
+        veces, y eso sirve para reconocer bancos nuevos sin guardar la
+        conversación de nadie.</td>
+      </tr>
+      <tr>
+        <th>Y un segundo filtro, para mensajes y correo</th>
+        <td>Por la app de mensajes no entra solo el banco: entra también la
+        publicidad de la operadora, los códigos de verificación y lo que te
+        escribe tu familia. Por eso de esas dos apps el mensaje
+        <strong>se mira en memoria y se descarta si no nombra a ningún
+        banco</strong> —no llega a escribirse en ninguna parte—. Solo se guarda
+        lo que se identifica como del banco. Con las apps de banco no hace
+        falta: ahí todo lo que llega es del banco.</td>
       </tr>
       <tr>
         <th>Dónde queda</th>
@@ -278,10 +289,14 @@
   </div>
 
   <h3>Qué viaja de esto, si hay vínculo</h3>
-  <p>Solo el veredicto: el identificador del comprobante y si quedó confirmado,
-  sin aviso o con varios posibles. <strong>Nunca el texto del aviso, ni el
-  nombre de quien pagó, ni el número de cuenta.</strong> Esos son datos de un
-  cliente y no tienen por qué acabar en el teléfono de otra persona.</p>
+  <p>Solo el veredicto: el identificador del comprobante, si quedó confirmado,
+  sin aviso o con varios posibles, y <strong>por cuál de los tres caminos</strong>
+  llegó el aviso que lo confirmó —app, SMS o correo—. Eso último se manda
+  porque hay cuentas que avisan por uno solo de los tres, y quien ve un pago
+  confirmado sin saber por dónde no puede saber si le falta encender algo.</p>
+  <p><strong>Nunca el texto del aviso, ni el nombre de quien pagó, ni el número
+  de cuenta.</strong> Esos son datos de un cliente y no tienen por qué acabar
+  en el teléfono de otra persona.</p>
   <p>Y al revés de lo que podría parecer, esto no es un juicio sobre nadie. Que
   no haya llegado un aviso no significa que el comprobante sea falso: una
   notificación se pierde si el teléfono estaba apagado, si el sistema cerró la

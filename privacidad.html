@@ -16,7 +16,7 @@
       <span>Recuadrao</span>
     </div>
     <h1>Política de privacidad</h1>
-    <p class="sello">Última actualización: 19 de octubre de 2026</p>
+    <p class="sello">Última actualización: 21 de octubre de 2026</p>
   </div>
 </header>
 
@@ -30,7 +30,9 @@
     este teléfono con el de quien lleva el cuadre del negocio, los datos de los
     comprobantes de <strong>todas las cajas que tengas aquí</strong> empiezan a
     viajar hacia ese teléfono, y sus fotos detrás. Todo viaja cerrado con una
-    clave que solo tienen esos dos aparatos.</p>
+    clave que solo tienen esos dos aparatos. Para que el otro teléfono se entere
+    aunque tenga la app cerrada, Google le manda un aviso <strong>vacío</strong>:
+    sin una cifra ni un nombre, solo «despierta».</p>
     <p>Mientras no vincules nada, la app no usa internet.</p>
     <p>Hay <strong>una segunda cosa que también enciendes tú</strong>: la app
     puede leer los avisos que te manda tu banco para confirmar que un pago
@@ -205,6 +207,46 @@
   después. Cloudflare actúa como nuestro proveedor de infraestructura y almacena
   bloques que tampoco puede leer.</p>
 
+  <h3>Cómo se entera el otro teléfono</h3>
+  <p>Cuando dejas algo en el buzón, el servidor avisa al teléfono que lo tiene
+  que recoger para que lo haga ya, aunque tenga la app cerrada. Sin eso, quien
+  cuadra no se enteraría de tu venta hasta que abriera la app.</p>
+  <p>Ese aviso lo entrega <strong>Google</strong>, con su servicio
+  <strong>Firebase Cloud Messaging</strong>, que es el único camino que Android
+  respeta para despertar a una app cerrada. Esto es lo que ve Google:</p>
+  <div class="tarjeta">
+    <table>
+      <tr>
+        <th>Lo que lleva el aviso</th>
+        <td>Nada. Va <strong>vacío</strong>: ni montos, ni nombres, ni de qué
+        comprobante se trata. Solo dice «despierta», y el teléfono va al buzón
+        como siempre.</td>
+      </tr>
+      <tr>
+        <th>Lo que sabe Google</th>
+        <td>Un identificador que Firebase asigna a la app en ese teléfono, a
+        qué <em>tema</em> se apuntó, y cuándo le llegan avisos. El tema no es la
+        dirección del buzón sino un resumen de ella, que no sirve para leer
+        nada.</td>
+      </tr>
+      <tr>
+        <th>Lo que no sabe nadie</th>
+        <td>Nuestro servidor sigue sin guardar quién eres ni qué teléfono
+        tienes: no le dice a Google a quién despertar, solo a qué tema llamar.
+        Los teléfonos se apuntan solos.</td>
+      </tr>
+      <tr>
+        <th>Cuándo está encendido</th>
+        <td>Solo mientras tengas algún vínculo. Sin vínculos, Firebase está
+        apagado y la app no habla con Google; al desvincular lo último, se
+        apaga y borra su identificador.</td>
+      </tr>
+    </table>
+  </div>
+  <p>Google opera ese servicio desde servidores en <strong>Estados
+  Unidos</strong> y otros países, así que también es una transferencia
+  internacional de datos, que autorizas al vincular igual que la del buzón.</p>
+
   <h3>Cuánto tiempo se queda</h3>
   <ul>
     <li><strong>Los bloques se borran a los 7 días</strong>, los haya recogido
@@ -317,9 +359,10 @@
     <li><strong>No manda tus fotos a nadie más que al teléfono con el que
     vinculaste</strong>, y siempre después de las cifras. Sin vínculo no sale
     ninguna.</li>
-    <li><strong>No vende ni cede datos a terceros.</strong> El único tercero que
-    interviene es Cloudflare, como proveedor de infraestructura del buzón, y
-    guarda bloques que no puede leer.</li>
+    <li><strong>No vende ni cede datos a terceros.</strong> Intervienen dos, y
+    solo si vinculas: Cloudflare, como proveedor del buzón, que guarda bloques
+    que no puede leer; y Google, que entrega los avisos vacíos que despiertan al
+    otro teléfono.</li>
     <li><strong>No lee tu galería.</strong> Solo abre la imagen que tú eliges,
     cuando tú la eliges.</li>
   </ul>
@@ -346,6 +389,12 @@
         <th>Red</th>
         <td>Para el envío al cuadre. Si no has vinculado ninguna caja, la app no
         lo usa.</td>
+      </tr>
+      <tr>
+        <th>Recibir avisos<br>de Google</th>
+        <td>Solo si hay un vínculo: para que el otro teléfono pueda despertar a
+        la app cuando te deja algo, aunque la tengas cerrada. Los avisos van
+        vacíos y no se ven: la app no muestra notificaciones.</td>
       </tr>
       <tr>
         <th>Acceso a<br>notificaciones</th>

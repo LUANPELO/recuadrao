@@ -16,7 +16,7 @@
       <span>Recuadrao</span>
     </div>
     <h1>Política de privacidad</h1>
-    <p class="sello">Última actualización: 21 de octubre de 2026</p>
+    <p class="sello">Última actualización: 25 de octubre de 2026</p>
   </div>
 </header>
 
@@ -33,7 +33,10 @@
     clave que solo tienen esos dos aparatos. Para que el otro teléfono se entere
     aunque tenga la app cerrada, Google le manda un aviso <strong>vacío</strong>:
     sin una cifra ni un nombre, solo «despierta».</p>
-    <p>Mientras no vincules nada, la app no usa internet.</p>
+    <p>Mientras no vincules nada, tus comprobantes no salen del teléfono. Lo
+    único que se conecta por su cuenta es el lector de texto, que es de
+    Google: le cuenta a Google cómo funcionó, nunca qué leyó. Más abajo está
+    el detalle.</p>
     <p>Hay <strong>una segunda cosa que también enciendes tú</strong>: la app
     puede leer los avisos que te manda tu banco para confirmar que un pago
     entró de verdad. Viene apagada, la activas en los ajustes de Android, y lo
@@ -51,6 +54,11 @@
     pedirla de una en una. Siguen yendo <strong>después</strong> de las cifras y
     por un canal aparte: una foto nunca puede retrasar ni desplazar a un
     comprobante.</p>
+    <p><strong>Corrección del 25 de octubre.</strong> Esta política decía que,
+    sin vincular nada, la app no usaba internet. No era del todo cierto: el
+    lector de texto de Google envía datos sobre su propio funcionamiento desde
+    el primer uso. Ahora está contado en
+    <a href="#el-lector-de-texto">El lector de texto</a>.</p>
   </div>
 
 
@@ -58,6 +66,7 @@
     <p class="rotulo">Qué hay aquí</p>
     <ol>
       <li><a href="#que-es-recuadrao">Qué es Recuadrao</a></li>
+      <li><a href="#el-lector-de-texto">El lector de texto</a></li>
       <li><a href="#que-guarda-la-app-y-donde">Qué guarda la app, y dónde</a></li>
       <li><a href="#permisos-que-pide-y-para-que">Permisos que pide, y para qué</a></li>
       <li><a href="#cuando-conectas-tu-caja-con-quien-hace-el-cuadre">Cuando le mandas tus cifras a quien cuadra</a></li>
@@ -81,6 +90,41 @@
   <p>El reconocimiento del texto lo hace el propio teléfono, sin conexión. Por
   eso funciona en un puesto sin señal, y por eso la foto no necesita viajar a
   ninguna parte para poder leerse.</p>
+
+  <h2 id="el-lector-de-texto">El lector de texto, y lo que le cuenta a Google</h2>
+  <p>Ese reconocimiento lo hace <strong>ML Kit</strong>, una librería de Google
+  que va dentro de la app. Lee en el teléfono y la foto no viaja. Pero ML Kit
+  sí se conecta por su cuenta para enviarle a Google datos sobre cómo
+  funcionó, y lo hace aunque no hayas vinculado nada. La app no tiene forma de
+  apagarlo.</p>
+  <div class="tarjeta">
+    <table>
+      <tr>
+        <th>Lo que envía</th>
+        <td>El modelo del teléfono y su versión de Android, la versión de la
+        app, un identificador que se crea al instalarla, y medidas de
+        rendimiento: cuánto tardó, el tamaño de lo que procesó y el código del
+        error si algo falló.</td>
+      </tr>
+      <tr>
+        <th>Lo que no envía</th>
+        <td>La foto, el texto leído, los montos, las referencias ni los
+        nombres.</td>
+      </tr>
+      <tr>
+        <th>Para qué</th>
+        <td>Para que Google diagnostique y mejore la librería. No se usa para
+        publicidad.</td>
+      </tr>
+      <tr>
+        <th>Quién lo recibe</th>
+        <td>Google, que según su documentación no se lo pasa a terceros. Viaja
+        cifrado.</td>
+      </tr>
+    </table>
+  </div>
+  <p>Lo mismo hace el lector de códigos QR que se usa al vincular, que es parte
+  de la misma librería.</p>
 
   <h2 id="que-guarda-la-app-y-donde">Qué guarda la app, y dónde</h2>
   <p>Todo lo que registras vive en una carpeta privada de la aplicación, dentro
@@ -351,18 +395,23 @@
     <li><strong>No pide cuenta ni registro.</strong> Ni correo, ni teléfono, ni
     contraseña. Se abre y funciona. El buzón tampoco tiene cuentas: no sabe
     quién eres.</li>
-    <li><strong>No mide el uso ni muestra publicidad.</strong> No hay analítica,
-    ni identificadores de publicidad, ni redes de anuncios, ni informes de fallos
-    automáticos. Nadie del otro lado está mirando cuánto vendes.</li>
-    <li><strong>No envía nada si no lo vinculas.</strong> Sin un vínculo activo
-    la app no hace ninguna petición a internet.</li>
+    <li><strong>No mide lo que haces ni muestra publicidad.</strong> No hay
+    analítica nuestra, ni identificadores de publicidad, ni redes de anuncios,
+    ni informes de fallos automáticos. Lo único que se mide es el
+    funcionamiento del lector de texto, y eso lo recibe Google (ver
+    <a href="#el-lector-de-texto">El lector de texto</a>). Nadie del otro lado
+    está mirando cuánto vendes.</li>
+    <li><strong>No envía tus comprobantes si no lo vinculas.</strong> Sin un
+    vínculo activo, la única conexión es la del lector de texto con Google, y
+    no lleva nada de lo tuyo.</li>
     <li><strong>No manda tus fotos a nadie más que al teléfono con el que
     vinculaste</strong>, y siempre después de las cifras. Sin vínculo no sale
     ninguna.</li>
-    <li><strong>No vende ni cede datos a terceros.</strong> Intervienen dos, y
-    solo si vinculas: Cloudflare, como proveedor del buzón, que guarda bloques
-    que no puede leer; y Google, que entrega los avisos vacíos que despiertan al
-    otro teléfono.</li>
+    <li><strong>No vende ni cede datos a terceros.</strong> Intervienen dos.
+    Google, siempre, por el lector de texto, y además, solo si vinculas, para
+    entregar los avisos vacíos que despiertan al otro teléfono. Y Cloudflare,
+    solo si vinculas, como proveedor del buzón, que guarda bloques que no puede
+    leer.</li>
     <li><strong>No lee tu galería.</strong> Solo abre la imagen que tú eliges,
     cuando tú la eliges.</li>
   </ul>
@@ -387,8 +436,8 @@
       </tr>
       <tr>
         <th>Red</th>
-        <td>Para el envío al cuadre. Si no has vinculado ninguna caja, la app no
-        lo usa.</td>
+        <td>Para el envío al cuadre. Y para el lector de texto de Google, que
+        envía sus datos de funcionamiento aunque no hayas vinculado nada.</td>
       </tr>
       <tr>
         <th>Recibir avisos<br>de Google</th>

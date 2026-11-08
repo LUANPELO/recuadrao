@@ -16,7 +16,7 @@
       <span>Recuadrao</span>
     </div>
     <h1>Política de privacidad</h1>
-    <p class="sello">Última actualización: 5 de noviembre de 2026</p>
+    <p class="sello">Última actualización: 8 de noviembre de 2026</p>
   </div>
 </header>
 
@@ -39,8 +39,9 @@
     el detalle.</p>
     <p>Hay <strong>una segunda cosa que también enciendes tú</strong>: la app
     puede leer los avisos que te manda tu banco para confirmar que un pago
-    entró de verdad. Viene apagada, la activas en los ajustes de Android, y lo
-    que lee <strong>no sale del teléfono</strong>.</p>
+    entró de verdad. Viene apagada, la app te explica qué lee antes de que la
+    actives, y el texto de los avisos <strong>no sale del teléfono</strong>: si
+    estás vinculado, al otro lado solo llega si cada pago cuadró.</p>
   </div>
 
   <div class="tarjeta">
@@ -59,6 +60,14 @@
     lector de texto de Google envía datos sobre su propio funcionamiento desde
     el primer uso. Ahora está contado en
     <a href="#el-lector-de-texto">El lector de texto</a>.</p>
+    <p><strong>Corrección del 8 de noviembre.</strong> La pantalla de avisos del
+    banco, dentro de la app, decía «Nada de esto sale del teléfono». Con un
+    vínculo no era exacto: el texto de los avisos nunca sale, pero el
+    resultado de cada cruce sí viaja, cifrado, como se cuenta en
+    <a href="#los-avisos-del-banco">Los avisos del banco</a>. Desde la versión
+    1.1.0 (2072) la app lo dice así, pide que aceptes antes de activar la
+    lectura, y
+    los avisos guardados se borran solos a los 30 días.</p>
   </div>
 
 
@@ -218,6 +227,13 @@
   bloques hasta que el otro teléfono los recoge. <strong>Ese servidor no puede
   abrirlos.</strong> No tiene la clave, y no hay forma de que la tenga: nunca
   pasa por él.</p>
+  <p>Esto es lo que se llama <strong>cifrado de extremo a extremo</strong>: los
+  únicos que pueden leer lo que viaja son los dos teléfonos del vínculo. Ni
+  VELXOS, ni Cloudflare, ni Google. Vale para todo lo que pasa por el buzón:
+  las cifras de los comprobantes, sus fotos, los borrados y el resultado de
+  los avisos del banco. Para quien quiera el detalle técnico: cada bloque se
+  cierra con AES-GCM de 256 bits, con una clave que sale del secreto del
+  código QR mediante HKDF-SHA256.</p>
 
   <h3>Qué ve el buzón, dicho sin adornos</h3>
   <div class="tarjeta">
@@ -344,7 +360,9 @@
   <em>entró</em> en vez de decirte solo que la foto se leyó bien.</p>
   <p><strong>Viene apagado.</strong> Android no permite que una app se dé sola
   este permiso: hay que ir a sus ajustes y activarlo a mano, y desde ahí mismo
-  se quita cuando quieras. Si no lo activas, esta sección entera no te aplica.</p>
+  se quita cuando quieras. Antes de llevarte ahí, la app te explica qué lee,
+  para qué, qué guarda y qué sale del teléfono, y solo sigue si tocas
+  «Aceptar y activar». Si no lo activas, esta sección entera no te aplica.</p>
 
   <h3>Qué se lee y qué no</h3>
   <div class="tarjeta">
@@ -377,8 +395,10 @@
       <tr>
         <th>Dónde queda</th>
         <td>En un archivo dentro de la carpeta privada de la app, en tu
-        teléfono. Se recorta solo cuando crece, y se borra entero desde la
-        propia pantalla de avisos.</td>
+        teléfono. <strong>Cada aviso se borra solo a los 30 días</strong>, y el
+        archivo entero se borra cuando quieras desde la propia pantalla de
+        avisos. Los comprobantes que ya quedaron confirmados siguen
+        confirmados.</td>
       </tr>
     </table>
   </div>
@@ -389,6 +409,11 @@
   llegó el aviso que lo confirmó —app, SMS o correo—. Eso último se manda
   porque hay cuentas que avisan por uno solo de los tres, y quien ve un pago
   confirmado sin saber por dónde no puede saber si le falta encender algo.</p>
+  <p>Va al otro teléfono del vínculo —al de quien cuadra o al del mostrador,
+  según en cuál avise el banco— por el mismo buzón y con el mismo
+  <a href="#cuando-conectas-tu-caja-con-quien-hace-el-cuadre">cifrado de
+  extremo a extremo</a> que los comprobantes. Sin vínculo, no va a ninguna
+  parte.</p>
   <p><strong>Nunca el texto del aviso, ni el nombre de quien pagó, ni el número
   de cuenta.</strong> Esos son datos de un cliente y no tienen por qué acabar
   en el teléfono de otra persona.</p>
@@ -606,8 +631,8 @@
   <h3>La autorización, y cómo se revoca</h3>
   <p>Cada función que trata datos se enciende a mano y esa es la autorización:
   vincular una caja leyendo un código QR, y activar la lectura de los avisos del
-  banco en los ajustes de Android. Ninguna de las dos se activa sola ni viene
-  activada.</p>
+  banco, aceptando primero la explicación que muestra la app y luego en los
+  ajustes de Android. Ninguna de las dos se activa sola ni viene activada.</p>
   <p>Y se revocan igual de fácil: cortando el vínculo desde la pantalla donde
   eliges el perfil, o quitando el acceso a notificaciones en los ajustes del
   teléfono. A partir de ahí no sale ni entra nada más por esa vía.</p>
@@ -622,7 +647,7 @@
   mientras la app se siga distribuyendo.</p>
   <p>De los datos, cada uno dura lo suyo. Los del buzón se borran solos: los
   bloques a los 7 días, las direcciones a los 30 sin usarse. Los avisos del
-  banco viven en tu teléfono hasta que los borres o el archivo se recorte. Y
+  banco viven en tu teléfono 30 días como máximo, y menos si los borras. Y
   los comprobantes duran lo que tú quieras: son tuyos, están en tu equipo, y
   se van del todo al desinstalar la aplicación.</p>
 

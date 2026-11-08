@@ -461,10 +461,48 @@ header.grande { padding: 50px 0 56px; }
 }
 .caja-capas > * { position: absolute; }
 
-/* Las filas y la cámara son la imagen llena entera, recortada a su pieza.
-   Así el navegador baja una sola imagen, y cada pieza crece desde su propio
-   centro. */
-.caja-fila,
+/* Cada fila es su tarjeta, con la imagen llena dentro corrida hasta que
+   asoma justo esa fila. Así el navegador baja una sola imagen, y la fila
+   entera —con su visto— crece desde su centro, entra y se agranda bajo el
+   mouse como una sola pieza. */
+.caja-fila {
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+  overflow: hidden;
+  /* El radio de las tarjetas de la app, 16 puntos. */
+  border-radius: calc(24.9 * var(--px));
+  pointer-events: none;
+  transition: transform .18s ease, box-shadow .18s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.caja-fila.entro { pointer-events: auto; cursor: pointer; }
+.caja-fila:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.caja-fila > * { position: absolute; }
+.caja-fondo {
+  max-width: none;
+  width: var(--iw);
+  left: var(--il);
+  top: var(--it);
+}
+.caja-antes,
+.caja-limpia {
+  max-width: none;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+}
+@media (hover: hover) {
+  .caja-fila.entro:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 24px rgba(17, 17, 17, .16);
+    z-index: 1;
+  }
+}
+
+/* La cámara es la imagen llena recortada a su sitio, con su sombra. */
 .caja-camara {
   inset: 0;
   width: 100%;
@@ -472,6 +510,7 @@ header.grande { padding: 50px 0 56px; }
   clip-path: inset(var(--y) calc(100% - var(--x) - var(--w))
                    calc(100% - var(--y) - var(--h)) var(--x));
   transform-origin: calc(var(--x) + var(--w) / 2) calc(var(--y) + var(--h) / 2);
+  pointer-events: none;
 }
 .caja-visto,
 .caja-onda {
@@ -517,6 +556,66 @@ header.grande { padding: 50px 0 56px; }
   right: calc(100% - var(--x) - var(--w));
   font-family: 'Inter', sans-serif;
   color: #6C757D;
+}
+
+/* El detalle de un comprobante, que entra por la derecha dentro del mismo
+   teléfono, como en la app. Encima, recortadas de la misma imagen, las
+   piezas que crecen al llegar: la tarjeta del aviso del banco, la etiqueta
+   de por dónde avisó, y el aviso de repetido. */
+.caja-detalle {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: #F8F9FA;
+  --px: calc(100cqw / 640);
+}
+.detalle-pantalla {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.detalle-capa {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: inset(var(--y) calc(100% - var(--x) - var(--w))
+                   calc(100% - var(--y) - var(--h)) var(--x) round var(--r, 0));
+  transform-origin: calc(var(--x) + var(--w) / 2) calc(var(--y) + var(--h) / 2);
+  pointer-events: none;
+}
+.detalle-brillo,
+.detalle-volver {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+}
+.detalle-brillo {
+  border-radius: var(--r);
+  pointer-events: none;
+}
+.detalle-volver {
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+.detalle-volver:focus-visible { outline: 2px solid var(--marca); }
+
+/* La pista de debajo: en un celular nadie adivina que la caja se toca. */
+.portada-pista {
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 13px;
+  opacity: .8;
+}
+.portada-pista .con-mouse { display: none; }
+@media (hover: hover) and (pointer: fine) {
+  .portada-pista .con-mouse { display: inline; }
+  .portada-pista .con-dedo { display: none; }
 }
 
 @media (max-width: 860px) {

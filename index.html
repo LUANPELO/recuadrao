@@ -17,18 +17,19 @@
         <img src="icono.png" alt="">
         <span>Recuadrao</span>
       </div>
-      <h1>Del comprobante al cuadre,<br class="solo-ancho">sin apuntar nada a mano</h1>
+      <h1>Del comprobante al cuadre,<br class="solo-ancho">
+      <span class="acento">sin apuntar nada a mano</span></h1>
       <p>Tomas la foto. La app lee el monto, lleva la cuenta del día, se la
       manda a quien cuadra y espera a que el banco confirme que el pago entró
       de verdad.</p>
-      <a class="boton" href="https://play.google.com/apps/testing/com.velxos.recuadrao">
-        <svg viewBox="0 0 16 18" fill="currentColor" aria-hidden="true"><path d="M1.2.4a.9.9 0 0 0-.7.9v15.4a.9.9 0 0 0 1.4.8l13.1-7.7a.9.9 0 0 0 0-1.6L1.9.5A.9.9 0 0 0 1.2.4Z"/></svg>
-        Únete a la prueba
+      <a class="boton" href="https://wa.me/573128603576?text=Hola%2C%20quiero%20probar%20Recuadrao.%20Mi%20Gmail%20es%3A%20">
+        <svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.41 3.48C18.16 1.23 15.16 0 12 0C5.46 0 0.11 5.36 0.11 11.89C0.11 13.98 0.64 16.02 1.71 17.84L0 24L6.32 22.34C8.04 23.3 10.02 23.79 12 23.79L12 23.79C18.54 23.79 24 18.48 24 11.89C24 8.73 22.66 5.73 20.41 3.48ZM12 21.8C10.23 21.8 8.46 21.32 6.96 20.41L6.59 20.2L2.84 21.16L3.86 17.52L3.64 17.14C2.63 15.59 2.09 13.77 2.09 11.89C2.09 6.43 6.54 2.04 12 2.04C14.63 2.04 17.14 3.05 18.96 4.93C20.84 6.8 22.02 9.27 22.02 11.89C22.02 17.36 17.46 21.8 12 21.8ZM17.41 14.41C17.14 14.25 15.64 13.5 15.37 13.45C15.11 13.34 14.89 13.29 14.73 13.55C14.52 13.87 13.93 14.52 13.77 14.73C13.61 14.95 13.45 14.95 13.13 14.84C11.41 13.93 10.23 13.23 9.11 11.3C8.79 10.77 9.37 10.77 9.96 9.64C10.07 9.48 10.02 9.27 9.91 9.16C9.86 9 9.27 7.5 9 6.91C8.79 6.37 8.52 6.43 8.36 6.43C8.2 6.43 7.98 6.43 7.77 6.43C7.61 6.43 7.29 6.48 6.96 6.8C6.7 7.07 5.95 7.82 5.95 9.27C5.95 10.71 7.02 12.16 7.18 12.32C7.29 12.54 9.27 15.54 12.21 16.82C14.14 17.63 14.84 17.73 15.8 17.57C16.39 17.46 17.57 16.87 17.79 16.18C18.05 15.48 18.05 14.84 18 14.73C17.89 14.63 17.73 14.52 17.41 14.41Z"/></svg>
+        Quiero probarla
       </a>
-      <p class="nota">Prueba cerrada en Google Play · Android · Gratis</p>
+      <p class="nota">Android · Gratis mientras está en prueba · Te agregamos por WhatsApp</p>
     </div>
     <div class="portada-foto">
-      <div class="caja-viva" role="group"
+      <div class="caja-viva" id="caja" role="group"
            aria-label="La caja del día en Recuadrao, con comprobantes de
                        ejemplo que puedes abrir.">
         <img class="caja-vacia" src="img/portada_vacia.webp" width="640"
@@ -576,111 +577,270 @@
 
 <main class="caja">
 
-  <h2>La cadena entera, en cuatro pasos</h2>
-  <p>Cada paso resuelve algo que hoy se hace a mano, y el último resuelve algo
-  que hoy no se hace.</p>
-
-  <ol class="pasos">
-    <li class="paso">
-      <img src="img/paso_1_foto.webp" width="600" height="640" loading="lazy"
-        alt="La pantalla de revisar, con el monto, la referencia y la fecha que
-        leyó la app">
-      <div>
-        <h3>Paso 1</h3>
-        <p>Le tomas foto al comprobante y la app lee el monto, la fecha y la
-        referencia, sin internet.</p>
-      </div>
-    </li>
-    <li class="paso">
-      <img src="img/paso_2_cuenta.webp" width="600" height="640" loading="lazy"
-        alt="La caja de Ana con el total del día y sus comprobantes">
-      <div>
-        <h3>Paso 2</h3>
-        <p>El total del día se suma solo, y si alguien enseña dos veces el
-        mismo comprobante, te avisa.</p>
-      </div>
-    </li>
-    <li class="paso">
-      <img src="img/paso_3_cuadre.webp" width="600" height="640" loading="lazy"
-        alt="El cuadre del negocio con el total de todas las cajas">
-      <div>
-        <h3>Paso 3</h3>
-        <p>Quien lleva las cuentas ve todas las cajas en su teléfono, sin pedir
-        capturas por WhatsApp.</p>
-      </div>
-    </li>
-    <li class="paso">
-      <img src="img/paso_4_confirmacion.webp" width="600" height="640"
-        loading="lazy" alt="Un comprobante con el aviso: el banco avisó de
-        este pago">
-      <div>
-        <h3>Paso 4 <span class="nuevo">Nuevo</span></h3>
-        <p>La app cruza el comprobante con el aviso del banco, y si cuadran,
-        queda con un visto.</p>
-      </div>
-    </li>
-  </ol>
-
-  <h2>Por qué el cuarto paso es el que importa</h2>
-  <div class="resumen">
-    <p>Un comprobante es una foto, y la foto la enseña quien quiere cobrar. El
-    aviso del banco no: ese lo manda el banco, al teléfono donde entra el
-    dinero. Es <strong>el único dato de toda la app que no escribe ninguna de
-    las dos partes</strong>.</p>
-    <p>Hay apps que leen recibos. Hay apps que llevan la caja. Lo que faltaba
-    era cerrar el círculo: que lo que se anotó se confirme solo, contra lo que
-    entró de verdad.</p>
-    <p>No decide si un pago es válido —eso no le toca a una app—. Dice si hay
-    un movimiento del banco que le corresponde, y con eso, cuánta confianza
-    merece la cifra del día.</p>
-  </div>
-
-  <h2>Para quién es</h2>
-  <div class="duo">
-    <div class="tarjeta">
-      <h3>Si eres quien cobra</h3>
-      <p class="suave">No vuelves a discutir si mandaste el comprobante o no:
-      se envía solo. Y cuando el banco confirma, lo ves marcado en tu propio
-      teléfono, no en el de otro.</p>
+  <!-- Lo primero no es la solución sino el problema: es lo que hace que
+       quien atiende una caja diga «esto es para mí». Tres, cortos, cada uno
+       con lo que hace la app en una línea. -->
+  <section aria-labelledby="te-suena">
+    <h2 id="te-suena" class="titular">¿Te <span class="acento">suena</span>?</h2>
+    <div class="dolores">
+      <article class="dolor">
+        <span class="icono" aria-hidden="true">&#xe3d3;</span>
+        <h3>Te enseñan un comprobante y no sabes si es de verdad</h3>
+        <p>Una captura se edita en un minuto. <strong>El aviso del banco
+        no.</strong></p>
+      </article>
+      <article class="dolor">
+        <span class="icono" aria-hidden="true">&#xe1bc;</span>
+        <h3>Al cierre, a sumar capturas de WhatsApp</h3>
+        <p>Una por una y con calculadora. <strong>Aquí el total se va sumando
+        solo.</strong></p>
+      </article>
+      <article class="dolor">
+        <span class="icono" aria-hidden="true">&#xe09e;</span>
+        <h3>El mismo comprobante, dos veces</h3>
+        <p>Dos ventas anotadas y una sola plata. <strong>La app lo marca y no
+        lo suma.</strong></p>
+      </article>
     </div>
-    <div class="tarjeta">
-      <h3>Si eres quien cuadra</h3>
-      <p class="suave">Dejas de perseguir capturas al final del turno. Ves lo
-      que entró en cada caja, con la foto detrás y el visto del banco, según va
-      pasando.</p>
+  </section>
+
+  <section aria-labelledby="como-funciona">
+    <h2 id="como-funciona" class="titular">Cómo funciona, <span class="acento">en cuatro pasos</span></h2>
+    <ol class="pasos">
+      <li class="paso">
+        <img src="img/paso_1_foto.webp" width="600" height="640" loading="lazy"
+          alt="La pantalla de revisar, con el monto, la referencia y la fecha que
+          leyó la app">
+        <div>
+          <h3>Paso 1</h3>
+          <p>Le tomas foto al comprobante y la app lee el monto, la fecha y la
+          referencia, sin internet.</p>
+        </div>
+      </li>
+      <li class="paso">
+        <img src="img/paso_2_cuenta.webp" width="600" height="640" loading="lazy"
+          alt="La caja de Ana con el total del día y sus comprobantes">
+        <div>
+          <h3>Paso 2</h3>
+          <p>El total del día se suma solo, y si alguien enseña dos veces el
+          mismo comprobante, te avisa.</p>
+        </div>
+      </li>
+      <li class="paso">
+        <img src="img/paso_3_cuadre.webp" width="600" height="640" loading="lazy"
+          alt="El cuadre del negocio con el total de todas las cajas">
+        <div>
+          <h3>Paso 3</h3>
+          <p>Quien lleva las cuentas ve todas las cajas en su teléfono, sin pedir
+          capturas por WhatsApp.</p>
+        </div>
+      </li>
+      <li class="paso">
+        <img src="img/paso_4_confirmacion.webp" width="600" height="640"
+          loading="lazy" alt="Un comprobante con el aviso: el banco avisó de
+          este pago">
+        <div>
+          <h3>Paso 4 <span class="nuevo">Nuevo</span></h3>
+          <p>La app cruza el comprobante con el aviso del banco, y si cuadran,
+          queda con un visto.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="entro-de-verdad">
+    <h2 id="entro-de-verdad" class="titular">¿Cómo sabes que la plata <span class="acento">entró de verdad</span>?</h2>
+    <p class="entrada">Un comprobante es una foto, y la foto la enseña quien
+    quiere cobrar. <strong>El aviso del banco no: llega solo a tu
+    teléfono.</strong> Recuadrao lo cruza con cada comprobante, por monto y
+    hora, y si cuadran le pone un visto.</p>
+    <ul class="caminos" aria-label="Por dónde llega el aviso">
+      <li><span class="icono" aria-hidden="true">&#xe163;</span>Por la app del banco</li>
+      <li><span class="icono" aria-hidden="true">&#xe117;</span>Por SMS</li>
+      <li><span class="icono" aria-hidden="true">&#xe10f;</span>Por correo</li>
+    </ul>
+    <p class="dato"><a href="#caja">Abre un comprobante en la caja de arriba</a>
+    y lo ves como sale en la app.</p>
+    <div class="plegables">
+      <details>
+        <summary>¿Y si el banco no avisa?</summary>
+        <p>No quiere decir que el pago sea falso. El aviso se pierde si el
+        teléfono estaba apagado o sin señal, o si la cuenta que recibe es de
+        otra persona. La app no decide si un pago vale: te dice si el banco
+        avisó. Si dudas, míralo en la app del banco.</p>
+      </details>
+      <details>
+        <summary>¿Qué lee la app, y qué sale del teléfono?</summary>
+        <p>Solo los avisos de las apps de banco que reconoce, y los SMS y
+        correos que nombren a un banco. Lo demás se descarta sin guardarse. El
+        texto de los avisos nunca sale del teléfono y se borra solo a los 30
+        días. Viene apagado: lo enciendes tú, y antes la app te explica todo
+        esto. <a href="privacidad.html#los-avisos-del-banco">El detalle, en la
+        política</a>.</p>
+      </details>
     </div>
-  </div>
+  </section>
 
-  <h2>Lo que no hace</h2>
-  <ul class="garantias">
-    <li>No pide cuenta de usuario, ni correo, ni número de teléfono.</li>
-    <li>No mide lo que haces ni muestra publicidad.</li>
-    <li>Mientras no enlaces nada, tus comprobantes no salen del teléfono. Lo
-    único que se conecta es el lector de texto de Google, para contarle cómo
-    funcionó, nunca qué leyó.</li>
-    <li>Tus cuentas viven en tu teléfono. Si enlazas, viajan cerradas con una
-    clave que solo tienen esos dos aparatos.</li>
-    <li>Los avisos del banco que lee no salen del teléfono, y la función viene
-    apagada hasta que tú la enciendas.</li>
-  </ul>
-  <p class="dato">Todo esto está explicado en detalle, y con sus límites, en la
-  <a href="privacidad.html">política de privacidad</a>.</p>
+  <section aria-labelledby="para-quien">
+    <h2 id="para-quien" class="titular">Para <span class="acento">los dos lados</span> de la caja</h2>
+    <div class="duo">
+      <div class="tarjeta">
+        <h3>Si eres quien cobra</h3>
+        <p class="suave">Tomas la foto y listo: se suma y se envía sola. Y
+        cuando el banco confirma, lo ves en tu propio teléfono.</p>
+      </div>
+      <div class="tarjeta">
+        <h3>Si eres quien cuadra</h3>
+        <p class="suave">Ves cada caja en tu teléfono según va entrando, con
+        la foto detrás y el visto del banco. Sin perseguir capturas.</p>
+      </div>
+    </div>
+  </section>
 
-  <div class="llamada">
-    <h2>Ahora mismo está en prueba</h2>
-    <p>Recuadrao está en prueba cerrada en Google Play. Si cobras por
-    transferencia y quieres usarla —y decirme qué le falta—, entra por aquí.</p>
-    <a class="boton verde" href="https://play.google.com/apps/testing/com.velxos.recuadrao">
-      <svg viewBox="0 0 16 18" fill="currentColor" aria-hidden="true"><path d="M1.2.4a.9.9 0 0 0-.7.9v15.4a.9.9 0 0 0 1.4.8l13.1-7.7a.9.9 0 0 0 0-1.6L1.9.5A.9.9 0 0 0 1.2.4Z"/></svg>
-      Únete a la prueba
-    </a>
-    <p class="dato">Escribe a
-    <a href="mailto:velxos.contacto@gmail.com">velxos.contacto@gmail.com</a>
-    si algo no funciona o echas algo en falta. Detrás de esto hay una persona,
-    no un formulario.</p>
+  <!-- Lo que no son los cuatro pasos pero alguien va a preguntar. En el
+       teléfono se desliza de lado, como las tarjetas de Nequi; en
+       pantalla ancha va en rejilla. -->
+  <section aria-labelledby="y-ademas">
+    <h2 id="y-ademas" class="titular">Y <span class="acento">además</span></h2>
+    <ul class="carrusel">
+      <li class="extra">
+        <span class="icono" aria-hidden="true">&#xe09e;</span>
+        <h3>Repetidos</h3>
+        <p>Si alguien enseña dos veces el mismo comprobante, se marca y no se
+        suma.</p>
+      </li>
+      <li class="extra">
+        <span class="icono" aria-hidden="true">&#xe1a4;</span>
+        <h3>Una caja por persona</h3>
+        <p>Cada quien con su perfil, y con PIN o huella si quiere.</p>
+      </li>
+      <li class="extra">
+        <span class="icono" aria-hidden="true">&#xe1af;</span>
+        <h3>Sin internet</h3>
+        <p>La foto se lee en el teléfono. Sin datos también lleva la cuenta.</p>
+      </li>
+      <li class="extra">
+        <span class="icono" aria-hidden="true">&#xe0cc;</span>
+        <h3>Reporte en PDF</h3>
+        <p>El día o el mes, con las fotos, listo para mandar.</p>
+      </li>
+      <li class="extra">
+        <span class="icono" aria-hidden="true">&#xe0ed;</span>
+        <h3>Respaldo</h3>
+        <p>Tus cuentas y sus fotos pasan a otro teléfono cuando lo cambies.</p>
+      </li>
+      <li class="extra">
+        <span class="icono" aria-hidden="true">&#xe0c5;</span>
+        <h3>Capturas en PDF</h3>
+        <p>¿Alguien no usa la app? Te manda sus capturas en un PDF y entran
+        igual.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="tuyas">
+    <h2 id="tuyas" class="titular">Tus cuentas son <span class="acento">tuyas</span></h2>
+    <ul class="insignias">
+      <li>
+        <span class="icono" aria-hidden="true">&#xe1a3;</span>
+        <b>Sin cuenta</b>
+        <span>Ni correo, ni número de teléfono, ni contraseña.</span>
+      </li>
+      <li>
+        <span class="icono" aria-hidden="true">&#xe0bb;</span>
+        <b>Sin publicidad</b>
+        <span>Ni analítica nuestra midiendo lo que haces.</span>
+      </li>
+      <li>
+        <span class="icono" aria-hidden="true">&#xe10b;</span>
+        <b>Cifrado de extremo a extremo</b>
+        <span>Lo que viaja al cuadre solo lo abren los dos teléfonos vinculados.</span>
+      </li>
+    </ul>
+    <p class="dato">Todo esto, con sus límites, en la
+    <a href="privacidad.html">política de privacidad</a>.</p>
+  </section>
+
+  <!-- Las mismas respuestas que la ayuda de la app, para que la página y
+       la app digan lo mismo. Cerradas: cada quien abre la suya. -->
+  <section aria-labelledby="dudas">
+    <h2 id="dudas" class="titular">Resolvemos <span class="acento">tus dudas</span></h2>
+    <div class="preguntas">
+      <details>
+        <summary>¿Cuánto cuesta?</summary>
+        <p>Nada: es gratis mientras está en prueba. No pide tarjeta ni ningún
+        dato de pago.</p>
+      </details>
+      <details>
+        <summary>¿Funciona en iPhone?</summary>
+        <p>Por ahora solo en Android, desde Android 7.</p>
+      </details>
+      <details>
+        <summary>¿Qué bancos reconoce?</summary>
+        <p>Lee comprobantes de Nequi, Daviplata, Bancolombia, Nu, Davivienda,
+        Banco de Bogotá, BBVA, Itaú, Scotiabank Colpatria, AV Villas y Banco
+        Agrario. Los avisos, de las apps de Nequi, Daviplata, Bancolombia,
+        Davivienda, Nu, Lulo y Movii, y de los SMS y correos que nombren a un
+        banco.</p>
+      </details>
+      <details>
+        <summary>¿Necesito internet?</summary>
+        <p>Para leer la foto y llevar la cuenta, no. Solo para enviar al cuadre
+        y para recibir lo que te mandan.</p>
+      </details>
+      <details>
+        <summary>¿Quién ve mis comprobantes?</summary>
+        <p>Quien tenga tu teléfono —salvo que tu caja tenga candado— y quien
+        cuadra, si le mostraste tu código. Lo que viaja va cerrado: ni el
+        servidor por donde pasa puede leerlo.</p>
+      </details>
+      <details>
+        <summary>¿Cómo la pruebo?</summary>
+        <p>Escríbenos por WhatsApp con tu correo de Gmail. Te agregamos a la
+        prueba de Google Play y te mandamos el enlace para instalarla.</p>
+      </details>
+    </div>
+  </section>
+
+  <div class="llamada" id="probar">
+    <h2>Pruébala <span class="acento">gratis</span></h2>
+    <p>Está en prueba en Google Play, y entrar es así:</p>
+    <ol class="como-entrar">
+      <li>Nos escribes por WhatsApp con tu Gmail.</li>
+      <li>Te agregamos a la prueba.</li>
+      <li>Te llega el enlace y la instalas.</li>
+    </ol>
+    <a class="boton verde" href="https://wa.me/573128603576?text=Hola%2C%20quiero%20probar%20Recuadrao.%20Mi%20Gmail%20es%3A%20"><svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.41 3.48C18.16 1.23 15.16 0 12 0C5.46 0 0.11 5.36 0.11 11.89C0.11 13.98 0.64 16.02 1.71 17.84L0 24L6.32 22.34C8.04 23.3 10.02 23.79 12 23.79L12 23.79C18.54 23.79 24 18.48 24 11.89C24 8.73 22.66 5.73 20.41 3.48ZM12 21.8C10.23 21.8 8.46 21.32 6.96 20.41L6.59 20.2L2.84 21.16L3.86 17.52L3.64 17.14C2.63 15.59 2.09 13.77 2.09 11.89C2.09 6.43 6.54 2.04 12 2.04C14.63 2.04 17.14 3.05 18.96 4.93C20.84 6.8 22.02 9.27 22.02 11.89C22.02 17.36 17.46 21.8 12 21.8ZM17.41 14.41C17.14 14.25 15.64 13.5 15.37 13.45C15.11 13.34 14.89 13.29 14.73 13.55C14.52 13.87 13.93 14.52 13.77 14.73C13.61 14.95 13.45 14.95 13.13 14.84C11.41 13.93 10.23 13.23 9.11 11.3C8.79 10.77 9.37 10.77 9.96 9.64C10.07 9.48 10.02 9.27 9.91 9.16C9.86 9 9.27 7.5 9 6.91C8.79 6.37 8.52 6.43 8.36 6.43C8.2 6.43 7.98 6.43 7.77 6.43C7.61 6.43 7.29 6.48 6.96 6.8C6.7 7.07 5.95 7.82 5.95 9.27C5.95 10.71 7.02 12.16 7.18 12.32C7.29 12.54 9.27 15.54 12.21 16.82C14.14 17.63 14.84 17.73 15.8 17.57C16.39 17.46 17.57 16.87 17.79 16.18C18.05 15.48 18.05 14.84 18 14.73C17.89 14.63 17.73 14.52 17.41 14.41Z"/></svg> Quiero probarla</a>
+    <p class="dato">Solo Android · Gratis mientras está en prueba · También
+    por <a href="mailto:velxos.contacto@gmail.com?subject=Quiero%20probar%20Recuadrao">correo</a>.</p>
   </div>
 
 </main>
+
+<!-- Aparece cuando la portada sale de la vista: el botón queda siempre a un
+     toque, sin tener que volver arriba. -->
+<div class="barra" aria-hidden="true">
+  <div class="barra-dentro">
+    <a class="marca" href="#" tabindex="-1">
+      <img src="icono.png" alt="">
+      <span>Recuadrao</span>
+    </a>
+    <a class="boton verde chico" href="https://wa.me/573128603576?text=Hola%2C%20quiero%20probar%20Recuadrao.%20Mi%20Gmail%20es%3A%20" tabindex="-1"><svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.41 3.48C18.16 1.23 15.16 0 12 0C5.46 0 0.11 5.36 0.11 11.89C0.11 13.98 0.64 16.02 1.71 17.84L0 24L6.32 22.34C8.04 23.3 10.02 23.79 12 23.79L12 23.79C18.54 23.79 24 18.48 24 11.89C24 8.73 22.66 5.73 20.41 3.48ZM12 21.8C10.23 21.8 8.46 21.32 6.96 20.41L6.59 20.2L2.84 21.16L3.86 17.52L3.64 17.14C2.63 15.59 2.09 13.77 2.09 11.89C2.09 6.43 6.54 2.04 12 2.04C14.63 2.04 17.14 3.05 18.96 4.93C20.84 6.8 22.02 9.27 22.02 11.89C22.02 17.36 17.46 21.8 12 21.8ZM17.41 14.41C17.14 14.25 15.64 13.5 15.37 13.45C15.11 13.34 14.89 13.29 14.73 13.55C14.52 13.87 13.93 14.52 13.77 14.73C13.61 14.95 13.45 14.95 13.13 14.84C11.41 13.93 10.23 13.23 9.11 11.3C8.79 10.77 9.37 10.77 9.96 9.64C10.07 9.48 10.02 9.27 9.91 9.16C9.86 9 9.27 7.5 9 6.91C8.79 6.37 8.52 6.43 8.36 6.43C8.2 6.43 7.98 6.43 7.77 6.43C7.61 6.43 7.29 6.48 6.96 6.8C6.7 7.07 5.95 7.82 5.95 9.27C5.95 10.71 7.02 12.16 7.18 12.32C7.29 12.54 9.27 15.54 12.21 16.82C14.14 17.63 14.84 17.73 15.8 17.57C16.39 17.46 17.57 16.87 17.79 16.18C18.05 15.48 18.05 14.84 18 14.73C17.89 14.63 17.73 14.52 17.41 14.41Z"/></svg> Quiero probarla</a>
+  </div>
+</div>
+<script>
+(() => {
+  const barra = document.querySelector('.barra');
+  const portada = document.querySelector('header.grande');
+  if (!barra || !portada || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(([e]) => {
+    const ver = !e.isIntersecting;
+    barra.classList.toggle('verse', ver);
+    barra.setAttribute('aria-hidden', String(!ver));
+    for (const a of barra.querySelectorAll('a')) a.tabIndex = ver ? 0 : -1;
+  }, { rootMargin: '-64px 0px 0px 0px' }).observe(portada);
+})();
+</script>
 
 <footer>
   <div class="caja pie">
@@ -691,9 +851,9 @@
       </div>
       <p>La cuenta del día, desde la foto del comprobante. Para quien cobra por
       transferencia y necesita saber cuánto entró.</p>
-      <a class="play" href="https://play.google.com/apps/testing/com.velxos.recuadrao">
-        <svg viewBox="0 0 16 18" fill="currentColor" aria-hidden="true"><path d="M1.2.4a.9.9 0 0 0-.7.9v15.4a.9.9 0 0 0 1.4.8l13.1-7.7a.9.9 0 0 0 0-1.6L1.9.5A.9.9 0 0 0 1.2.4Z"/></svg>
-        <span><small>Únete a la prueba en</small><b>Google Play</b></span>
+      <a class="play" href="https://wa.me/573128603576?text=Hola%2C%20quiero%20probar%20Recuadrao.%20Mi%20Gmail%20es%3A%20">
+        <svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.41 3.48C18.16 1.23 15.16 0 12 0C5.46 0 0.11 5.36 0.11 11.89C0.11 13.98 0.64 16.02 1.71 17.84L0 24L6.32 22.34C8.04 23.3 10.02 23.79 12 23.79L12 23.79C18.54 23.79 24 18.48 24 11.89C24 8.73 22.66 5.73 20.41 3.48ZM12 21.8C10.23 21.8 8.46 21.32 6.96 20.41L6.59 20.2L2.84 21.16L3.86 17.52L3.64 17.14C2.63 15.59 2.09 13.77 2.09 11.89C2.09 6.43 6.54 2.04 12 2.04C14.63 2.04 17.14 3.05 18.96 4.93C20.84 6.8 22.02 9.27 22.02 11.89C22.02 17.36 17.46 21.8 12 21.8ZM17.41 14.41C17.14 14.25 15.64 13.5 15.37 13.45C15.11 13.34 14.89 13.29 14.73 13.55C14.52 13.87 13.93 14.52 13.77 14.73C13.61 14.95 13.45 14.95 13.13 14.84C11.41 13.93 10.23 13.23 9.11 11.3C8.79 10.77 9.37 10.77 9.96 9.64C10.07 9.48 10.02 9.27 9.91 9.16C9.86 9 9.27 7.5 9 6.91C8.79 6.37 8.52 6.43 8.36 6.43C8.2 6.43 7.98 6.43 7.77 6.43C7.61 6.43 7.29 6.48 6.96 6.8C6.7 7.07 5.95 7.82 5.95 9.27C5.95 10.71 7.02 12.16 7.18 12.32C7.29 12.54 9.27 15.54 12.21 16.82C14.14 17.63 14.84 17.73 15.8 17.57C16.39 17.46 17.57 16.87 17.79 16.18C18.05 15.48 18.05 14.84 18 14.73C17.89 14.63 17.73 14.52 17.41 14.41Z"/></svg>
+        <span><small>Para probarla, escríbenos por</small><b>WhatsApp</b></span>
       </a>
     </div>
 

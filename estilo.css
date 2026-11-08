@@ -434,13 +434,89 @@ header.grande { padding: 50px 0 56px; }
   font-size: 13px;
   opacity: .8;
 }
-.portada-foto img {
-  display: block;
-  width: 100%;
-  height: auto;
+.caja-viva {
+  position: relative;
+  container-type: inline-size;
+  overflow: hidden;
   border-radius: 20px;
   border: 5px solid rgba(255, 255, 255, .15);
   box-shadow: 0 20px 46px rgba(0, 0, 0, .28);
+}
+.caja-vacia {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* La caja de la portada, por piezas. Debajo va la caja vacía, y encima cada
+   pieza en el sitio exacto donde la pintó la app: salen de
+   tool/pasos.dart junto con sus medidas, en porcentajes de la imagen. Sin
+   JavaScript —o con el movimiento reducido— se ven todas quietas y la caja
+   queda llena, igual que la imagen de siempre. */
+.caja-capas {
+  position: absolute;
+  inset: 0;
+  /* Un píxel de la imagen original, que mide 640 de ancho. */
+  --px: calc(100cqw / 640);
+}
+.caja-capas > * { position: absolute; }
+
+/* Las filas y la cámara son la imagen llena entera, recortada a su pieza.
+   Así el navegador baja una sola imagen, y cada pieza crece desde su propio
+   centro. */
+.caja-fila,
+.caja-camara {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: inset(var(--y) calc(100% - var(--x) - var(--w))
+                   calc(100% - var(--y) - var(--h)) var(--x));
+  transform-origin: calc(var(--x) + var(--w) / 2) calc(var(--y) + var(--h) / 2);
+}
+.caja-visto,
+.caja-onda {
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+}
+.caja-visto { fill: var(--marca); }
+.caja-onda {
+  border-radius: 50%;
+  background: var(--marca);
+  opacity: 0;
+}
+
+/* Las cifras no están en la imagen: se escriben aquí, con la letra de la
+   app, para poder contar. */
+.caja-total,
+.caja-pie,
+.caja-subtotal {
+  top: var(--y);
+  height: var(--h);
+  font-size: calc(var(--letra) * var(--px));
+  line-height: var(--linea);
+  letter-spacing: calc(var(--espaciado) * var(--px));
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.caja-total {
+  left: var(--x);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #fff;
+  /* Al sumar late un poco, y crece hacia la derecha como crece la cifra. */
+  transform-origin: left center;
+}
+.caja-pie {
+  left: var(--x);
+  font-family: 'Inter', sans-serif;
+  color: rgba(255, 255, 255, .9);
+}
+.caja-subtotal {
+  right: calc(100% - var(--x) - var(--w));
+  font-family: 'Inter', sans-serif;
+  color: #6C757D;
 }
 
 @media (max-width: 860px) {
@@ -449,7 +525,9 @@ header.grande { padding: 50px 0 56px; }
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  .portada-foto { max-width: 262px; margin: 4px auto 0; }
+  /* Con ancho dicho: la caja se mide a sí misma para escalar las cifras, y
+     así ya no le da ancho a quien la centra. Sin esto se encogía a nada. */
+  .portada-foto { width: 100%; max-width: 262px; margin: 4px auto 0; }
 }
 
 /* El botón de instalar. Blanco sobre el verde de la cabecera, verde sobre

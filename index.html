@@ -28,13 +28,166 @@
       <p class="nota">Prueba cerrada en Google Play · Android · Gratis</p>
     </div>
     <div class="portada-foto">
-      <img src="img/portada.webp" width="640" height="1427"
-           alt="La caja del día en Recuadrao: el total de hoy arriba y debajo
-                las transferencias de Nequi, Daviplata, Bancolombia y Nu, cada
-                una con su hora, su referencia y el visto del banco.">
+      <div class="caja-viva" role="img"
+           aria-label="La caja del día en Recuadrao: el total de hoy arriba y
+                       debajo las transferencias de Nequi, Daviplata,
+                       Bancolombia y Nu, cada una con su hora, su referencia y
+                       el visto del banco.">
+        <img class="caja-vacia" src="img/portada_vacia.webp" width="640"
+             height="1427" alt="">
+        <div class="caja-capas" aria-hidden="true">
+          <img class="caja-fila" src="img/portada_llena.webp" alt="" data-monto="48500" style="--x:3.889%;--y:32.264%;--w:92.222%;--h:8.829%">
+          <svg class="caja-visto" data-fila="0" style="--x:21.146%;--y:36.733%;--w:3.160%;--h:1.417%" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <img class="caja-fila" src="img/portada_llena.webp" alt="" data-monto="25000" style="--x:3.889%;--y:41.093%;--w:92.222%;--h:8.829%">
+          <svg class="caja-visto" data-fila="1" style="--x:21.146%;--y:45.562%;--w:3.160%;--h:1.417%" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <img class="caja-fila" src="img/portada_llena.webp" alt="" data-monto="150000" style="--x:3.889%;--y:49.922%;--w:92.222%;--h:8.829%">
+          <svg class="caja-visto" data-fila="2" style="--x:21.146%;--y:54.391%;--w:3.160%;--h:1.417%" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <img class="caja-fila" src="img/portada_llena.webp" alt="" data-monto="12000" style="--x:3.889%;--y:58.751%;--w:92.222%;--h:8.829%">
+          <img class="caja-fila" src="img/portada_llena.webp" alt="" data-monto="7500" style="--x:3.889%;--y:67.580%;--w:92.222%;--h:8.829%">
+          <svg class="caja-visto" data-fila="4" style="--x:21.146%;--y:72.049%;--w:3.160%;--h:1.417%" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <span class="caja-onda" style="--x:80.556%;--y:91.280%;--w:15.556%;--h:6.976%"></span>
+          <img class="caja-camara" src="img/portada_llena.webp" alt="" style="--x:76.493%;--y:89.458%;--w:23.507%;--h:10.542%">
+          <span class="caja-total" style="--x:9.236%;--y:16.350%;--w:40.030%;--h:4.469%;--letra:56.000;--espaciado:-0.778;--linea:1.1388">$243.000</span>
+          <span class="caja-pie" style="--x:9.236%;--y:22.345%;--w:24.248%;--h:1.962%;--letra:19.444;--espaciado:0.000;--linea:1.4399">5 transferencias</span>
+          <span class="caja-subtotal" style="--x:79.484%;--y:29.321%;--w:15.655%;--h:2.071%;--letra:20.222;--espaciado:0.000;--linea:1.4614">$243.000</span>
+        </div>
+      </div>
     </div>
   </div>
 </header>
+
+<script>
+// La portada se mueve como un día corto en la caja: se aprieta la cámara,
+// entra el comprobante, el total se suma y al rato llega el visto del banco.
+// Cinco veces, una pausa para mirarlo, y vuelta a empezar.
+//
+// Va aquí y no al final para vaciar la caja antes de que se pinte: si no, se
+// vería llena un instante y luego vacía. Quien tiene el movimiento reducido
+// en su teléfono la ve llena y quieta, como era antes.
+(() => {
+  const caja = document.querySelector('.caja-viva');
+  if (!caja || !caja.animate ||
+      matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const una = s => caja.querySelector(s);
+  const filas = [...caja.querySelectorAll('.caja-fila')];
+  const vistos = [...caja.querySelectorAll('.caja-visto')];
+  const camara = una('.caja-camara'), onda = una('.caja-onda');
+  const total = una('.caja-total'), pie = una('.caja-pie');
+  const subtotal = una('.caja-subtotal');
+
+  // Como la app: punto de miles también en las cifras de cuatro.
+  const pesos = n =>
+    '$' + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const espera = ms => new Promise(listo => setTimeout(listo, ms));
+
+  // Solo mientras se ve. Fuera de pantalla o en otra pestaña se queda quieta
+  // entre un comprobante y el siguiente.
+  let aLaVista = true, despertar = null;
+  const mirar = () => {
+    if (aLaVista && !document.hidden && despertar) { despertar(); despertar = null; }
+  };
+  new IntersectionObserver(([e]) => { aLaVista = e.isIntersecting; mirar(); })
+    .observe(caja);
+  document.addEventListener('visibilitychange', mirar);
+  const cuandoSeVea = () => aLaVista && !document.hidden
+    ? Promise.resolve()
+    : new Promise(listo => { despertar = listo; });
+
+  let cifra = 0;
+  const contar = (hasta, ms) => new Promise(listo => {
+    const desde = cifra, inicio = performance.now();
+    cifra = hasta;
+    const paso = ahora => {
+      const t = Math.min(1, (ahora - inicio) / ms);
+      const valor = pesos(desde + (hasta - desde) * (1 - (1 - t) ** 3));
+      total.textContent = subtotal.textContent = valor;
+      t < 1 ? requestAnimationFrame(paso) : listo();
+    };
+    requestAnimationFrame(paso);
+  });
+
+  function vaciar() {
+    caja.getAnimations({ subtree: true }).forEach(a => a.cancel());
+    for (const f of filas) f.style.opacity = 0;
+    for (const v of vistos) v.style.transform = 'scale(0)';
+    subtotal.style.opacity = 0;
+    cifra = 0;
+    total.textContent = pesos(0);
+    pie.textContent = 'Sin transferencias hoy';
+  }
+
+  const apretar = () => {
+    camara.animate(
+      [{ transform: 'none' }, { transform: 'scale(.86)', offset: .35 },
+       { transform: 'none' }],
+      { duration: 420, easing: 'ease-out' });
+    onda.animate(
+      [{ opacity: .35, transform: 'scale(.9)' },
+       { opacity: 0, transform: 'scale(1.9)' }],
+      { duration: 700, easing: 'ease-out' });
+  };
+
+  const entrar = fila => fila.animate(
+    [{ opacity: 0, transform: 'translateY(1.2%) scale(.78)' },
+     { opacity: 1, transform: 'translateY(0) scale(1.03)', offset: .6 },
+     { opacity: 1, transform: 'none' }],
+    { duration: 560, easing: 'cubic-bezier(.2, .7, .3, 1)', fill: 'forwards' });
+
+  const confirmar = visto => visto.animate(
+    [{ transform: 'scale(0)' }, { transform: 'scale(1.8)', offset: .5 },
+     { transform: 'scale(1)' }],
+    { duration: 520, easing: 'cubic-bezier(.3, .7, .4, 1)', fill: 'forwards' });
+
+  const desvanecer = el => el.animate([{ opacity: 1 }, { opacity: 0 }],
+    { duration: 450, fill: 'forwards' });
+
+  async function unDia() {
+    vaciar();
+    await espera(900);
+    let suma = 0;
+    for (const [i, fila] of filas.entries()) {
+      await cuandoSeVea();
+      apretar();
+      await espera(260);
+      entrar(fila);
+      await espera(240);
+
+      suma += Number(fila.dataset.monto);
+      pie.textContent = i ? `${i + 1} transferencias` : '1 transferencia';
+      // Como en la app: el subtotal del día solo sale cuando hay más de una.
+      if (i === 1) {
+        subtotal.animate([{ opacity: 0 }, { opacity: 1 }],
+          { duration: 300, fill: 'forwards' });
+      }
+      total.animate(
+        [{ transform: 'none' }, { transform: 'scale(1.06)', offset: .4 },
+         { transform: 'none' }],
+        { duration: 600, easing: 'ease-out' });
+      await contar(suma, 600);
+
+      // El visto llega después, cuando avisa el banco. A uno no le llega,
+      // como pasa de verdad.
+      const visto = vistos.find(v => v.dataset.fila === String(i));
+      if (visto) {
+        await espera(220);
+        confirmar(visto);
+        await espera(480);
+      } else {
+        await espera(700);
+      }
+    }
+
+    await espera(3500);
+    [...filas, ...vistos, subtotal].forEach(desvanecer);
+    await contar(0, 450);
+    pie.textContent = 'Sin transferencias hoy';
+    await espera(300);
+  }
+
+  (async () => { for (;;) await unDia(); })();
+})();
+</script>
 
 <main class="caja">
 

@@ -811,7 +811,7 @@ header.grande { padding: 50px 0 56px; }
 }
 /* Lo primero después de la portada respira: pegado al verde parecía parte
    de ella. */
-section:first-child .titular { margin-top: 36px; }
+section:first-child .titular { margin-top: 52px; }
 .acento { color: #15845F; }
 header .acento { color: #A8EBCF; }
 @media (max-width: 560px) {

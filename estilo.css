@@ -63,9 +63,47 @@ header {
      lee como que la cabecera tiene volumen. Un plano de color liso de 44px
      de alto es lo que hace que una página parezca un documento y no un
      producto. */
-  background-image: linear-gradient(158deg, #16876A 0%, #0F6E56 52%, #0B5342 100%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='340' viewBox='0 0 240 340'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.09' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M40 40L118 30L132 128L122 122L112 131L102 124L92 133L82 126L72 135L62 128L54 138Z'/%3E%3Cpath d='M93 55c-5-5-19-4-18 3s18 4 18 11-13 9-19 3M85 47v34'/%3E%3Cpath d='M66 96l42-6M69 110l34-5'/%3E%3Cpath d='M150 34l14-11M154 58h19M148 12l5-13'/%3E%3Ccircle cx='30' cy='196' r='7'/%3E%3Ccircle cx='158' cy='214' r='24'/%3E%3Cpath d='M147 214l8 8 15-17'/%3E%3Cpath d='M8 286c20-24 40-24 60 0s40 24 60 0'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='340' viewBox='0 0 240 340'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.09' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='112' cy='92' r='34'/%3E%3Cpath d='M124 78c-5-5-22-5-22 4s22 6 22 15-17 10-23 3M112 66v50'/%3E%3Cpath d='M164 52l14-12M170 82h18M162 112l14 10'/%3E%3Ccircle cx='34' cy='60' r='5'/%3E%3Crect x='52' y='172' width='70' height='118' rx='16' transform='rotate%2810 87 231%29'/%3E%3Cpath d='M72 204l34 6M70 220l28 5'/%3E%3Ccircle cx='186' cy='204' r='6'/%3E%3Cpath d='M140 316c18-20 36-20 54 0s36 20 54 0'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(158deg, #16876A 0%, #0F6E56 52%, #0B5342 100%);
+  /* Garabatos muy tenues en las dos orillas, con el trazo del ícono: los
+     mismos que lleva la tarjeta del total en la app. Pocos y grandes, en
+     los bordes y lejos del texto, y quietos: lo que se mueve en la portada
+     es el teléfono, y nada tiene que competir con él. Van aquí y no en
+     cada página para que las de texto los lleven igual, solo en su franja
+     verde. */
+  background-repeat: no-repeat;
+  background-position: left -36px top 14px, right -24px bottom -8px, 0 0;
+  background-size: 240px 340px, 240px 340px, auto;
   color: #fff;
   padding: 44px 0 40px;
+}
+/* Cada página de texto, con sus propios garabatos: lo que trata.
+   Mismo trazo, misma opacidad y mismo sitio que los de la portada. */
+header.privacidad {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='340' viewBox='0 0 240 340'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.09' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M88 40L136 56V100C136 132 112 152 88 162C64 152 40 132 40 100V56Z'/%3E%3Cpath d='M66 100l15 15 27-30'/%3E%3Cpath d='M156 44l14-11M160 68h19M150 20l5-13'/%3E%3Ccircle cx='30' cy='206' r='7'/%3E%3Ccircle cx='150' cy='232' r='5'/%3E%3Cpath d='M8 286c20-24 40-24 60 0s40 24 60 0'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='340' viewBox='0 0 240 340'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.09' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='70' y='70' width='84' height='70' rx='14'/%3E%3Cpath d='M86 70V54c0-15 11-26 26-26s26 11 26 26v16'/%3E%3Ccircle cx='112' cy='100' r='7'/%3E%3Cpath d='M112 107v12'/%3E%3Cpath d='M40 232c18-26 38-38 62-38s44 12 62 38c-18 26-38 38-62 38s-44-12-62-38z'/%3E%3Ccircle cx='102' cy='232' r='14'/%3E%3Cpath d='M50 282L154 182'/%3E%3Cpath d='M176 60l14-10M182 90h18'/%3E%3Ccircle cx='34' cy='40' r='5'/%3E%3Cpath d='M140 316c18-20 36-20 54 0s36 20 54 0'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(158deg, #16876A 0%, #0F6E56 52%, #0B5342 100%);
+}
+header.condiciones {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='340' viewBox='0 0 240 340'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.09' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M44 36L112 28L138 54L148 152L56 162Z'/%3E%3Cpath d='M112 28L116 58L138 54'/%3E%3Cpath d='M64 80l40-4M66 100l60-6M68 120l58-6M70 140l40-4'/%3E%3Cpath d='M162 32l14-11M166 56h19'/%3E%3Ccircle cx='30' cy='210' r='7'/%3E%3Cpath d='M40 246c8-12 14 8 22-4s12 10 20 0 14 6 22-2'/%3E%3Cpath d='M8 286c20-24 40-24 60 0s40 24 60 0'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='340' viewBox='0 0 240 340'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.09' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='50' y='48' width='26' height='26' rx='6'/%3E%3Cpath d='M56 61l6 6 10-12'/%3E%3Cpath d='M92 61h70'/%3E%3Crect x='50' y='94' width='26' height='26' rx='6'/%3E%3Cpath d='M56 107l6 6 10-12'/%3E%3Cpath d='M92 107h56'/%3E%3Crect x='50' y='140' width='26' height='26' rx='6'/%3E%3Cpath d='M92 153h64'/%3E%3Cpath d='M64 296L150 210l18 18-86 86-26 8z'/%3E%3Cpath d='M138 222l18 18'/%3E%3Cpath d='M180 196l12-10M186 224h16'/%3E%3Ccircle cx='196' cy='40' r='5'/%3E%3Cpath d='M140 316c18-20 36-20 54 0s36 20 54 0'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(158deg, #16876A 0%, #0F6E56 52%, #0B5342 100%);
+}
+header.eliminar {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='340' viewBox='0 0 240 340'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.09' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M44 72h100M76 72V58h36v14'/%3E%3Cpath d='M54 82l8 82h64l8-82'/%3E%3Cpath d='M80 100l2 48M94 100v48M108 100l-2 48'/%3E%3Cpath d='M152 42l14-11M158 66h19'/%3E%3Ccircle cx='30' cy='206' r='7'/%3E%3Cpath d='M146 196l24-4 4 28-24 4z'/%3E%3Cpath d='M8 286c20-24 40-24 60 0s40 24 60 0'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='340' viewBox='0 0 240 340'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.09' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M56 134V98c0-21 16-38 36-38h38c20 0 36 17 36 38v36z'/%3E%3Cpath d='M84 94h44M112 134v58'/%3E%3Cpath d='M150 98V68h20v12h-20'/%3E%3Ccircle cx='178' cy='222' r='22'/%3E%3Cpath d='M170 214l16 16M186 214l-16 16'/%3E%3Cpath d='M40 292l44-44 28 28-44 44z'/%3E%3Cpath d='M62 270l28 28'/%3E%3Cpath d='M104 318h10M124 318h10M144 318h10'/%3E%3Ccircle cx='34' cy='40' r='5'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(158deg, #16876A 0%, #0F6E56 52%, #0B5342 100%);
+}
+/* En las páginas de texto la cabecera es bajita: ahí los garabatos van
+   enteros, más chicos y centrados en la altura, en vez de asomarse cortados. */
+@media (min-width: 641px) {
+  header:not(.grande) {
+    background-size: 172px 244px, 172px 244px, auto;
+    background-position: left -18px center, right -12px center, 0 0;
+  }
+}
+@media (max-width: 640px) {
+  header {
+    background-size: 160px 227px, 160px 227px, auto;
+    background-position: left -60px top -18px, right -46px bottom -24px, 0 0;
+  }
 }
 header .marca {
   display: flex;
@@ -740,16 +778,6 @@ header.grande { padding: 50px 0 56px; }
 }
 .duo .tarjeta { margin: 0; padding: 22px 22px 10px; }
 
-.llamada {
-  background: var(--marca-suave);
-  border-radius: var(--radio);
-  padding: 30px 24px 26px;
-  margin: 40px 0 0;
-  text-align: center;
-}
-.llamada h2 { margin-top: 0; }
-.llamada > p { max-width: 46ch; margin: 0 auto 20px; }
-.llamada .dato { margin: 18px auto 0; }
 
 @media (max-width: 560px) {
   .duo { grid-template-columns: 1fr; }
@@ -781,7 +809,9 @@ header.grande { padding: 50px 0 56px; }
   line-height: 1.22;
   margin: 56px 0 16px;
 }
-section:first-child .titular { margin-top: 8px; }
+/* Lo primero después de la portada respira: pegado al verde parecía parte
+   de ella. */
+section:first-child .titular { margin-top: 36px; }
 .acento { color: #15845F; }
 header .acento { color: #A8EBCF; }
 @media (max-width: 560px) {
@@ -815,6 +845,17 @@ header .acento { color: #A8EBCF; }
   background: var(--marca-suave);
   color: var(--marca);
   font-size: 20px;
+}
+/* Las ilustraciones, con el mismo trazo y los mismos garabatos del ícono.
+   Reemplazan al ícono en un cuadrito verde, que es lo que trae cualquier
+   plantilla: con eso la página se parecía a todas. Vienen con el verde
+   clarito de fondo ya puesto; ver tool/ilustraciones_sitio.py en la app. */
+.dolor .ilustracion,
+.extra .ilustracion {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
 }
 .dolor h3,
 .extra h3 {
@@ -973,37 +1014,177 @@ header .acento { color: #A8EBCF; }
   .insignias b { margin-top: 0; }
 }
 
-/* Cómo se entra a la prueba, en tres pasos numerados. */
-.como-entrar {
-  list-style: none;
-  counter-reset: paso;
+/* Pruébala: la conversación de WhatsApp por la que se entra, sobre el verde
+   de la cabecera y con los garabatos del ícono. Era una caja verde clarita
+   con tres pasos numerados y un botón: lo mismo que en cualquier página, y
+   justo en el sitio donde se decide. */
+.llamada {
+  position: relative;
+  overflow: hidden;
   display: grid;
-  gap: 10px;
-  max-width: 330px;
-  margin: 0 auto 24px;
-  padding: 0;
-  text-align: left;
-}
-.como-entrar li {
-  counter-increment: paso;
-  display: grid;
-  grid-template-columns: 28px 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 12px;
-  margin: 0;
-}
-.como-entrar li::before {
-  content: counter(paso);
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
+  gap: 28px;
+  margin: 52px 0 0;
+  padding: 34px 30px;
+  border-radius: 22px;
   background: var(--marca);
+  background-image: linear-gradient(158deg, #16876A 0%, #0F6E56 52%, #0B5342 100%);
   color: #fff;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
+}
+.llamada-garabatos {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .22;
+  pointer-events: none;
+}
+.llamada-texto,
+.chat-lugar { position: relative; }
+.llamada h2 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 27px;
+  line-height: 1.2;
+}
+.llamada .acento { color: #A8EBCF; }
+.llamada-texto > p { margin: 0 0 22px; color: rgba(255, 255, 255, .9); }
+.llamada .dato {
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, .72);
+  font-size: 13.5px;
+}
+.llamada .dato a { color: #fff; }
+
+/* El chat. Colores de la marca, no los de WhatsApp: se entiende que es una
+   conversación por la forma, sin copiarle la cara a nadie. Un poco
+   inclinado, como el recibo del ícono. */
+.chat-lugar {
+  justify-self: center;
+  width: 100%;
+  max-width: 300px;
+}
+.chat {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #EAF3EE;
+  color: var(--texto);
   font-size: 14px;
+  line-height: 1.42;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, .28);
+  transform: rotate(2deg);
+}
+.chat-cabeza {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #fff;
+  border-bottom: 1px solid var(--borde);
+}
+/* El punto verde de «en línea»: lo que más rápido dice que esto es un chat. */
+.chat-avatar {
+  position: relative;
+  flex: none;
+  width: 34px;
+  height: 34px;
+}
+.chat-avatar img { display: block; border-radius: 50%; }
+.chat-avatar::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #2FC26B;
+  border: 2px solid #fff;
+}
+.chat-enlace img { flex: none; border-radius: 10px; }
+.chat-cabeza b,
+.chat-enlace b {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  line-height: 1.25;
+}
+.chat-cabeza div span,
+.chat-enlace span {
+  display: block;
+  font-size: 12px;
+  color: var(--texto-suave);
+}
+.chat-cuerpo {
+  display: grid;
+  gap: 8px;
+  padding: 14px 12px 16px;
+  /* El fondo de garabatos tenues de los chats, pero con lo nuestro:
+     recibos, el visto, una moneda, un teléfono y brillos. Se reconoce como
+     chat de un vistazo sin copiarle el dibujo a nadie. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%23CFE3D8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 14l24 4-5 30-4-3-4 3-4-3-4 3-4-3-5 1z'/%3E%3Cpath d='M23 26l14 2M22 33l12 2'/%3E%3Ccircle cx='110' cy='26' r='10'/%3E%3Cpath d='M105 26l4 4 7-8'/%3E%3Cpath d='M76 64c1 7 3 9 10 10-7 1-9 3-10 10-1-7-3-9-10-10 7-1 9-3 10-10z'/%3E%3Crect x='16' y='92' width='22' height='36' rx='5' transform='rotate%28-10 27 110%29'/%3E%3Cpath d='M23 100l9-1'/%3E%3Ccircle cx='118' cy='112' r='12'/%3E%3Cpath d='M122 106c-2-2-9-2-9 2s9 2 9 6-7 4-9 1M118 102v20'/%3E%3Ccircle cx='64' cy='134' r='3'/%3E%3Ccircle cx='146' cy='68' r='2.5'/%3E%3Cpath d='M54 34c5-5 10 5 15 0s10 5 15 0'/%3E%3Cpath d='M96 140l4-6M104 146l7-2'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+.burbuja {
+  margin: 0;
+  max-width: 88%;
+  padding: 8px 11px;
+  border-radius: 13px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .07);
+}
+.burbuja.tuya {
+  justify-self: end;
+  background: #D2F2E3;
+  border-top-right-radius: 4px;
+}
+.burbuja.nuestra {
+  justify-self: start;
+  background: #fff;
+  border-top-left-radius: 4px;
+}
+.burbuja i { font-style: normal; color: var(--marca); font-weight: 600; }
+.leido {
+  display: block;
+  text-align: right;
+  margin-top: 1px;
+  font-size: 11px;
+  letter-spacing: -2px;
+  color: #15845F;
+}
+.chat-enlace {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 7px;
+  padding: 8px;
+  border-radius: 10px;
+  background: #F1F5F3;
+}
+
+/* Los garabatos de alrededor del chat, con el trazo blanco del ícono. */
+.garabato {
+  position: absolute;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: .6;
+  pointer-events: none;
+}
+.garabato-arriba { width: 38px; height: 38px; top: -30px; left: -30px; }
+.garabato-lado { width: 38px; height: 38px; top: 40%; right: -36px; }
+.garabato-abajo { width: 58px; height: 38px; bottom: -18px; left: -40px; }
+
+@media (max-width: 640px) {
+  .llamada {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px 22px 34px;
+  }
+  .chat { transform: rotate(1.5deg); }
 }
 
 .boton.chico {

@@ -25,7 +25,7 @@
    un ícono que no está es mejor que un cuadrito. */
 @font-face {
   font-family: 'Lucide';
-  src: url('fuentes/lucide.woff') format('woff');
+  src: url('fuentes/lucide.woff?v=20261116') format('woff');
   font-display: block;
 }
 
@@ -482,13 +482,45 @@ header.grande { padding: 50px 0 56px; }
   font-size: 13px;
   opacity: .8;
 }
+/* El teléfono de la portada, con el mismo marco que las capturas de Play y
+   de los pasos (tool/pasos.dart): oscuro, sencillo, y con los botones de los
+   lados apenas asomando. Los botones van en el envoltorio y no en la caja,
+   porque la caja recorta lo que se sale. */
+.telefono {
+  position: relative;
+}
+.telefono::before,
+.telefono::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  background: #1F2328;
+}
+/* Dos a la izquierda (el volumen), hechos con un solo degradado. */
+.telefono::before {
+  left: -3px;
+  top: 20%;
+  height: 17%;
+  border-radius: 2px 0 0 2px;
+  background: linear-gradient(#1F2328 0 44%, transparent 44% 56%, #1F2328 56%);
+}
+/* Uno a la derecha (el de encender). */
+.telefono::after {
+  right: -3px;
+  top: 25%;
+  height: 10%;
+  border-radius: 0 2px 2px 0;
+}
 .caja-viva {
   position: relative;
   container-type: inline-size;
   overflow: hidden;
-  border-radius: 20px;
-  border: 5px solid rgba(255, 255, 255, .15);
+  border-radius: 36px;
+  border: 9px solid #1F2328;
   box-shadow: 0 20px 46px rgba(0, 0, 0, .28);
+}
+@media (max-width: 620px) {
+  .caja-viva { border-width: 7px; border-radius: 30px; }
 }
 .caja-vacia {
   display: block;

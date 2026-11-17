@@ -28,6 +28,17 @@
 - [Condiciones de uso](https://cuadri.co/condiciones): qué es y qué no es Cuadri, y qué significa el visto del banco.
 - [Eliminar tus datos](https://cuadri.co/eliminar-datos): cómo borrar lo que hay en el teléfono y en el servidor.
 
+## Guías
+
+- [Cómo saber si un comprobante es falso](https://cuadri.co/guias/comprobante-falso): cómo confirmar un pago de Nequi, Daviplata, Bancolombia o Bre-B antes de entregar. Incluye la revisión por QR de Nequi («Comprobar un pago») y de Daviplata («Confirmar comprobante»), qué hacer con los pagos de Bre-B que llegan sin nombre, las señales de un comprobante falso y dónde denunciar.
+- [Cómo hacer un cuadre de caja diario](https://cuadri.co/guias/cuadre-de-caja): la fórmula (base inicial + ventas en efectivo + otros ingresos − gastos en efectivo = efectivo que debe haber), la diferencia entre arqueo, cuadre y cierre, un ejemplo con números y qué revisar si sobra o falta.
+- [Comprobante de egreso: qué debe llevar](https://cuadri.co/guias/comprobante-de-egreso): los datos que debe tener, cómo llenarlo, los errores comunes y la diferencia con el recibo de caja.
+
+## Formatos gratis
+
+- [Formato de cuadre de caja diario](https://cuadri.co/descargas/formato-cuadre-de-caja-diario.xlsx): Excel tipo tirilla de POS que calcula solo si la caja cuadra, sobra o falta. Se imprime en impresoras de 58 u 80 mm o en hoja carta.
+- [Formato de comprobante de egreso](https://cuadri.co/descargas/formato-comprobante-de-egreso.xlsx): Excel tamaño carta para llenar e imprimir.
+
 ## Contacto
 
 - WhatsApp: https://wa.me/573128603576

@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cómo hacer un cuadre de caja diario, con formato gratis tipo POS | Cuadri</title>
+<meta name="description" content="Paso a paso para cuadrar la caja al cierre del turno: base, ventas, gastos, conteo de billetes y qué hacer si sobra o falta. Con formato gratis en Excel tipo POS.">
+<link rel="canonical" href="https://cuadri.co/guias/cuadre-de-caja">
+<meta name="theme-color" content="#0F6E56">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Cuadri">
+<meta property="og:locale" content="es_CO">
+<meta property="og:title" content="Cómo hacer un cuadre de caja diario">
+<meta property="og:description" content="Paso a paso para cuadrar la caja al cierre del turno: base, ventas, gastos, conteo de billetes y qué hacer si sobra o falta. Con formato gratis en Excel tipo POS.">
+<meta property="og:url" content="https://cuadri.co/guias/cuadre-de-caja">
+<meta property="og:image" content="https://cuadri.co/img/compartir.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-11-17">
+<meta property="article:modified_time" content="2026-11-17">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/icono.png">
+<link rel="stylesheet" href="/estilo.css?v=20261116b">
+<style>
+  header a.marca { color: inherit; text-decoration: none; }
+  .migas { font-size: 13.5px; opacity: .85; margin: -6px 0 14px; }
+  .migas a { color: #fff; }
+  header .sub { font-size: 17px; opacity: .92; margin: 0 0 12px; max-width: 640px; }
+  .descarga { display: flex; flex-wrap: wrap; gap: 14px 18px; align-items: center;
+    justify-content: space-between; }
+  .descarga p { margin: 0 0 6px; }
+  .descarga .boton { margin-bottom: 14px; }
+  .cuadri { border-color: var(--marca); }
+  .relacionadas { padding-left: 20px; }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  ol.pasos-texto li { margin-bottom: 10px; }
+  .fuentes { font-size: 14px; }
+  .fuentes li { margin-bottom: 6px; }
+  .tarjetas-guias { list-style: none; padding: 0; display: grid; gap: 14px; }
+  .tarjetas-guias li { margin: 0; }
+  .tarjetas-guias a { display: block; background: var(--superficie); border: 1px solid var(--borde);
+    border-radius: var(--radio); padding: 18px 20px; text-decoration: none; color: inherit; }
+  .tarjetas-guias a:hover { border-color: var(--marca); }
+  .tarjetas-guias b { display: block; font-family: 'Poppins', sans-serif; font-size: 17px;
+    color: var(--marca); margin-bottom: 4px; }
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://cuadri.co/#organizacion",
+   "name": "Cuadri",
+   "url": "https://cuadri.co/",
+   "logo": "https://cuadri.co/icono.png"
+  },
+  {
+   "@type": "Article",
+   "@id": "https://cuadri.co/guias/cuadre-de-caja#articulo",
+   "headline": "Cómo hacer un cuadre de caja diario",
+   "description": "Paso a paso para cuadrar la caja al cierre del turno: base, ventas, gastos, conteo de billetes y qué hacer si sobra o falta. Con formato gratis en Excel tipo POS.",
+   "inLanguage": "es-CO",
+   "datePublished": "2026-11-17",
+   "dateModified": "2026-11-17",
+   "author": {
+    "@type": "Organization",
+    "name": "Cuadri",
+    "url": "https://cuadri.co/"
+   },
+   "publisher": {
+    "@id": "https://cuadri.co/#organizacion"
+   },
+   "mainEntityOfPage": "https://cuadri.co/guias/cuadre-de-caja",
+   "image": "https://cuadri.co/img/compartir.jpg",
+   "wordCount": 1260
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Inicio",
+     "item": "https://cuadri.co/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guías",
+     "item": "https://cuadri.co/guias/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Cómo hacer un cuadre de caja diario",
+     "item": "https://cuadri.co/guias/cuadre-de-caja"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://cuadri.co/guias/cuadre-de-caja#preguntas",
+   "inLanguage": "es-CO",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "¿Cada cuánto se hace el cuadre de caja?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Al final de cada turno, o al final del día si hay un solo turno. Además conviene hacer de vez en cuando un arqueo sin avisar, a mitad de turno."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Qué es la base de caja?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Es el efectivo con el que arranca la caja para dar vueltos. Se anota al abrir el turno y entra en la cuenta de lo que debe haber al cerrar."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Quién hace el cuadre: el cajero o el dueño?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Lo hace quien cierra la caja, y lo revisa otra persona: el dueño, el administrador o quien recibe el turno. Al final firman los dos."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿El cuadre de caja se puede hacer en Excel o Google Sheets?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sí. El formato gratis de esta guía funciona en los dos: llenas las celdas amarillas y el resultado sale solo. Se imprime en hoja carta o en una impresora de tirilla de POS."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Qué hago con un sobrante de caja?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No se lo queda nadie. Se anota, se revisa si faltó un vuelto o si una venta quedó mal anotada, y se guarda aparte hasta aclararlo."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Cuál es la diferencia entre arqueo y cuadre de caja?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "El arqueo es contar el efectivo que hay. El cuadre es comparar lo contado con lo que debería haber según las ventas y los gastos."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "DigitalDocument",
+   "name": "Formato de cuadre de caja diario (tipo POS)",
+   "url": "https://cuadri.co/descargas/formato-cuadre-de-caja-diario.xlsx",
+   "encodingFormat": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+   "isAccessibleForFree": true,
+   "inLanguage": "es-CO",
+   "publisher": {
+    "@id": "https://cuadri.co/#organizacion"
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+
+<header class="condiciones">
+  <div class="caja">
+    <a class="marca" href="/">
+      <img src="/icono.png" alt="">
+      <span>Cuadri</span>
+    </a>
+    <p class="migas"><a href="/">Inicio</a> › <a href="/guias/">Guías</a></p>
+    <h1>Cómo hacer un cuadre de caja diario</h1>
+    <p class="sub">Paso a paso, con un ejemplo y un formato gratis en Excel que se imprime en tu POS.</p>
+    <p class="sello">Actualizado el 17 de noviembre de 2026 · 6 minutos de lectura</p>
+  </div>
+</header>
+
+<main class="caja">
+  <div class="resumen">
+    <h2 id="respuesta-corta">La respuesta corta</h2>
+    <p>Para cuadrar la caja calculas cuánto efectivo <strong>debe haber</strong>
+    y lo comparas con lo que <strong>cuentas</strong>:</p>
+    <p><strong>Debe haber = base inicial + ventas en efectivo + otros ingresos en
+    efectivo − gastos pagados con efectivo.</strong></p>
+    <p>Si lo contado es igual, la caja cuadra. Si hay más, sobra; si hay menos,
+    falta. Las transferencias y el datáfono se anotan aparte: esa plata no está
+    en la caja.</p>
+  </div>
+
+  <div class="tarjeta descarga">
+    <div>
+      <h3>Formato gratis de cuadre de caja</h3>
+      <p class="suave">Excel tipo tirilla de POS: se llena en el celular o el
+      computador, calcula solo y se imprime en tu impresora de 58 u 80 mm o en
+      una hoja normal.</p>
+    </div>
+    <a class="boton verde" href="/descargas/formato-cuadre-de-caja-diario.xlsx" download>Descargar el formato</a>
+  </div>
+
+  <nav class="indice" aria-label="Contenido">
+    <p class="rotulo">Qué hay aquí</p>
+    <ol>
+      <li><a href="#cuadre-arqueo-cierre">Cuadre, arqueo y cierre de caja</a></li>
+      <li><a href="#antes-de-cuadrar">Qué necesitas antes de cuadrar</a></li>
+      <li><a href="#paso-a-paso">El cuadre, paso a paso</a></li>
+      <li><a href="#ejemplo">Un ejemplo con números</a></li>
+      <li><a href="#sobra-o-falta">Si sobra o falta plata</a></li>
+      <li><a href="#transferencias">Las transferencias y el datáfono</a></li>
+      <li><a href="#formato">El formato gratis, tipo POS</a></li>
+      <li><a href="#con-cuadri">Hacerlo en el celular con Cuadri</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="cuadre-arqueo-cierre">Cuadre, arqueo y cierre de caja: qué es cada uno</h2>
+  <p>Se usan como si fueran lo mismo, pero son tres pasos distintos:</p>
+  <ul>
+    <li><strong>Arqueo de caja</strong>: contar el efectivo que hay, billete
+    por billete y moneda por moneda.</li>
+    <li><strong>Cuadre de caja</strong>: comparar lo contado con lo que debería
+    haber según las ventas y los gastos.</li>
+    <li><strong>Cierre de caja</strong>: terminar el turno dejando el resultado
+    anotado y firmado por quien entrega y quien recibe.</li>
+  </ul>
+  <p>En un negocio pequeño se hacen los tres juntos al final del turno, y a eso
+  le dice la gente «cuadrar la caja».</p>
+
+  <h2 id="antes-de-cuadrar">Qué necesitas antes de cuadrar</h2>
+  <ul>
+    <li><strong>La base inicial</strong>: el efectivo con el que arrancó la
+    caja. Se anota al abrir, no al cerrar.</li>
+    <li><strong>Las ventas del turno</strong>, separadas por medio de pago:
+    efectivo, transferencias, datáfono.</li>
+    <li><strong>Los gastos pagados con plata de la caja</strong>, cada uno con
+    su <a href="/guias/comprobante-de-egreso">comprobante de egreso</a>
+    firmado.</li>
+    <li>Un rato sin interrupciones para contar. Contar atendiendo es la causa
+    número uno de los descuadres.</li>
+  </ul>
+
+  <h2 id="paso-a-paso">El cuadre, paso a paso</h2>
+  <ol class="pasos-texto">
+    <li><strong>Anota la base inicial</strong> con la que abrió la caja.</li>
+    <li><strong>Suma las ventas en efectivo</strong> del turno, y los otros
+    ingresos en efectivo si los hubo.</li>
+    <li><strong>Anota aparte lo que se cobró sin efectivo</strong>:
+    transferencias y datáfono. Confirma cada transferencia en la app del banco:
+    la foto de un comprobante no prueba que la plata entró
+    (<a href="/guias/comprobante-falso">cómo confirmarlo</a>).</li>
+    <li><strong>Suma los gastos pagados con efectivo</strong>, y revisa que cada
+    uno tenga su comprobante de egreso.</li>
+    <li><strong>Calcula lo que debe haber</strong>: base + efectivo que entró −
+    gastos.</li>
+    <li><strong>Cuenta los billetes y las monedas</strong> por denominación:
+    cuántos de $100.000, cuántos de $50.000, y así hasta las monedas.</li>
+    <li><strong>Compara</strong>: si lo contado es igual a lo que debe haber,
+    cuadra. Si no, mira la sección <a href="#sobra-o-falta">si sobra o falta
+    plata</a>.</li>
+    <li><strong>Firma</strong>: quien entrega la caja y quien la recibe.</li>
+  </ol>
+
+  <h2 id="ejemplo">Un ejemplo con números</h2>
+  <p>Una tienda abre con $200.000 de base. En el turno vende $1.000.000 en
+  efectivo y $340.000 por transferencia, y paga un almuerzo de $57.000 con
+  plata de la caja.</p>
+  <table>
+    <tr><th>Concepto</th><th class="n">Valor</th></tr>
+    <tr><td>Base inicial</td><td class="n">$200.000</td></tr>
+    <tr><td>Ventas en efectivo</td><td class="n">$1.000.000</td></tr>
+    <tr><td>Gastos pagados con efectivo</td><td class="n">−$57.000</td></tr>
+    <tr><th>Debe haber en efectivo</th><th class="n">$1.143.000</th></tr>
+    <tr><td>Contado: 6 de $100.000, 10 de $50.000 y 2 de $20.000</td><td class="n">$1.140.000</td></tr>
+    <tr><th>Resultado</th><th class="n">Faltan $3.000</th></tr>
+  </table>
+  <p>Las transferencias ($340.000) no entran en la cuenta del efectivo, pero sí
+  en el total vendido del día: $1.340.000.</p>
+
+  <h2 id="sobra-o-falta">Si sobra o falta plata</h2>
+  <p>Antes de dar el faltante por perdido, revisa en este orden:</p>
+  <ol class="pasos-texto">
+    <li><strong>Vuelve a contar</strong>, sin afán y sin atender.</li>
+    <li><strong>Busca un gasto sin anotar</strong>: el domicilio, la bolsa de
+    hielo, el vuelto que se pidió prestado.</li>
+    <li><strong>Revisa ventas cruzadas</strong>: una venta anotada en efectivo
+    que se pagó por transferencia, o al revés.</li>
+    <li><strong>Revisa las transferencias</strong>: una que se dio por buena con
+    un comprobante y nunca entró a la cuenta descuadra la caja.</li>
+    <li><strong>Revisa la base</strong>: que sea la que de verdad había al
+    abrir.</li>
+  </ol>
+  <p>Si aun así no cuadra, <strong>no lo «cuadres» a la fuerza</strong> ni lo
+  tapes con plata propia sin anotarlo. Anota la diferencia, explica qué
+  revisaste y que firmen los dos. Un sobrante tampoco es ganancia: casi siempre
+  es un vuelto que faltó o una venta mal anotada.</p>
+
+  <h2 id="transferencias">Las transferencias y el datáfono en el cuadre</h2>
+  <p>Hoy buena parte de las ventas entra por Nequi, Daviplata, Bancolombia o
+  Bre-B. Esa plata no está en la caja, así que <strong>no se suma al
+  efectivo</strong>, pero sí hay que confirmarla: el riesgo de una
+  transferencia no es contarla mal, es que nunca haya entrado. Del datáfono,
+  guarda el váucher de cada pago con tarjeta y el cierre del datáfono al final
+  del turno.</p>
+
+  <h2 id="formato">El formato gratis, tipo POS</h2>
+  <p>Hicimos el formato angosto, como la tirilla de un POS. Así se lee en el
+  celular sin moverse de lado, y se imprime igual en una impresora de tirilla
+  de 58 u 80 mm que en una hoja carta, donde queda como una columna
+  centrada.</p>
+  <ul>
+    <li>Las celdas <strong>amarillas</strong> las llenas tú: la base, las
+    ventas, los gastos y cuántos billetes hay de cada uno.</li>
+    <li>Las <strong>verdes</strong> se calculan solas: el total, lo que debe
+    haber, lo contado y el resultado.</li>
+    <li>Al final dice <strong>CUADRA</strong>, <strong>SOBRAN</strong> o
+    <strong>FALTAN</strong>, con el monto.</li>
+    <li>Funciona en Excel, en Google Sheets y en la app de Excel del celular.</li>
+  </ul>
+  <p><a class="boton verde" href="/descargas/formato-cuadre-de-caja-diario.xlsx" download>Descargar el formato de cuadre</a></p>
+
+  <h2 id="con-cuadri">Hacerlo en el celular con Cuadri</h2>
+  <p>El formato sirve, pero hay que llenarlo a mano. Cuadri hace el cuadre en
+  el celular de la caja:</p>
+  <ul>
+    <li>La planilla se arma a la medida del negocio: trae una de tienda y otra
+    de taquilla y encomiendas, y cada renglón se puede cambiar.</li>
+    <li>Las transferencias se suman solas desde la foto del comprobante, y cada
+    una queda confirmada con el aviso del banco.</li>
+    <li>Cada gasto queda como comprobante de egreso numerado, con la firma de
+    quien recibe la plata.</li>
+    <li>Cuentas los billetes en la pantalla y te dice si cuadra, sobra o falta.
+    Lo que debe haber nadie lo escribe a mano.</li>
+    <li>El cierre sale en PDF, en Excel o impreso en la tirilla de tu POS.</li>
+  </ul>
+  <div class="tarjeta cuadri">
+    <h3>El cuadre, sin hoja de cálculo</h3>
+    <p>Cuadri suma las transferencias desde el comprobante, anota los gastos con firma, cuenta los billetes y te dice si la caja cuadra. Gratis, para Android.</p>
+    <p><a class="boton verde" href="/#probar">Prueba Cuadri gratis</a></p>
+  </div>
+
+  <h2 id="preguntas">Preguntas frecuentes</h2>
+  <div class="preguntas">
+    <details>
+      <summary>¿Cada cuánto se hace el cuadre de caja?</summary>
+      <p>Al final de cada turno, o al final del día si hay un solo turno. Además conviene hacer de vez en cuando un arqueo sin avisar, a mitad de turno.</p>
+    </details>
+    <details>
+      <summary>¿Qué es la base de caja?</summary>
+      <p>Es el efectivo con el que arranca la caja para dar vueltos. Se anota al abrir el turno y entra en la cuenta de lo que debe haber al cerrar.</p>
+    </details>
+    <details>
+      <summary>¿Quién hace el cuadre: el cajero o el dueño?</summary>
+      <p>Lo hace quien cierra la caja, y lo revisa otra persona: el dueño, el administrador o quien recibe el turno. Al final firman los dos.</p>
+    </details>
+    <details>
+      <summary>¿El cuadre de caja se puede hacer en Excel o Google Sheets?</summary>
+      <p>Sí. El formato gratis de esta guía funciona en los dos: llenas las celdas amarillas y el resultado sale solo. Se imprime en hoja carta o en una impresora de tirilla de POS.</p>
+    </details>
+    <details>
+      <summary>¿Qué hago con un sobrante de caja?</summary>
+      <p>No se lo queda nadie. Se anota, se revisa si faltó un vuelto o si una venta quedó mal anotada, y se guarda aparte hasta aclararlo.</p>
+    </details>
+    <details>
+      <summary>¿Cuál es la diferencia entre arqueo y cuadre de caja?</summary>
+      <p>El arqueo es contar el efectivo que hay. El cuadre es comparar lo contado con lo que debería haber según las ventas y los gastos.</p>
+    </details>
+  </div>
+
+  <h2 id="sigue-leyendo">Sigue leyendo</h2>
+  <ul class="relacionadas">
+    <li><a href="/guias/comprobante-falso">Cómo saber si un comprobante es falso</a>: Nequi, Daviplata, Bancolombia y Bre-B: qué mirar antes de entregar.</li>
+    <li><a href="/guias/comprobante-de-egreso">Comprobante de egreso: qué debe llevar</a>: Qué es, cómo se llena y un formato gratis para imprimir.</li>
+  </ul>
+
+  <h2 id="fuentes">Fuentes</h2>
+  <ul class="fuentes">
+    <li><a href="https://cursa.app/es/articulo/el-arqueo-de-caja-como-cuadrar-la-caja-al-final-del-turno-paso-a-paso" rel="nofollow noopener">Cursa: el arqueo de caja, cómo cuadrar la caja al final del turno</a></li>
+    <li><a href="https://agendapro.com/blog/como-se-hace-un-corte-de-caja/" rel="nofollow noopener">AgendaPro: corte de caja, qué es y cómo se hace</a></li>
+    <li><a href="https://blog.alegra.com/costa-rica/arqueo-de-caja-guia-registros-calculos/" rel="nofollow noopener">Alegra: arqueo de caja, registros y cálculos</a></li>
+  </ul>
+  <p class="dato">Las apps de los bancos cambian los nombres de sus botones con
+  cada versión. Si algo no aparece como aquí, búscalo con un nombre parecido o
+  pregúntale a tu banco. ¿Ves algo desactualizado? Escríbenos a
+  <a href="mailto:contacto@cuadri.co">contacto@cuadri.co</a>.</p>
+</main>
+
+<a class="arriba" href="#" aria-label="Volver arriba">↑</a>
+
+<footer>
+  <div class="caja pie">
+    <div class="pie-marca">
+      <div class="marca">
+        <img src="/icono.png" alt="">
+        <span>Cuadri</span>
+      </div>
+      <p>La cuenta del día, desde la foto del comprobante. Para quien cobra por
+      transferencia y necesita saber cuánto entró.</p>
+      <a class="play" href="/#probar">
+        <span><small>Gratis para Android</small><b>Pruébala</b></span>
+      </a>
+    </div>
+
+    <nav class="pie-col" aria-label="Páginas">
+      <p class="rotulo">Páginas</p>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/guias/">Guías</a></li>
+        <li><a href="/privacidad">Política de privacidad</a></li>
+        <li><a href="/condiciones">Condiciones de uso</a></li>
+        <li><a href="/eliminar-datos">Eliminar mis datos</a></li>
+      </ul>
+    </nav>
+
+    <div class="pie-col">
+      <p class="rotulo">Contacto</p>
+      <ul>
+        <li><a href="mailto:contacto@cuadri.co">contacto@cuadri.co</a></li>
+        <li><a href="https://wa.me/573128603576">WhatsApp +57 312 860 3576</a></li>
+        <li>Barranquilla, Atlántico<br>Colombia</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="caja pie-abajo">
+    <p>© 2026 VELXOS</p>
+    <p>Detrás de esto hay una persona, no un formulario.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var arriba = document.querySelector('.arriba');
+    if (!arriba) return;
+    function mirar() { arriba.classList.toggle('verse', scrollY > 600); }
+    addEventListener('scroll', mirar, { passive: true });
+    mirar();
+    arriba.addEventListener('click', function (e) {
+      e.preventDefault();
+      scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+</body>
+</html>

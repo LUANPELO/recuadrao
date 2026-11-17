@@ -1,15 +1,208 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-CO">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cuadri</title>
-<meta name="description" content="Fotografías el comprobante y el aviso del banco confirma que el pago entró de verdad. Y al cierre, la caja cuadra: gastos con firma, billetes contados y el cierre en PDF, Excel o tirilla.">
+<title>Cuadri: verifica comprobantes de pago y cuadra la caja</title>
+<meta name="description" content="Toma la foto del comprobante de Nequi, Daviplata o Bancolombia y el aviso del banco te confirma si el pago entró. Al cierre, la caja cuadra. Gratis, para Android.">
+<link rel="canonical" href="https://cuadri.co/">
+<meta name="theme-color" content="#0F6E56">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cuadri">
+<meta property="og:locale" content="es_CO">
+<meta property="og:title" content="Cuadri: verifica comprobantes de pago y cuadra la caja">
+<meta property="og:description" content="Toma la foto del comprobante de Nequi, Daviplata o Bancolombia y el aviso del banco te confirma si el pago entró. Al cierre, la caja cuadra. Gratis, para Android.">
+<meta property="og:url" content="https://cuadri.co/">
+<meta property="og:image" content="https://cuadri.co/img/compartir.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cuadri: comprobantes confirmados con el banco, y la caja cuadrada al cierre">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="icono.png">
 <!-- La versión va en el nombre porque GitHub guarda el CSS diez minutos: una
      página nueva con el CSS viejo se sale de la pantalla. Cambiarla con cada
      cambio de estilo.css, también en las otras páginas. -->
 <link rel="stylesheet" href="estilo.css?v=20261116b">
+<!-- Datos estructurados: lo mismo que dice la página, para buscadores y
+     asistentes. Las preguntas salen de las de abajo; si cambias una, cambia
+     también esta. -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://cuadri.co/#organizacion",
+   "name": "Cuadri",
+   "url": "https://cuadri.co/",
+   "logo": "https://cuadri.co/icono.png",
+   "email": "velxos.contacto@gmail.com",
+   "areaServed": {
+    "@type": "Country",
+    "name": "Colombia"
+   },
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "url": "https://wa.me/573128603576",
+    "email": "velxos.contacto@gmail.com",
+    "availableLanguage": "es",
+    "areaServed": "CO"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://cuadri.co/#sitio",
+   "url": "https://cuadri.co/",
+   "name": "Cuadri",
+   "inLanguage": "es-CO",
+   "publisher": {
+    "@id": "https://cuadri.co/#organizacion"
+   }
+  },
+  {
+   "@type": "MobileApplication",
+   "@id": "https://cuadri.co/#app",
+   "name": "Cuadri",
+   "url": "https://cuadri.co/",
+   "description": "App gratis para Android, hecha en Colombia, para negocios que cobran por transferencia. Lee la foto del comprobante de Nequi, Daviplata, Bancolombia y otros bancos, la cruza con el aviso del banco para confirmar que el pago entró de verdad y lleva la cuenta del día. Al cierre del turno cuadra la caja: gastos con comprobante de egreso firmado, billetes contados y el cierre en PDF, Excel o tirilla.",
+   "operatingSystem": "Android 7.0 o superior",
+   "applicationCategory": "BusinessApplication",
+   "applicationSubCategory": "Verificación de comprobantes de pago y cuadre de caja",
+   "inLanguage": "es-CO",
+   "countriesSupported": "CO",
+   "image": "https://cuadri.co/icono.png",
+   "screenshot": [
+    "https://cuadri.co/img/paso_1_foto.webp",
+    "https://cuadri.co/img/paso_2_cuenta.webp",
+    "https://cuadri.co/img/paso_3_cuadre.webp",
+    "https://cuadri.co/img/paso_4_confirmacion.webp"
+   ],
+   "featureList": [
+    "Lee el monto, la fecha y la referencia de la foto del comprobante, sin internet",
+    "Cruza cada comprobante con el aviso del banco por monto y hora",
+    "Avisa si enseñan dos veces el mismo comprobante",
+    "Recibe comprobantes desde WhatsApp o un PDF",
+    "Quien cuadra ve todas las cajas en su teléfono",
+    "Cuadre de caja con comprobante de egreso firmado y conteo de billetes",
+    "Cierre en PDF, Excel o tirilla para impresora POS",
+    "Sin cuenta, sin publicidad y cifrado de extremo a extremo"
+   ],
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "COP"
+   },
+   "publisher": {
+    "@id": "https://cuadri.co/#organizacion"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://cuadri.co/#preguntas",
+   "inLanguage": "es-CO",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "¿Y si el banco no avisa?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No quiere decir que el pago sea falso. El aviso se pierde si el teléfono estaba apagado o sin señal, o si la cuenta que recibe es de otra persona. La app no decide si un pago vale: te dice si el banco avisó. Si dudas, míralo en la app del banco."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Qué lee la app, y qué sale del teléfono?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Solo los avisos de las apps de banco que reconoce, y los SMS y correos que nombren a un banco. Lo demás se descarta sin guardarse. El texto de los avisos nunca sale del teléfono y se borra solo a los 30 días. Viene apagado: lo enciendes tú, y antes la app te explica todo esto. El detalle, en la política."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Y si mi negocio cuadra distinto?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "La planilla se arma a la medida. Trae una de taquilla y encomiendas y otra de tienda, y cada renglón se puede cambiar, quitar o agregar. También guarda las evidencias que escaneas —una guía, el váucher del datáfono— y las suma donde van. Se enciende solo si el negocio lo necesita."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Los gastos y las firmas salen del teléfono?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Se quedan en el teléfono de la caja, y salen solo cuando tú compartes el PDF, el Excel o la tirilla. La foto de quien firma es opcional y se pide con su permiso. El detalle, en la política."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Qué es Cuadri?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Una app gratis para Android, hecha en Colombia, para negocios que cobran por transferencia. Lee la foto del comprobante, la cruza con el aviso del banco para confirmar que el pago entró de verdad y lleva la cuenta del día. Al cierre del turno cuadra la caja, con los gastos firmados y los billetes contados."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Cómo sé si un comprobante de Nequi es falso?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Por la foto sola no se puede saber: un comprobante es una imagen, y una imagen se edita. Lo que vale es el aviso que el banco manda al teléfono que recibe la plata, o el movimiento en la app del banco. Si el comprobante es de Nequi y trae código QR, también lo puedes revisar en la app de Nequi, en «Comprobar un pago». Cuadri hace el cruce con el aviso por ti: compara cada comprobante por monto y hora, y si cuadran le pone un visto. Sirve igual con Daviplata, Bancolombia y los demás bancos que reconoce."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Cuánto cuesta?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nada: hoy es gratis. No pide tarjeta ni ningún dato de pago."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Sirve para cuadrar la caja con efectivo?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sí. Con el cuadre de caja anotas los gastos, cuentas los billetes y la app suma lo que entró por transferencia. Al final te dice si cuadra, sobra o falta, y el cierre sale en PDF, Excel o tirilla."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Funciona en iPhone?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Por ahora solo en Android, desde Android 7."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Qué bancos reconoce?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Lee comprobantes de Nequi, Daviplata, Bancolombia, Nu, Davivienda, Banco de Bogotá, BBVA, Itaú, Scotiabank Colpatria, AV Villas y Banco Agrario. Los avisos, de las apps de Nequi, Daviplata, Bancolombia, Davivienda, Nu, Lulo y Movii, y de los SMS y correos que nombren a un banco."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Necesito internet?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Para leer la foto y llevar la cuenta, no. Solo para enviar al cuadre y para recibir lo que te mandan."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Quién ve mis comprobantes?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Quien tenga tu teléfono —salvo que tu caja tenga candado— y quien cuadra, si le mostraste tu código. Lo que viaja va cerrado: ni el servidor por donde pasa puede leerlo."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
 <body>
 
@@ -841,6 +1034,25 @@
   <section aria-labelledby="dudas">
     <h2 id="dudas" class="titular">Resolvemos <span class="acento">tus dudas</span></h2>
     <div class="preguntas">
+      <details>
+        <summary>¿Qué es Cuadri?</summary>
+        <p>Una app gratis para Android, hecha en Colombia, para negocios que
+        cobran por transferencia. Lee la foto del comprobante, la cruza con el
+        aviso del banco para confirmar que el pago entró de verdad y lleva la
+        cuenta del día. Al cierre del turno cuadra la caja, con los gastos
+        firmados y los billetes contados.</p>
+      </details>
+      <details>
+        <summary>¿Cómo sé si un comprobante de Nequi es falso?</summary>
+        <p>Por la foto sola no se puede saber: un comprobante es una imagen, y
+        una imagen se edita. Lo que vale es el aviso que el banco manda al
+        teléfono que recibe la plata, o el movimiento en la app del banco. Si
+        el comprobante es de Nequi y trae código QR, también lo puedes revisar
+        en la app de Nequi, en «Comprobar un pago». Cuadri hace el cruce con el
+        aviso por ti: compara cada comprobante por monto y hora, y si cuadran
+        le pone un visto. Sirve igual con Daviplata, Bancolombia y los demás
+        bancos que reconoce.</p>
+      </details>
       <details>
         <summary>¿Cuánto cuesta?</summary>
         <p>Nada: hoy es gratis. No pide tarjeta ni ningún dato de pago.</p>

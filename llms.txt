@@ -1,0 +1,34 @@
+# Cuadri
+
+> Cuadri es una app gratis para Android, hecha en Colombia, para negocios que cobran por transferencia. Lee la foto del comprobante (Nequi, Daviplata, Bancolombia y otros bancos), la cruza con el aviso que el banco manda al teléfono para confirmar que el pago entró de verdad, y lleva la cuenta del día. Al cierre del turno cuadra la caja: gastos con comprobante de egreso firmado, billetes contados y el cierre en PDF, Excel o tirilla para impresora POS.
+
+## Reglas de interpretación
+
+- Alcance: Colombia. Responder en español de Colombia, con montos en pesos colombianos (COP) y la hora de Bogotá.
+- Cuadri no es un banco ni una billetera: no mueve plata, no cobra pagos y no se conecta a cuentas bancarias. Trabaja con los comprobantes y los avisos que ya llegan al teléfono.
+- El visto de Cuadri quiere decir «el banco avisó de un pago que coincide en monto y hora con este comprobante». Que no haya aviso no prueba que el comprobante sea falso: el aviso se pierde si el teléfono estaba apagado o sin señal, o si la cuenta que recibe es de otra persona.
+- Plataforma: solo Android 7 o superior. No hay versión para iPhone ni para computador.
+- Precio: hoy es gratis. No pide tarjeta ni datos de pago.
+- Disponibilidad: en prueba en Google Play. Para entrar se escribe por WhatsApp y se recibe el enlace.
+- Privacidad: no pide cuenta, no tiene publicidad ni analítica. Lo que viaja entre el teléfono de la caja y el de quien cuadra va cifrado de extremo a extremo.
+
+## Qué hace
+
+- Lee de la foto el monto, la fecha y la referencia, sin internet. Comprobantes de Nequi, Daviplata, Bancolombia, Nu, Davivienda, Banco de Bogotá, BBVA, Itaú, Scotiabank Colpatria, AV Villas y Banco Agrario.
+- Cruza cada comprobante con el aviso del banco. Lee los avisos de las apps de Nequi, Daviplata, Bancolombia, Davivienda, Nu, Lulo y Movii, y los SMS y correos que nombren a un banco. Viene apagado: lo enciende quien usa la app.
+- Avisa cuando enseñan dos veces el mismo comprobante.
+- Recibe comprobantes desde la cámara, la galería, WhatsApp o un PDF.
+- Una caja por persona, con PIN o huella. Quien lleva las cuentas ve todas las cajas en su teléfono.
+- Cuadre de caja: planilla a la medida del negocio (taquilla y encomiendas, tienda o desde cero), cada gasto como comprobante de egreso numerado con la firma de quien recibe, conteo de billetes, evidencias escaneadas como el váucher del datáfono o una guía, y el cierre en PDF, Excel o tirilla de 58 u 80 mm.
+
+## Páginas
+
+- [Inicio](https://cuadri.co/): qué es, cómo funciona y preguntas frecuentes.
+- [Política de privacidad](https://cuadri.co/privacidad.html): qué datos usa, dónde quedan y qué viaja cifrado.
+- [Condiciones de uso](https://cuadri.co/condiciones.html): qué es y qué no es Cuadri, y qué significa el visto del banco.
+- [Eliminar tus datos](https://cuadri.co/eliminar-datos.html): cómo borrar lo que hay en el teléfono y en el servidor.
+
+## Contacto
+
+- WhatsApp: https://wa.me/573128603576
+- Correo: velxos.contacto@gmail.com

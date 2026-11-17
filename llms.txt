@@ -24,9 +24,9 @@
 ## Páginas
 
 - [Inicio](https://cuadri.co/): qué es, cómo funciona y preguntas frecuentes.
-- [Política de privacidad](https://cuadri.co/privacidad.html): qué datos usa, dónde quedan y qué viaja cifrado.
-- [Condiciones de uso](https://cuadri.co/condiciones.html): qué es y qué no es Cuadri, y qué significa el visto del banco.
-- [Eliminar tus datos](https://cuadri.co/eliminar-datos.html): cómo borrar lo que hay en el teléfono y en el servidor.
+- [Política de privacidad](https://cuadri.co/privacidad): qué datos usa, dónde quedan y qué viaja cifrado.
+- [Condiciones de uso](https://cuadri.co/condiciones): qué es y qué no es Cuadri, y qué significa el visto del banco.
+- [Eliminar tus datos](https://cuadri.co/eliminar-datos): cómo borrar lo que hay en el teléfono y en el servidor.
 
 ## Contacto
 

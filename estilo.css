@@ -112,9 +112,9 @@ header .marca {
   margin-bottom: 22px;
 }
 header .marca img {
-  width: 34px;
-  height: 34px;
-  border-radius: 9px;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, .22);
 }
 header .marca span {
@@ -399,7 +399,7 @@ footer {
   gap: 10px;
   margin-bottom: 12px;
 }
-.pie .marca img { width: 30px; height: 30px; border-radius: 8px; }
+.pie .marca img { width: 36px; height: 36px; border-radius: 9px; }
 .pie .marca span {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
@@ -1267,4 +1267,4 @@ header .acento { color: #A8EBCF; }
   font-weight: 600;
   font-size: 16px;
 }
-.barra .marca img { width: 30px; height: 30px; border-radius: 8px; }
+.barra .marca img { width: 34px; height: 34px; border-radius: 9px; }

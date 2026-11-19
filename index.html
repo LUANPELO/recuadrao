@@ -1216,13 +1216,13 @@
   // paso: lo que avanza el pie en un cuadro del video. frente: lo que asoma
   // caminando por delante del ancla. ala: lo que ocupa sentado (y saludando)
   // a la derecha del ancla. alto: el aire que se le deja encima del piso.
-  const M = Object.values(MODOS).find((m) => matchMedia(m.cuando).matches);
+  const elegir = () => Object.values(MODOS).find((m) => matchMedia(m.cuando).matches);
+  let M = elegir();
   const texto = document.querySelector('.portada-texto');
   const nombre = texto && texto.querySelector('.marca span');
   const logo = texto && texto.querySelector('.marca img');
   const banco = texto && texto.querySelector('.banco');
   if (!M || !banco || !nombre || !logo || !window.requestAnimationFrame) return;
-  const ancho = matchMedia(M.cuando);
   const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const COLS = 10;
@@ -1232,7 +1232,7 @@
   const RAPIDO = 26, FPS = 12;
   const BAJA = .2;        // cuánto baja al sentarse en «cuadre,», en fracción de la letra
 
-  let g, capa, capas = {}, t0 = null, vivo = false, pedido = 0, visible = true;
+  let g, capa, capas = {}, t0 = null, vivo = false, agenda = 0, visible = true, ultimo = '';
   let anduvo = false;
   try { anduvo = sessionStorage.getItem('cuadri-anduvo') === '1'; } catch (e) {}
 
@@ -1285,6 +1285,18 @@
              sienta: (cuadros + 1) / RAPIDO + 2 / FPS + HOJAS.sienta / FPS };
   }
 
+  function vestir() {
+    for (const [n, cuantos] of Object.entries(HOJAS)) {
+      // Con menos movimiento solo se usa, y solo se baja, la de reposo.
+      const usa = !quieto || n === 'reposo';
+      Object.assign(capas[n].style, {
+        width: M.celda[0] + 'px', height: M.celda[1] + 'px',
+        backgroundImage: usa ? `url(img/cuadri-${n}${M.sufijo}.webp)` : 'none',
+        backgroundSize: `${COLS * M.celda[0]}px ${Math.ceil(cuantos / COLS) * M.celda[1]}px`,
+      });
+    }
+  }
+
   function ubicar() {
     Object.assign(capa.style, {
       left: g.linea + 'px', top: (g.piso - M.alto) + 'px',
@@ -1294,6 +1306,10 @@
   }
 
   function pintar(hoja, celda, x, dy) {
+    // Si no cambió nada desde la última vez, no se toca nada.
+    const clave = `${hoja} ${celda} ${x} ${dy}`;
+    if (clave === ultimo) return;
+    ultimo = clave;
     for (const n in capas) capas[n].style.opacity = n === hoja ? '1' : '0';
     const c = capas[hoja];
     c.style.backgroundPosition =
@@ -1303,23 +1319,39 @@
   }
 
   function cuadro(ahora) {
-    pedido = 0;
+    agenda = 0;
     if (t0 === null) t0 = ahora;
     const t = (ahora - t0) / 1000;
+    let proximo = null;   // cuándo cambia algo, si no es ya en el próximo cuadro
     if (t < g.mueve) {
       const j = Math.floor(t * RAPIDO);
       const celda = j < g.vueltas * CICLO ? j % CICLO : j - g.vueltas * CICLO;
       pintar('camina', celda, g.inicio + g.paso * Math.min(t * RAPIDO, g.cuadros), 0);
     } else if (t < g.gira) {
-      pintar('camina', REMATE + 1 + Math.min(1, Math.floor((t - g.mueve) * FPS)), g.fin, 0);
+      const k = Math.min(1, Math.floor((t - g.mueve) * FPS));
+      pintar('camina', REMATE + 1 + k, g.fin, 0);
+      proximo = Math.min(g.gira, g.mueve + (k + 1) / FPS);
     } else if (t < g.sienta) {
       const celda = Math.min(HOJAS.sienta - 1, Math.floor((t - g.gira) * FPS));
       // Se agacha entre los cuadros 11 y 16 de esta hoja.
       pintar('sienta', celda, g.fin, g.baja * Math.min(1, Math.max(0, (celda - 11) / 5)));
+      proximo = Math.min(g.sienta, g.gira + (celda + 1) / FPS);
     } else {
-      pintar('reposo', Math.floor((t - g.sienta) * FPS) % HOJAS.reposo, g.fin, g.baja);
+      const k = Math.floor((t - g.sienta) * FPS);
+      pintar('reposo', k % HOJAS.reposo, g.fin, g.baja);
+      proximo = g.sienta + (k + 1) / FPS;
     }
-    if (vivo && visible) pedido = requestAnimationFrame(cuadro);
+    if (!vivo || !visible) return;
+    // Caminando se pinta en cada cuadro de la pantalla, para que se deslice
+    // suave. En su sitio solo cambia 12 veces por segundo: se espera a que
+    // toque, en vez de despertar al teléfono 60 veces por segundo.
+    agenda = proximo === null
+      ? requestAnimationFrame(cuadro)
+      : setTimeout(() => { agenda = 0; reanudar(); }, (proximo - t) * 1000 + 1);
+  }
+
+  function reanudar() {
+    if (!agenda && vivo && visible) agenda = requestAnimationFrame(cuadro);
   }
 
   function sentado() {
@@ -1334,20 +1366,38 @@
     capa = document.createElement('div');
     capa.setAttribute('aria-hidden', 'true');
     Object.assign(capa.style, { position: 'absolute', overflow: 'hidden', pointerEvents: 'none' });
-    for (const [n, cuantos] of Object.entries(HOJAS)) {
+    for (const n of Object.keys(HOJAS)) {
       const c = document.createElement('div');
-      Object.assign(c.style, {
-        position: 'absolute', left: 0, top: 0,
-        width: M.celda[0] + 'px', height: M.celda[1] + 'px',
-        backgroundImage: `url(img/cuadri-${n}${M.sufijo}.webp)`, backgroundRepeat: 'no-repeat',
-        backgroundSize: `${COLS * M.celda[0]}px ${Math.ceil(cuantos / COLS) * M.celda[1]}px`,
-        opacity: 0,
-      });
+      Object.assign(c.style, { position: 'absolute', left: 0, top: 0, backgroundRepeat: 'no-repeat', opacity: 0 });
       capa.appendChild(c);
       capas[n] = c;
     }
+    vestir();
     ubicar();
     texto.appendChild(capa);
+    // Al cambiar el ancho se vuelve a medir y, si iba caminando, queda
+    // sentado. Si pasa de un modo al otro (girar el teléfono, por ejemplo),
+    // se viste con las hojas del otro tamaño y aparece sentado en su sitio
+    // nuevo. Va antes de lo demás porque también le toca al que está quieto.
+    let espera = 0;
+    addEventListener('resize', () => {
+      cancelAnimationFrame(espera);
+      espera = requestAnimationFrame(() => {
+        const otro = elegir();
+        const cambio = otro !== M;
+        if (cambio) { M = otro; vestir(); }
+        const nuevo = M && medir();
+        capa.hidden = !nuevo;
+        if (!nuevo) return;
+        const caminando = t0 !== null && (performance.now() - t0) / 1000 < g.sienta;
+        g = nuevo;
+        ubicar();
+        ultimo = '';   // con otras medidas hay que volver a pintar
+        if (caminando || cambio) sentado();
+        if (quieto) pintar('reposo', 0, g.fin, g.baja);
+        else reanudar();
+      });
+    });
     if (quieto) {
       pintar('reposo', 0, g.fin, g.baja);
       return;
@@ -1357,32 +1407,13 @@
     if (anduvo || window.scrollY > 200) sentado();
     try { sessionStorage.setItem('cuadri-anduvo', '1'); } catch (e) {}
     vivo = true;
-    pedido = requestAnimationFrame(cuadro);
+    reanudar();
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(([e]) => {
         visible = e.isIntersecting;
-        if (visible && vivo && !pedido) pedido = requestAnimationFrame(cuadro);
+        reanudar();
       }).observe(capa);
     }
-    // Al girar el teléfono o cambiar el ancho: si sigue en el mismo modo, se
-    // vuelve a medir y queda sentado; si cambió, se esconde (sus hojas son
-    // las del otro tamaño).
-    let espera = 0;
-    addEventListener('resize', () => {
-      cancelAnimationFrame(espera);
-      espera = requestAnimationFrame(() => {
-        capa.hidden = !ancho.matches;
-        if (capa.hidden) return;
-        const nuevo = medir();
-        if (!nuevo) { capa.hidden = true; return; }
-        const caminando = t0 !== null && (performance.now() - t0) / 1000 < g.sienta;
-        g = nuevo;
-        ubicar();
-        if (caminando) sentado();
-        if (quieto) pintar('reposo', 0, g.fin, g.baja);
-        else if (!pedido && visible) pedido = requestAnimationFrame(cuadro);
-      });
-    });
   }
 
   addEventListener('load', () => {

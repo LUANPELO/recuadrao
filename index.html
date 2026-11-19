@@ -218,7 +218,7 @@
         <img src="icono.png" alt="">
         <span>Cuadri</span>
       </div>
-      <h1>Del comprobante al cuadre,<br class="solo-ancho">
+      <h1>Del comprobante al <span class="banco">cuadre,</span><br class="solo-ancho">
       <span class="acento">sin apuntar nada a mano</span></h1>
       <p>Tomas la foto. La app lee el monto, lleva la cuenta del día, se la
       manda a quien cuadra y espera a que el banco confirme que el pago entró
@@ -505,7 +505,9 @@
     const desde = cifra, inicio = performance.now(), suyo = turno;
     const paso = ahora => {
       if (suyo !== turno) return listo();
-      const t = Math.min(1, (ahora - inicio) / ms);
+      // El navegador puede fechar el cuadro un pelo antes de `inicio`: sin el
+      // max, el avance salía negativo y la curva lo volvía un total negativo.
+      const t = Math.min(1, Math.max(0, (ahora - inicio) / ms));
       escribir(desde + (hasta - desde) * (1 - (1 - t) ** 3));
       t < 1 ? requestAnimationFrame(paso) : listo();
     };
@@ -1178,6 +1180,222 @@
     barra.setAttribute('aria-hidden', String(!ver));
     for (const a of barra.querySelectorAll('a')) a.tabIndex = ver ? 0 : -1;
   }, { rootMargin: '-64px 0px 0px 0px' }).observe(portada);
+})();
+</script>
+<script>
+// Cuadri sale de detrás de su nombre, camina y se sienta. Ahí se queda, en
+// reposo, hasta que se recarga la página. Dónde se sienta depende del ancho:
+//
+// - Desde 621 px, en «cuadre,». Camina por encima del titular, que ahí
+//   tiene el primer renglón fijo: «Del comprobante al cuadre,».
+// - En el celular, en la otra punta de la fila del logo. Ahí el titular
+//   cambia de renglones con cada teléfono y «cuadre,» suele quedar al empezar
+//   el segundo, donde sentado taparía el primero. Camina sobre la línea de
+//   abajo del ícono y se sienta a la derecha, más chico: lo mismo que lleva
+//   la cabecera de la app.
+//
+// - Camina una vez por visita: si vuelve a la página en la misma pestaña, ya
+//   está sentado.
+// - Con menos movimiento pedido aparece sentado y quieto, y solo se baja esa
+//   hoja. Muchos Xiaomi y TECNO lo piden solos al ahorrar batería.
+// - Se piden solo las hojas de ese ancho (460 KB en pantalla ancha, 280 KB en
+//   el celular), y cuando ya cargó todo lo demás: no frenan lo primero que se
+//   ve.
+// - Fuera de la vista no se mueve nada.
+//
+// Las hojas salen del video con tool/animacion/construir.py, en la app; de
+// ahí vienen celda, ancla y paso. El ancla es el centro del cuerpo visto de
+// frente, a la altura de las plantas.
+(() => {
+  const MODOS = {
+    titular: { cuando: '(min-width: 621px)', sufijo: '',
+      celda: [102, 88], ancla: [52.96, 86.09], paso: 2.03, frente: 33, alto: 112, ala: 52 },
+    fila: { cuando: '(max-width: 620px)', sufijo: '-chico',
+      celda: [70, 62], ancla: [36.57, 59.45], paso: 1.40, frente: 23, alto: 76, ala: 34 },
+  };
+  // paso: lo que avanza el pie en un cuadro del video. frente: lo que asoma
+  // caminando por delante del ancla. ala: lo que ocupa sentado (y saludando)
+  // a la derecha del ancla. alto: el aire que se le deja encima del piso.
+  const M = Object.values(MODOS).find((m) => matchMedia(m.cuando).matches);
+  const texto = document.querySelector('.portada-texto');
+  const nombre = texto && texto.querySelector('.marca span');
+  const logo = texto && texto.querySelector('.marca img');
+  const banco = texto && texto.querySelector('.banco');
+  if (!M || !banco || !nombre || !logo || !window.requestAnimationFrame) return;
+  const ancho = matchMedia(M.cuando);
+  const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const COLS = 10;
+  const HOJAS = { camina: 26, sienta: 52, reposo: 51 };
+  const CICLO = 14;       // la caminata repite los cuadros 7 a 20…
+  const REMATE = 23;      // …y remata del 7 al 30, donde se para
+  const RAPIDO = 26, FPS = 12;
+  const BAJA = .2;        // cuánto baja al sentarse en «cuadre,», en fracción de la letra
+
+  let g, capa, capas = {}, t0 = null, vivo = false, pedido = 0, visible = true;
+  let anduvo = false;
+  try { anduvo = sessionStorage.getItem('cuadri-anduvo') === '1'; } catch (e) {}
+
+  function enElTitular(caja) {
+    const t = banco.firstChild;
+    const r = document.createRange();
+    r.setStart(t, 0); r.setEnd(t, t.length);
+    const palabra = r.getBoundingClientRect();
+    r.setStart(t, t.length - 3);
+    const remate = r.getBoundingClientRect();   // «re,»: ahí se sienta
+    // Si «cuadre,» no quedó en el primer renglón, no hay dónde sentarlo.
+    const h1 = banco.parentElement.firstChild;
+    r.setStart(h1, 0); r.setEnd(h1, 1);
+    if (Math.abs(r.getBoundingClientRect().top - palabra.top) > 2) return null;
+    const e = getComputedStyle(banco);
+    const ctx = document.createElement('canvas').getContext('2d');
+    ctx.font = `${e.fontWeight} ${e.fontSize} ${e.fontFamily}`;
+    const d = ctx.measureText('d'), x = ctx.measureText('x');
+    const base = palabra.top + (d.fontBoundingBoxAscent || palabra.height * .75);
+    // Camina sobre las minúsculas (la o, la r): por encima de las altas se
+    // veía flotando, porque casi todas las letras son bajitas. Al sentarse
+    // baja un poco más y las piernas le cuelgan por delante de la palabra.
+    return {
+      piso: base - x.actualBoundingBoxAscent - caja.top,
+      baja: parseFloat(e.fontSize) * BAJA,
+      fin: remate.left + remate.width / 2 - caja.left,
+    };
+  }
+
+  function enLaFila(caja) {
+    // Sobre la línea de abajo del ícono, y sentado en la punta derecha de la
+    // columna, con el saludo adentro: si se sale, la página se corre de lado.
+    return { piso: logo.getBoundingClientRect().bottom - caja.top, baja: 0, fin: caja.width - M.ala };
+  }
+
+  function medir() {
+    const caja = texto.getBoundingClientRect();
+    const sitio = M === MODOS.titular ? enElTitular(caja) : enLaFila(caja);
+    if (!sitio) return null;
+    const { piso, baja, fin } = sitio;
+    const linea = nombre.getBoundingClientRect().right + 12 - caja.left;
+    if (fin - linea < 60) return null;
+    const inicio = linea - M.frente;
+    // Las vueltas del ciclo que hagan falta para que el pie casi no patine.
+    const vueltas = Math.max(0, Math.round(((fin - inicio) / (M.paso * 1.3) - REMATE) / CICLO));
+    const cuadros = vueltas * CICLO + REMATE;
+    return { piso, baja, linea, inicio, fin, vueltas, cuadros, columna: caja.width,
+             paso: (fin - inicio) / cuadros,
+             mueve: (cuadros + 1) / RAPIDO, gira: (cuadros + 1) / RAPIDO + 2 / FPS,
+             sienta: (cuadros + 1) / RAPIDO + 2 / FPS + HOJAS.sienta / FPS };
+  }
+
+  function ubicar() {
+    Object.assign(capa.style, {
+      left: g.linea + 'px', top: (g.piso - M.alto) + 'px',
+      width: (Math.min(g.fin + M.ala, g.columna) - g.linea) + 'px',
+      height: (M.alto + g.baja + 6) + 'px',
+    });
+  }
+
+  function pintar(hoja, celda, x, dy) {
+    for (const n in capas) capas[n].style.opacity = n === hoja ? '1' : '0';
+    const c = capas[hoja];
+    c.style.backgroundPosition =
+      `${-(celda % COLS) * M.celda[0]}px ${-Math.floor(celda / COLS) * M.celda[1]}px`;
+    c.style.transform =
+      `translate(${x - M.ancla[0] - g.linea}px, ${M.alto + dy - M.ancla[1]}px)`;
+  }
+
+  function cuadro(ahora) {
+    pedido = 0;
+    if (t0 === null) t0 = ahora;
+    const t = (ahora - t0) / 1000;
+    if (t < g.mueve) {
+      const j = Math.floor(t * RAPIDO);
+      const celda = j < g.vueltas * CICLO ? j % CICLO : j - g.vueltas * CICLO;
+      pintar('camina', celda, g.inicio + g.paso * Math.min(t * RAPIDO, g.cuadros), 0);
+    } else if (t < g.gira) {
+      pintar('camina', REMATE + 1 + Math.min(1, Math.floor((t - g.mueve) * FPS)), g.fin, 0);
+    } else if (t < g.sienta) {
+      const celda = Math.min(HOJAS.sienta - 1, Math.floor((t - g.gira) * FPS));
+      // Se agacha entre los cuadros 11 y 16 de esta hoja.
+      pintar('sienta', celda, g.fin, g.baja * Math.min(1, Math.max(0, (celda - 11) / 5)));
+    } else {
+      pintar('reposo', Math.floor((t - g.sienta) * FPS) % HOJAS.reposo, g.fin, g.baja);
+    }
+    if (vivo && visible) pedido = requestAnimationFrame(cuadro);
+  }
+
+  function sentado() {
+    // Directo al reposo, sin caminar.
+    t0 = performance.now() - g.sienta * 1000;
+  }
+
+  function arrancar() {
+    g = medir();
+    if (!g) return;
+    if (getComputedStyle(texto).position === 'static') texto.style.position = 'relative';
+    capa = document.createElement('div');
+    capa.setAttribute('aria-hidden', 'true');
+    Object.assign(capa.style, { position: 'absolute', overflow: 'hidden', pointerEvents: 'none' });
+    for (const [n, cuantos] of Object.entries(HOJAS)) {
+      const c = document.createElement('div');
+      Object.assign(c.style, {
+        position: 'absolute', left: 0, top: 0,
+        width: M.celda[0] + 'px', height: M.celda[1] + 'px',
+        backgroundImage: `url(img/cuadri-${n}${M.sufijo}.webp)`, backgroundRepeat: 'no-repeat',
+        backgroundSize: `${COLS * M.celda[0]}px ${Math.ceil(cuantos / COLS) * M.celda[1]}px`,
+        opacity: 0,
+      });
+      capa.appendChild(c);
+      capas[n] = c;
+    }
+    ubicar();
+    texto.appendChild(capa);
+    if (quieto) {
+      pintar('reposo', 0, g.fin, g.baja);
+      return;
+    }
+    // Si la portada no está a la vista (llegó con un enlace a otra parte),
+    // tampoco camina: ya está sentado cuando suba.
+    if (anduvo || window.scrollY > 200) sentado();
+    try { sessionStorage.setItem('cuadri-anduvo', '1'); } catch (e) {}
+    vivo = true;
+    pedido = requestAnimationFrame(cuadro);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([e]) => {
+        visible = e.isIntersecting;
+        if (visible && vivo && !pedido) pedido = requestAnimationFrame(cuadro);
+      }).observe(capa);
+    }
+    // Al girar el teléfono o cambiar el ancho: si sigue en el mismo modo, se
+    // vuelve a medir y queda sentado; si cambió, se esconde (sus hojas son
+    // las del otro tamaño).
+    let espera = 0;
+    addEventListener('resize', () => {
+      cancelAnimationFrame(espera);
+      espera = requestAnimationFrame(() => {
+        capa.hidden = !ancho.matches;
+        if (capa.hidden) return;
+        const nuevo = medir();
+        if (!nuevo) { capa.hidden = true; return; }
+        const caminando = t0 !== null && (performance.now() - t0) / 1000 < g.sienta;
+        g = nuevo;
+        ubicar();
+        if (caminando) sentado();
+        if (quieto) pintar('reposo', 0, g.fin, g.baja);
+        else if (!pedido && visible) pedido = requestAnimationFrame(cuadro);
+      });
+    });
+  }
+
+  addEventListener('load', () => {
+    const cargar = (n) => new Promise((listo) => {
+      const im = new Image();
+      im.onload = () => (im.decode ? im.decode().catch(() => {}) : Promise.resolve()).then(() => listo(true));
+      im.onerror = () => listo(false);
+      im.src = `img/cuadri-${n}${M.sufijo}.webp`;
+    });
+    const hojas = quieto ? ['reposo'] : Object.keys(HOJAS);
+    Promise.all([...hojas.map(cargar), document.fonts ? document.fonts.ready : null])
+      .then((ok) => { if (ok.slice(0, hojas.length).every(Boolean)) arrancar(); });
+  });
 })();
 </script>
 

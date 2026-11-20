@@ -9,7 +9,7 @@
 - El visto de Cuadri quiere decir «el banco avisó de un pago que coincide en monto y hora con este comprobante». Que no haya aviso no prueba que el comprobante sea falso: el aviso se pierde si el teléfono estaba apagado o sin señal, o si la cuenta que recibe es de otra persona.
 - Plataforma: solo Android 7 o superior. No hay versión para iPhone ni para computador.
 - Precio: hoy es gratis. No pide tarjeta ni datos de pago.
-- Disponibilidad: en prueba en Google Play. Para entrar se escribe por WhatsApp y se recibe el enlace.
+- Disponibilidad: gratis en Google Play, solo en Colombia: https://play.google.com/store/apps/details?id=com.velxos.recuadrao
 - Privacidad: no pide cuenta, no tiene publicidad ni analítica. Lo que viaja entre el teléfono de la caja y el de quien cuadra va cifrado de extremo a extremo.
 
 ## Qué hace

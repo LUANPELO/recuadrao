@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>/* Las direcciones viejas (GitHub, .html) se ven limpias: */if(/\.html$/.test(location.pathname))history.replaceState(null,"",location.pathname.replace(/(index)?\.html$/,"")+location.search+location.hash)</script>
+<script>if(/\.html$/.test(location.pathname))history.replaceState(null,"",location.pathname.replace(/(index)?\.html$/,"")+location.search+location.hash)</script>
 <title>Cuadri: verifica comprobantes de pago y cuadra la caja</title>
 <meta name="description" content="Toma la foto del comprobante de Nequi, Daviplata o Bancolombia y el aviso del banco te confirma si el pago entró. Al cierre, la caja cuadra. Gratis, para Android.">
 <link rel="canonical" href="https://cuadri.co/">
@@ -24,13 +24,7 @@
 <link rel="icon" href="/favicon.ico?v=2" sizes="any">
 <link rel="icon" href="/favicon.png?v=2" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<!-- La versión va en el nombre porque GitHub guarda el CSS diez minutos: una
-     página nueva con el CSS viejo se sale de la pantalla. Cambiarla con cada
-     cambio de estilo.css, también en las otras páginas. -->
-<link rel="stylesheet" href="estilo.css?v=20261117b">
-<!-- Datos estructurados: lo mismo que dice la página, para buscadores y
-     asistentes. Las preguntas salen de las de abajo; si cambias una, cambia
-     también esta. -->
+<link rel="stylesheet" href="estilo.css?v=20261119b">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -70,6 +64,8 @@
    "@id": "https://cuadri.co/#app",
    "name": "Cuadri",
    "url": "https://cuadri.co/",
+   "downloadUrl": "https://play.google.com/store/apps/details?id=com.velxos.recuadrao",
+   "installUrl": "https://play.google.com/store/apps/details?id=com.velxos.recuadrao",
    "description": "App gratis para Android, hecha en Colombia, para negocios que cobran por transferencia. Lee la foto del comprobante de Nequi, Daviplata, Bancolombia y otros bancos, la cruza con el aviso del banco para confirmar que el pago entró de verdad y lleva la cuenta del día. Al cierre del turno cuadra la caja: gastos con comprobante de egreso firmado, billetes contados y el cierre en PDF, Excel o tirilla.",
    "operatingSystem": "Android 7.0 o superior",
    "applicationCategory": "BusinessApplication",
@@ -224,11 +220,8 @@
       manda a quien cuadra y espera a que el banco confirme que el pago entró
       de verdad. Y al cierre, suma los gastos y el efectivo y te dice si la
       caja cuadra.</p>
-      <a class="boton" href="https://wa.me/573128603576?text=Hola%2C%20quiero%20probar%20Cuadri.%20Mi%20Gmail%20es%3A%20">
-        <svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.41 3.48C18.16 1.23 15.16 0 12 0C5.46 0 0.11 5.36 0.11 11.89C0.11 13.98 0.64 16.02 1.71 17.84L0 24L6.32 22.34C8.04 23.3 10.02 23.79 12 23.79L12 23.79C18.54 23.79 24 18.48 24 11.89C24 8.73 22.66 5.73 20.41 3.48ZM12 21.8C10.23 21.8 8.46 21.32 6.96 20.41L6.59 20.2L2.84 21.16L3.86 17.52L3.64 17.14C2.63 15.59 2.09 13.77 2.09 11.89C2.09 6.43 6.54 2.04 12 2.04C14.63 2.04 17.14 3.05 18.96 4.93C20.84 6.8 22.02 9.27 22.02 11.89C22.02 17.36 17.46 21.8 12 21.8ZM17.41 14.41C17.14 14.25 15.64 13.5 15.37 13.45C15.11 13.34 14.89 13.29 14.73 13.55C14.52 13.87 13.93 14.52 13.77 14.73C13.61 14.95 13.45 14.95 13.13 14.84C11.41 13.93 10.23 13.23 9.11 11.3C8.79 10.77 9.37 10.77 9.96 9.64C10.07 9.48 10.02 9.27 9.91 9.16C9.86 9 9.27 7.5 9 6.91C8.79 6.37 8.52 6.43 8.36 6.43C8.2 6.43 7.98 6.43 7.77 6.43C7.61 6.43 7.29 6.48 6.96 6.8C6.7 7.07 5.95 7.82 5.95 9.27C5.95 10.71 7.02 12.16 7.18 12.32C7.29 12.54 9.27 15.54 12.21 16.82C14.14 17.63 14.84 17.73 15.8 17.57C16.39 17.46 17.57 16.87 17.79 16.18C18.05 15.48 18.05 14.84 18 14.73C17.89 14.63 17.73 14.52 17.41 14.41Z"/></svg>
-        Quiero probarla
-      </a>
-      <p class="nota">Android · Gratis mientras está en prueba · Te agregamos por WhatsApp</p>
+      <a class="insignia-play" href="https://play.google.com/store/apps/details?id=com.velxos.recuadrao"><img src="/img/google-play.webp" alt="Disponible en Google Play" width="189" height="56"></a>
+      <p class="nota">Gratis · Android · Sin crear cuenta</p>
     </div>
     <div class="portada-foto">
       <div class="telefono">
@@ -287,32 +280,12 @@
 </header>
 
 <script>
-// La portada se mueve como un día corto en la caja: se aprieta la cámara,
-// entra el comprobante, el total se suma y al rato llega el visto del banco.
-// Al final alguien enseña otra vez el último, y la app lo tacha sin sumarlo.
-// Una pausa para mirarlo, y vuelta a empezar.
-//
-// Y se puede tocar: con el mouse encima, o al primer toque, la caja se llena
-// de una vez, y cada comprobante se abre con su detalle de la app, como se
-// abre en el teléfono.
-//
-// Va aquí y no al final para vaciar la caja antes de que se pinte: si no, se
-// vería llena un instante y luego vacía.
-//
-// Con el movimiento reducido el día se cuenta igual, pero sin que nada se
-// mueva: cada comprobante aparece con un fundido, el total suma y el visto
-// aparece. Antes se quedaba llena y quieta, y en muchos Xiaomi y TECNO —que
-// piden menos movimiento solos al ahorrar batería— la portada parecía muerta.
 (() => {
   const caja = document.querySelector('.caja-viva');
   if (!caja) return;
-  // Sin animaciones en el navegador, la caja se queda llena y quieta.
   const quieta = !caja.animate;
-  // Menos movimiento: fundidos sí, desplazamientos y saltos no.
   const suave = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Lo que se resalta en el detalle de cada comprobante, en porcentajes de
-  // la imagen. Sale de tool/pasos.dart, como todo lo demás.
   const DETALLES = [
     {
       "src": "img/detalle_0.webp",
@@ -459,10 +432,8 @@
   const capaChip = detalle.querySelector('.detalle-chip');
   const brillo = detalle.querySelector('.detalle-brillo');
   const volver = detalle.querySelector('.detalle-volver');
-  // La pista va debajo del teléfono, no dentro: se busca en la portada.
   caja.closest('.portada-foto').querySelector('.portada-pista').hidden = false;
 
-  // Como la app: punto de miles también en las cifras de cuatro.
   const pesos = n =>
     '$' + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   const espera = ms => new Promise(listo => setTimeout(listo, ms));
@@ -472,17 +443,10 @@
   const transferencias = n => n === 0 ? 'Sin transferencias hoy'
     : n === 1 ? '1 transferencia' : `${n} transferencias`;
 
-  // --- El día que se repite -------------------------------------------
-  //
-  // Cada vuelta lleva un turno. Cuando alguien toca la caja el turno cambia,
-  // y la vuelta en curso se entera en su siguiente paso y se retira.
-
   let turno = 0;
   const PARADA = Symbol('parada');
   const sigue = t => { if (t !== turno) throw PARADA; };
 
-  // Solo mientras se ve. Fuera de pantalla o en otra pestaña se queda quieta
-  // entre un comprobante y el siguiente.
   let aLaVista = true, despertar = null;
   const mirar = () => {
     if (aLaVista && !document.hidden && despertar) { despertar(); despertar = null; }
@@ -499,14 +463,10 @@
     cifra = valor;
     total.textContent = subtotal.textContent = pesos(valor);
   };
-  // Si el día se para a mitad de una suma, la suma se para con él: si no,
-  // seguiría escribiendo encima del total de la caja llena.
   const contar = (hasta, ms) => new Promise(listo => {
     const desde = cifra, inicio = performance.now(), suyo = turno;
     const paso = ahora => {
       if (suyo !== turno) return listo();
-      // El navegador puede fechar el cuadro un pelo antes de `inicio`: sin el
-      // max, el avance salía negativo y la curva lo volvía un total negativo.
       const t = Math.min(1, Math.max(0, (ahora - inicio) / ms));
       escribir(desde + (hasta - desde) * (1 - (1 - t) ** 3));
       t < 1 ? requestAnimationFrame(paso) : listo();
@@ -531,7 +491,6 @@
     pie.textContent = transferencias(0);
   }
 
-  // La caja como queda al final del día, sin esperar a que llegue.
   function llenarYa() {
     cancelarTodo();
     for (const f of filas) { f.classList.add('entro'); f.style.opacity = 1; }
@@ -554,8 +513,6 @@
       { duration: 700, easing: 'ease-out' });
   };
 
-  // Al terminar de entrar, la fila se queda quieta por su cuenta y no por la
-  // animación: si no, la animación le ganaría al zoom del mouse.
   const entrar = fila => {
     fila.classList.add('entro');
     const a = fila.animate(suave
@@ -575,8 +532,6 @@
     { duration: suave ? 400 : 520, easing: 'cubic-bezier(.3, .7, .4, 1)',
       fill: 'forwards' });
 
-  // La app se da cuenta de que es el mismo comprobante: barre la columna de
-  // la cifra de izquierda a derecha, y debajo ya está tachado y «Repetido».
   const tachar = capa => capa.animate(suave
     ? [{ opacity: 1 }, { opacity: 0 }]
     : [{ clipPath: 'inset(0 0 0 58%)' }, { clipPath: 'inset(0 0 0 100%)' }],
@@ -597,8 +552,6 @@
       await espera(240); sigue(t);
 
       if (i === copia) {
-        // El mismo comprobante otra vez. Entra como cualquiera, y al momento
-        // se tacha y los dos quedan marcados. El total no se mueve.
         await espera(700); sigue(t);
         tachar(limpia);
         tachar(antes);
@@ -608,7 +561,6 @@
 
       suma += cifras[i];
       pie.textContent = transferencias(++cuenta);
-      // Como en la app: el subtotal del día solo sale cuando hay más de una.
       if (cuenta === 2) {
         subtotal.animate([{ opacity: 0 }, { opacity: 1 }],
           { duration: 300, fill: 'forwards' });
@@ -621,8 +573,6 @@
       }
       await contar(suma, 600); sigue(t);
 
-      // El visto llega después, cuando avisa el banco. A uno no le llega,
-      // como pasa de verdad.
       if (vistos[i]) {
         await espera(220); sigue(t);
         confirmar(vistos[i]);
@@ -650,8 +600,6 @@
     })();
   }
 
-  // --- Cuando alguien la toca -----------------------------------------
-
   let reanudar = null, mouseDentro = false, abierta = -1, precargadas = false;
 
   function precargar() {
@@ -660,7 +608,6 @@
     for (const d of DETALLES) new Image().src = d.src;
   }
 
-  // Se para el día y la caja se llena, para que se pueda escoger cualquiera.
   function quedarse() {
     clearTimeout(reanudar);
     precargar();
@@ -702,7 +649,7 @@
     ponerEn(capaRepetido, d.repetido, 24.9);
     ponerEn(volver, d.atras);
     volver.hidden = false;
-    try { await pantalla.decode(); } catch (e) { /* se ve igual al llegar */ }
+    try { await pantalla.decode(); } catch (e) { }
     if (abierta !== i) return;
     detalle.hidden = false;
     volver.focus({ preventScroll: true });
@@ -715,9 +662,6 @@
     if (abierta === i && !suave) resaltar(d);
   }
 
-  // Al llegar al detalle: la tarjeta del aviso del banco crece un momento y
-  // se ilumina por dónde avisó —app, SMS o correo—. En los repetidos, el
-  // aviso de repetido.
   async function resaltar(d) {
     const i = abierta;
     const crecer = (capa, cuanto, ms) => capa.animate(
@@ -804,9 +748,6 @@
 
 <main class="caja">
 
-  <!-- Lo primero no es la solución sino el problema: es lo que hace que
-       quien atiende una caja diga «esto es para mí». Tres, cortos, cada uno
-       con lo que hace la app en una línea. -->
   <section aria-labelledby="te-suena">
     <h2 id="te-suena" class="titular">¿Te <span class="acento">suena</span>?</h2>
     <div class="dolores">
@@ -875,7 +816,7 @@
     </ol>
   </section>
 
-  <section aria-labelledby="entro-de-verdad">
+  <section class="bloque" aria-labelledby="entro-de-verdad">
     <h2 id="entro-de-verdad" class="titular">¿Cómo sabes que la plata <span class="acento">entró de verdad</span>?</h2>
     <p class="entrada">Un comprobante es una foto, y la foto la enseña quien
     quiere cobrar. <strong>El aviso del banco no: llega solo a tu
@@ -908,10 +849,7 @@
     </div>
   </section>
 
-  <!-- Lo segundo más fuerte, después de los comprobantes: el cierre del
-       turno. Va después de «entró de verdad» a propósito: primero lo que trae
-       a la gente —el comprobante y el banco—, y luego lo que la hace quedarse. -->
-  <section aria-labelledby="al-cierre">
+  <section class="bloque" aria-labelledby="al-cierre">
     <h2 id="al-cierre" class="titular">Y al cierre, <span class="acento">la caja cuadra</span><span class="nuevo">Nuevo</span></h2>
     <p class="entrada">Los comprobantes ya se suman solos. Con el cuadre de
     caja, lo demás también: los gastos, el efectivo y el resultado del turno.
@@ -972,9 +910,6 @@
     </div>
   </section>
 
-  <!-- Lo que no son los cuatro pasos pero alguien va a preguntar. En el
-       teléfono se desliza de lado, como las tarjetas de Nequi; en
-       pantalla ancha va en rejilla. -->
   <section aria-labelledby="y-ademas">
     <h2 id="y-ademas" class="titular">Y <span class="acento">además</span></h2>
     <ul class="carrusel">
@@ -1036,8 +971,6 @@
     <a href="/privacidad">política de privacidad</a>.</p>
   </section>
 
-  <!-- Las mismas respuestas que la ayuda de la app, para que la página y
-       la app digan lo mismo. Cerradas: cada quien abre la suya. -->
   <section aria-labelledby="dudas">
     <h2 id="dudas" class="titular">Resolvemos <span class="acento">tus dudas</span></h2>
     <div class="preguntas">
@@ -1094,24 +1027,20 @@
         servidor por donde pasa puede leerlo.</p>
       </details>
       <details>
-        <summary>¿Cómo la pruebo?</summary>
-        <p>Escríbenos por WhatsApp con tu correo de Gmail. Te agregamos a la
-        prueba de Google Play y te mandamos el enlace para instalarla.</p>
+        <summary>¿Dónde la descargo?</summary>
+        <p>En <a href="https://play.google.com/store/apps/details?id=com.velxos.recuadrao">Google Play</a>, gratis. No pide cuenta: la
+        instalas y ya. Si tienes una duda, escríbenos a
+        <a href="mailto:contacto@cuadri.co?subject=Duda%20con%20Cuadri">contacto@cuadri.co</a>.</p>
       </details>
     </div>
   </section>
 
-  <!-- Las guías: lo que la gente busca, respondido a fondo. -->
   <p class="dato" style="text-align:center">Más a fondo:
   <a href="/guias/comprobante-falso">cómo saber si un comprobante es falso</a>,
   <a href="/guias/cuadre-de-caja">cómo hacer un cuadre de caja</a> y
   <a href="/guias/comprobante-de-egreso">el comprobante de egreso</a>, con
   formatos gratis.</p>
 
-  <!-- Entrar a la prueba es una conversación por WhatsApp, así que se enseña
-       como una: las tres burbujas son los tres pasos. Los datos son de
-       ejemplo, no de nadie. Va sobre el verde de la marca y con los
-       garabatos del ícono, para que no sea otra caja clarita con un botón. -->
   <div class="llamada" id="probar">
     <svg class="llamada-garabatos" viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <g fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
@@ -1123,50 +1052,25 @@
       </g>
     </svg>
     <div class="llamada-texto">
-      <h2>Pruébala <span class="acento">gratis</span></h2>
-      <p>Está en prueba en Google Play. Para entrar nos escribes por WhatsApp,
-      te agregamos y te mandamos el enlace.</p>
-      <a class="boton" href="https://wa.me/573128603576?text=Hola%2C%20quiero%20probar%20Cuadri.%20Mi%20Gmail%20es%3A%20"><svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.41 3.48C18.16 1.23 15.16 0 12 0C5.46 0 0.11 5.36 0.11 11.89C0.11 13.98 0.64 16.02 1.71 17.84L0 24L6.32 22.34C8.04 23.3 10.02 23.79 12 23.79L12 23.79C18.54 23.79 24 18.48 24 11.89C24 8.73 22.66 5.73 20.41 3.48ZM12 21.8C10.23 21.8 8.46 21.32 6.96 20.41L6.59 20.2L2.84 21.16L3.86 17.52L3.64 17.14C2.63 15.59 2.09 13.77 2.09 11.89C2.09 6.43 6.54 2.04 12 2.04C14.63 2.04 17.14 3.05 18.96 4.93C20.84 6.8 22.02 9.27 22.02 11.89C22.02 17.36 17.46 21.8 12 21.8ZM17.41 14.41C17.14 14.25 15.64 13.5 15.37 13.45C15.11 13.34 14.89 13.29 14.73 13.55C14.52 13.87 13.93 14.52 13.77 14.73C13.61 14.95 13.45 14.95 13.13 14.84C11.41 13.93 10.23 13.23 9.11 11.3C8.79 10.77 9.37 10.77 9.96 9.64C10.07 9.48 10.02 9.27 9.91 9.16C9.86 9 9.27 7.5 9 6.91C8.79 6.37 8.52 6.43 8.36 6.43C8.2 6.43 7.98 6.43 7.77 6.43C7.61 6.43 7.29 6.48 6.96 6.8C6.7 7.07 5.95 7.82 5.95 9.27C5.95 10.71 7.02 12.16 7.18 12.32C7.29 12.54 9.27 15.54 12.21 16.82C14.14 17.63 14.84 17.73 15.8 17.57C16.39 17.46 17.57 16.87 17.79 16.18C18.05 15.48 18.05 14.84 18 14.73C17.89 14.63 17.73 14.52 17.41 14.41Z"/></svg> Quiero probarla</a>
-      <p class="dato">Solo Android · Gratis mientras está en prueba · También
-      por <a href="mailto:contacto@cuadri.co?subject=Quiero%20probar%20Cuadri">correo</a>.</p>
+      <h2>Descárgala <span class="acento">gratis</span></h2>
+      <p>Está en Google Play. La instalas en un minuto y sin crear cuenta.</p>
+      <a class="insignia-play" href="https://play.google.com/store/apps/details?id=com.velxos.recuadrao"><img src="/img/google-play.webp" alt="Disponible en Google Play" width="189" height="56"></a>
+      <p class="dato">Solo Android · ¿Dudas? Escríbenos a <a href="mailto:contacto@cuadri.co?subject=Duda%20con%20Cuadri">contacto@cuadri.co</a></p>
     </div>
-    <div class="chat-lugar">
-      <!-- Los garabatos de alrededor, con el trazo del ícono. -->
-      <svg class="garabato garabato-arriba" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 30l9-6M6 16l12 4M20 6l2 12"/></svg>
-      <svg class="garabato garabato-lado" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 14l14 6M10 30l13-2"/><circle cx="31" cy="8" r="4"/></svg>
-      <svg class="garabato garabato-abajo" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 30c8-10 16-12 24-6s16 4 26-8"/><circle cx="10" cy="10" r="4"/></svg>
-      <div class="chat" role="img" aria-label="Así es la conversación: nos mandas tu Gmail, te agregamos a la prueba y te llega el enlace de Google Play para instalarla.">
-        <div class="chat-cabeza">
-          <span class="chat-avatar"><img src="icono.png" alt="" width="34" height="34"></span>
-          <div><b>Cuadri</b><span>en línea</span></div>
-        </div>
-        <div class="chat-cuerpo">
-          <p class="burbuja tuya">Hola, quiero probar Cuadri. Mi Gmail es:
-          <i>tu.correo@gmail.com</i><span class="leido">✓✓</span></p>
-          <p class="burbuja nuestra">¡Hola! Listo, ya te agregamos a la prueba.</p>
-          <div class="burbuja nuestra">
-            <div class="chat-enlace">
-              <img src="icono.png" alt="" width="40" height="40">
-              <div><b>Cuadri</b><span>Google Play · Instalar</span></div>
-            </div>
-            Entra aquí para instalarla.
-          </div>
-        </div>
-      </div>
+    <div class="llamada-cuadri">
+      <img src="/img/cuadri-descarga.webp" alt="" width="283" height="280" loading="lazy" decoding="async">
     </div>
   </div>
 
 </main>
 
-<!-- Aparece cuando la portada sale de la vista: el botón queda siempre a un
-     toque, sin tener que volver arriba. -->
 <div class="barra" aria-hidden="true">
   <div class="barra-dentro">
     <a class="marca" href="#" tabindex="-1">
       <img src="icono.png" alt="">
       <span>Cuadri</span>
     </a>
-    <a class="boton verde chico" href="https://wa.me/573128603576?text=Hola%2C%20quiero%20probar%20Cuadri.%20Mi%20Gmail%20es%3A%20" tabindex="-1"><svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.41 3.48C18.16 1.23 15.16 0 12 0C5.46 0 0.11 5.36 0.11 11.89C0.11 13.98 0.64 16.02 1.71 17.84L0 24L6.32 22.34C8.04 23.3 10.02 23.79 12 23.79L12 23.79C18.54 23.79 24 18.48 24 11.89C24 8.73 22.66 5.73 20.41 3.48ZM12 21.8C10.23 21.8 8.46 21.32 6.96 20.41L6.59 20.2L2.84 21.16L3.86 17.52L3.64 17.14C2.63 15.59 2.09 13.77 2.09 11.89C2.09 6.43 6.54 2.04 12 2.04C14.63 2.04 17.14 3.05 18.96 4.93C20.84 6.8 22.02 9.27 22.02 11.89C22.02 17.36 17.46 21.8 12 21.8ZM17.41 14.41C17.14 14.25 15.64 13.5 15.37 13.45C15.11 13.34 14.89 13.29 14.73 13.55C14.52 13.87 13.93 14.52 13.77 14.73C13.61 14.95 13.45 14.95 13.13 14.84C11.41 13.93 10.23 13.23 9.11 11.3C8.79 10.77 9.37 10.77 9.96 9.64C10.07 9.48 10.02 9.27 9.91 9.16C9.86 9 9.27 7.5 9 6.91C8.79 6.37 8.52 6.43 8.36 6.43C8.2 6.43 7.98 6.43 7.77 6.43C7.61 6.43 7.29 6.48 6.96 6.8C6.7 7.07 5.95 7.82 5.95 9.27C5.95 10.71 7.02 12.16 7.18 12.32C7.29 12.54 9.27 15.54 12.21 16.82C14.14 17.63 14.84 17.73 15.8 17.57C16.39 17.46 17.57 16.87 17.79 16.18C18.05 15.48 18.05 14.84 18 14.73C17.89 14.63 17.73 14.52 17.41 14.41Z"/></svg> Quiero probarla</a>
+    <a class="insignia-play chica" href="https://play.google.com/store/apps/details?id=com.velxos.recuadrao" tabindex="-1"><img src="/img/google-play.webp" alt="Disponible en Google Play" width="189" height="56"></a>
   </div>
 </div>
 <script>
@@ -1183,29 +1087,6 @@
 })();
 </script>
 <script>
-// Cuadri sale de detrás de su nombre, camina y se sienta. Ahí se queda, en
-// reposo, hasta que se recarga la página. Dónde se sienta depende del ancho:
-//
-// - Desde 621 px, en «cuadre,». Camina por encima del titular, que ahí
-//   tiene el primer renglón fijo: «Del comprobante al cuadre,».
-// - En el celular, en la otra punta de la fila del logo. Ahí el titular
-//   cambia de renglones con cada teléfono y «cuadre,» suele quedar al empezar
-//   el segundo, donde sentado taparía el primero. Camina sobre la línea de
-//   abajo del ícono y se sienta a la derecha, más chico: lo mismo que lleva
-//   la cabecera de la app.
-//
-// - Camina una vez por visita: si vuelve a la página en la misma pestaña, ya
-//   está sentado.
-// - Con menos movimiento pedido aparece sentado y quieto, y solo se baja esa
-//   hoja. Muchos Xiaomi y TECNO lo piden solos al ahorrar batería.
-// - Se piden solo las hojas de ese ancho (460 KB en pantalla ancha, 280 KB en
-//   el celular), y cuando ya cargó todo lo demás: no frenan lo primero que se
-//   ve.
-// - Fuera de la vista no se mueve nada.
-//
-// Las hojas salen del video con tool/animacion/construir.py, en la app; de
-// ahí vienen celda, ancla y paso. El ancla es el centro del cuerpo visto de
-// frente, a la altura de las plantas.
 (() => {
   const MODOS = {
     titular: { cuando: '(min-width: 621px)', sufijo: '',
@@ -1213,9 +1094,6 @@
     fila: { cuando: '(max-width: 620px)', sufijo: '-chico',
       celda: [70, 62], ancla: [36.57, 59.45], paso: 1.40, frente: 23, alto: 76, ala: 34 },
   };
-  // paso: lo que avanza el pie en un cuadro del video. frente: lo que asoma
-  // caminando por delante del ancla. ala: lo que ocupa sentado (y saludando)
-  // a la derecha del ancla. alto: el aire que se le deja encima del piso.
   const elegir = () => Object.values(MODOS).find((m) => matchMedia(m.cuando).matches);
   let M = elegir();
   const texto = document.querySelector('.portada-texto');
@@ -1227,10 +1105,10 @@
 
   const COLS = 10;
   const HOJAS = { camina: 26, sienta: 52, reposo: 51 };
-  const CICLO = 14;       // la caminata repite los cuadros 7 a 20…
-  const REMATE = 23;      // …y remata del 7 al 30, donde se para
+  const CICLO = 14;
+  const REMATE = 23;
   const RAPIDO = 26, FPS = 12;
-  const BAJA = .2;        // cuánto baja al sentarse en «cuadre,», en fracción de la letra
+  const BAJA = .2;
 
   let g, capa, capas = {}, t0 = null, vivo = false, agenda = 0, visible = true, ultimo = '';
   let anduvo = false;
@@ -1242,8 +1120,7 @@
     r.setStart(t, 0); r.setEnd(t, t.length);
     const palabra = r.getBoundingClientRect();
     r.setStart(t, t.length - 3);
-    const remate = r.getBoundingClientRect();   // «re,»: ahí se sienta
-    // Si «cuadre,» no quedó en el primer renglón, no hay dónde sentarlo.
+    const remate = r.getBoundingClientRect();
     const h1 = banco.parentElement.firstChild;
     r.setStart(h1, 0); r.setEnd(h1, 1);
     if (Math.abs(r.getBoundingClientRect().top - palabra.top) > 2) return null;
@@ -1252,9 +1129,6 @@
     ctx.font = `${e.fontWeight} ${e.fontSize} ${e.fontFamily}`;
     const d = ctx.measureText('d'), x = ctx.measureText('x');
     const base = palabra.top + (d.fontBoundingBoxAscent || palabra.height * .75);
-    // Camina sobre las minúsculas (la o, la r): por encima de las altas se
-    // veía flotando, porque casi todas las letras son bajitas. Al sentarse
-    // baja un poco más y las piernas le cuelgan por delante de la palabra.
     return {
       piso: base - x.actualBoundingBoxAscent - caja.top,
       baja: parseFloat(e.fontSize) * BAJA,
@@ -1263,8 +1137,6 @@
   }
 
   function enLaFila(caja) {
-    // Sobre la línea de abajo del ícono, y sentado en la punta derecha de la
-    // columna, con el saludo adentro: si se sale, la página se corre de lado.
     return { piso: logo.getBoundingClientRect().bottom - caja.top, baja: 0, fin: caja.width - M.ala };
   }
 
@@ -1276,7 +1148,6 @@
     const linea = nombre.getBoundingClientRect().right + 12 - caja.left;
     if (fin - linea < 60) return null;
     const inicio = linea - M.frente;
-    // Las vueltas del ciclo que hagan falta para que el pie casi no patine.
     const vueltas = Math.max(0, Math.round(((fin - inicio) / (M.paso * 1.3) - REMATE) / CICLO));
     const cuadros = vueltas * CICLO + REMATE;
     return { piso, baja, linea, inicio, fin, vueltas, cuadros, columna: caja.width,
@@ -1287,7 +1158,6 @@
 
   function vestir() {
     for (const [n, cuantos] of Object.entries(HOJAS)) {
-      // Con menos movimiento solo se usa, y solo se baja, la de reposo.
       const usa = !quieto || n === 'reposo';
       Object.assign(capas[n].style, {
         width: M.celda[0] + 'px', height: M.celda[1] + 'px',
@@ -1306,7 +1176,6 @@
   }
 
   function pintar(hoja, celda, x, dy) {
-    // Si no cambió nada desde la última vez, no se toca nada.
     const clave = `${hoja} ${celda} ${x} ${dy}`;
     if (clave === ultimo) return;
     ultimo = clave;
@@ -1322,7 +1191,7 @@
     agenda = 0;
     if (t0 === null) t0 = ahora;
     const t = (ahora - t0) / 1000;
-    let proximo = null;   // cuándo cambia algo, si no es ya en el próximo cuadro
+    let proximo = null;
     if (t < g.mueve) {
       const j = Math.floor(t * RAPIDO);
       const celda = j < g.vueltas * CICLO ? j % CICLO : j - g.vueltas * CICLO;
@@ -1333,7 +1202,6 @@
       proximo = Math.min(g.gira, g.mueve + (k + 1) / FPS);
     } else if (t < g.sienta) {
       const celda = Math.min(HOJAS.sienta - 1, Math.floor((t - g.gira) * FPS));
-      // Se agacha entre los cuadros 11 y 16 de esta hoja.
       pintar('sienta', celda, g.fin, g.baja * Math.min(1, Math.max(0, (celda - 11) / 5)));
       proximo = Math.min(g.sienta, g.gira + (celda + 1) / FPS);
     } else {
@@ -1342,9 +1210,6 @@
       proximo = g.sienta + (k + 1) / FPS;
     }
     if (!vivo || !visible) return;
-    // Caminando se pinta en cada cuadro de la pantalla, para que se deslice
-    // suave. En su sitio solo cambia 12 veces por segundo: se espera a que
-    // toque, en vez de despertar al teléfono 60 veces por segundo.
     agenda = proximo === null
       ? requestAnimationFrame(cuadro)
       : setTimeout(() => { agenda = 0; reanudar(); }, (proximo - t) * 1000 + 1);
@@ -1355,7 +1220,6 @@
   }
 
   function sentado() {
-    // Directo al reposo, sin caminar.
     t0 = performance.now() - g.sienta * 1000;
   }
 
@@ -1375,10 +1239,6 @@
     vestir();
     ubicar();
     texto.appendChild(capa);
-    // Al cambiar el ancho se vuelve a medir y, si iba caminando, queda
-    // sentado. Si pasa de un modo al otro (girar el teléfono, por ejemplo),
-    // se viste con las hojas del otro tamaño y aparece sentado en su sitio
-    // nuevo. Va antes de lo demás porque también le toca al que está quieto.
     let espera = 0;
     addEventListener('resize', () => {
       cancelAnimationFrame(espera);
@@ -1392,7 +1252,7 @@
         const caminando = t0 !== null && (performance.now() - t0) / 1000 < g.sienta;
         g = nuevo;
         ubicar();
-        ultimo = '';   // con otras medidas hay que volver a pintar
+        ultimo = '';
         if (caminando || cambio) sentado();
         if (quieto) pintar('reposo', 0, g.fin, g.baja);
         else reanudar();
@@ -1402,8 +1262,6 @@
       pintar('reposo', 0, g.fin, g.baja);
       return;
     }
-    // Si la portada no está a la vista (llegó con un enlace a otra parte),
-    // tampoco camina: ya está sentado cuando suba.
     if (anduvo || window.scrollY > 200) sentado();
     try { sessionStorage.setItem('cuadri-anduvo', '1'); } catch (e) {}
     vivo = true;
@@ -1439,10 +1297,7 @@
       </div>
       <p>La cuenta del día, desde la foto del comprobante. Para quien cobra por
       transferencia y necesita saber cuánto entró.</p>
-      <a class="play" href="https://wa.me/573128603576?text=Hola%2C%20quiero%20probar%20Cuadri.%20Mi%20Gmail%20es%3A%20">
-        <svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.41 3.48C18.16 1.23 15.16 0 12 0C5.46 0 0.11 5.36 0.11 11.89C0.11 13.98 0.64 16.02 1.71 17.84L0 24L6.32 22.34C8.04 23.3 10.02 23.79 12 23.79L12 23.79C18.54 23.79 24 18.48 24 11.89C24 8.73 22.66 5.73 20.41 3.48ZM12 21.8C10.23 21.8 8.46 21.32 6.96 20.41L6.59 20.2L2.84 21.16L3.86 17.52L3.64 17.14C2.63 15.59 2.09 13.77 2.09 11.89C2.09 6.43 6.54 2.04 12 2.04C14.63 2.04 17.14 3.05 18.96 4.93C20.84 6.8 22.02 9.27 22.02 11.89C22.02 17.36 17.46 21.8 12 21.8ZM17.41 14.41C17.14 14.25 15.64 13.5 15.37 13.45C15.11 13.34 14.89 13.29 14.73 13.55C14.52 13.87 13.93 14.52 13.77 14.73C13.61 14.95 13.45 14.95 13.13 14.84C11.41 13.93 10.23 13.23 9.11 11.3C8.79 10.77 9.37 10.77 9.96 9.64C10.07 9.48 10.02 9.27 9.91 9.16C9.86 9 9.27 7.5 9 6.91C8.79 6.37 8.52 6.43 8.36 6.43C8.2 6.43 7.98 6.43 7.77 6.43C7.61 6.43 7.29 6.48 6.96 6.8C6.7 7.07 5.95 7.82 5.95 9.27C5.95 10.71 7.02 12.16 7.18 12.32C7.29 12.54 9.27 15.54 12.21 16.82C14.14 17.63 14.84 17.73 15.8 17.57C16.39 17.46 17.57 16.87 17.79 16.18C18.05 15.48 18.05 14.84 18 14.73C17.89 14.63 17.73 14.52 17.41 14.41Z"/></svg>
-        <span><small>Para probarla, escríbenos por</small><b>WhatsApp</b></span>
-      </a>
+      <a class="insignia-play" href="https://play.google.com/store/apps/details?id=com.velxos.recuadrao"><img src="/img/google-play.webp" alt="Disponible en Google Play" width="189" height="56"></a>
     </div>
 
     <nav class="pie-col" aria-label="Páginas">
@@ -1467,7 +1322,7 @@
   </div>
 
   <div class="caja pie-abajo">
-    <p>© 2026 VELXOS</p>
+    <p>© 2026 VELXOS · Google Play y el logotipo de Google Play son marcas de Google LLC.</p>
     <p>Detrás de esto hay una persona, no un formulario.</p>
   </div>
 </footer>

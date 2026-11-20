@@ -1,5 +1,3 @@
-/* Los mismos valores del tema de la app, no una aproximación.
-   Ver lib/theme/app_theme.dart. */
 
 @font-face {
   font-family: 'Poppins';
@@ -20,9 +18,6 @@
   font-display: swap;
 }
 
-/* Los íconos de la app, Lucide (ISC, ver fuentes/LUCIDE-LICENCIA.txt),
-   recortados a los que usa la página: 5 KB. «block» porque, mientras carga,
-   un ícono que no está es mejor que un cuadrito. */
 @font-face {
   font-family: 'Lucide';
   src: url('fuentes/lucide.woff?v=20261116') format('woff');
@@ -54,31 +49,16 @@ body {
 
 .caja { max-width: 680px; margin: 0 auto; padding: 0 20px; }
 
-/* El verde ocupa la cabecera y poco más. De ahí para abajo todo es neutro:
-   es la misma disciplina que en la app, donde un color repartido por todas
-   partes deja de significar algo. */
 header {
   background: var(--marca);
-  /* Un degradado muy corto, de un verde a otro. No se lee como adorno: se
-     lee como que la cabecera tiene volumen. Un plano de color liso de 44px
-     de alto es lo que hace que una página parezca un documento y no un
-     producto. */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='340' viewBox='0 0 240 340'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.09' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M40 40L118 30L132 128L122 122L112 131L102 124L92 133L82 126L72 135L62 128L54 138Z'/%3E%3Cpath d='M93 55c-5-5-19-4-18 3s18 4 18 11-13 9-19 3M85 47v34'/%3E%3Cpath d='M66 96l42-6M69 110l34-5'/%3E%3Cpath d='M150 34l14-11M154 58h19M148 12l5-13'/%3E%3Ccircle cx='30' cy='196' r='7'/%3E%3Ccircle cx='158' cy='214' r='24'/%3E%3Cpath d='M147 214l8 8 15-17'/%3E%3Cpath d='M8 286c20-24 40-24 60 0s40 24 60 0'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='340' viewBox='0 0 240 340'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.09' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='112' cy='92' r='34'/%3E%3Cpath d='M124 78c-5-5-22-5-22 4s22 6 22 15-17 10-23 3M112 66v50'/%3E%3Cpath d='M164 52l14-12M170 82h18M162 112l14 10'/%3E%3Ccircle cx='34' cy='60' r='5'/%3E%3Crect x='52' y='172' width='70' height='118' rx='16' transform='rotate%2810 87 231%29'/%3E%3Cpath d='M72 204l34 6M70 220l28 5'/%3E%3Ccircle cx='186' cy='204' r='6'/%3E%3Cpath d='M140 316c18-20 36-20 54 0s36 20 54 0'/%3E%3C/g%3E%3C/svg%3E"),
     linear-gradient(158deg, #16876A 0%, #0F6E56 52%, #0B5342 100%);
-  /* Garabatos muy tenues en las dos orillas, con el trazo del ícono: los
-     mismos que lleva la tarjeta del total en la app. Pocos y grandes, en
-     los bordes y lejos del texto, y quietos: lo que se mueve en la portada
-     es el teléfono, y nada tiene que competir con él. Van aquí y no en
-     cada página para que las de texto los lleven igual, solo en su franja
-     verde. */
   background-repeat: no-repeat;
   background-position: left -36px top 14px, right -24px bottom -8px, 0 0;
   background-size: 240px 340px, 240px 340px, auto;
   color: #fff;
   padding: 44px 0 40px;
 }
-/* Cada página de texto, con sus propios garabatos: lo que trata.
-   Mismo trazo, misma opacidad y mismo sitio que los de la portada. */
 header.privacidad {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='340' viewBox='0 0 240 340'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.09' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M88 40L136 56V100C136 132 112 152 88 162C64 152 40 132 40 100V56Z'/%3E%3Cpath d='M66 100l15 15 27-30'/%3E%3Cpath d='M156 44l14-11M160 68h19M150 20l5-13'/%3E%3Ccircle cx='30' cy='206' r='7'/%3E%3Ccircle cx='150' cy='232' r='5'/%3E%3Cpath d='M8 286c20-24 40-24 60 0s40 24 60 0'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='340' viewBox='0 0 240 340'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.09' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='70' y='70' width='84' height='70' rx='14'/%3E%3Cpath d='M86 70V54c0-15 11-26 26-26s26 11 26 26v16'/%3E%3Ccircle cx='112' cy='100' r='7'/%3E%3Cpath d='M112 107v12'/%3E%3Cpath d='M40 232c18-26 38-38 62-38s44 12 62 38c-18 26-38 38-62 38s-44-12-62-38z'/%3E%3Ccircle cx='102' cy='232' r='14'/%3E%3Cpath d='M50 282L154 182'/%3E%3Cpath d='M176 60l14-10M182 90h18'/%3E%3Ccircle cx='34' cy='40' r='5'/%3E%3Cpath d='M140 316c18-20 36-20 54 0s36 20 54 0'/%3E%3C/g%3E%3C/svg%3E"),
     linear-gradient(158deg, #16876A 0%, #0F6E56 52%, #0B5342 100%);
@@ -91,8 +71,6 @@ header.eliminar {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='340' viewBox='0 0 240 340'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.09' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M44 72h100M76 72V58h36v14'/%3E%3Cpath d='M54 82l8 82h64l8-82'/%3E%3Cpath d='M80 100l2 48M94 100v48M108 100l-2 48'/%3E%3Cpath d='M152 42l14-11M158 66h19'/%3E%3Ccircle cx='30' cy='206' r='7'/%3E%3Cpath d='M146 196l24-4 4 28-24 4z'/%3E%3Cpath d='M8 286c20-24 40-24 60 0s40 24 60 0'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='340' viewBox='0 0 240 340'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.09' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M56 134V98c0-21 16-38 36-38h38c20 0 36 17 36 38v36z'/%3E%3Cpath d='M84 94h44M112 134v58'/%3E%3Cpath d='M150 98V68h20v12h-20'/%3E%3Ccircle cx='178' cy='222' r='22'/%3E%3Cpath d='M170 214l16 16M186 214l-16 16'/%3E%3Cpath d='M40 292l44-44 28 28-44 44z'/%3E%3Cpath d='M62 270l28 28'/%3E%3Cpath d='M104 318h10M124 318h10M144 318h10'/%3E%3Ccircle cx='34' cy='40' r='5'/%3E%3C/g%3E%3C/svg%3E"),
     linear-gradient(158deg, #16876A 0%, #0F6E56 52%, #0B5342 100%);
 }
-/* En las páginas de texto la cabecera es bajita: ahí los garabatos van
-   enteros, más chicos y centrados en la altura, en vez de asomarse cortados. */
 @media (min-width: 641px) {
   header:not(.grande) {
     background-size: 172px 244px, 172px 244px, auto;
@@ -134,9 +112,6 @@ header h1 {
 header p { margin: 0; opacity: .85; font-size: 15px; }
 
 main { padding: 34px 0 72px; }
-/* En las páginas de texto, main también es .caja, y la regla de .caja
-   (padding: 0 20px) le quitaba este espacio: el primer bloque quedaba pegado
-   a la cabecera verde. La portada (header.grande) no lo necesita. */
 header:not(.grande) + main.caja { padding-top: 34px; }
 
 h2 {
@@ -155,7 +130,6 @@ h3 {
 p { margin: 0 0 14px; }
 a { color: var(--marca); }
 
-/* Tarjeta plana, sin sombra: el orden lo da la separación, no la elevación. */
 .tarjeta {
   background: var(--superficie);
   border: 1px solid var(--borde);
@@ -191,9 +165,6 @@ th, td {
   vertical-align: top;
   font-size: 15px;
 }
-/* La etiqueta de la fila en gris y más pequeña. En negro y en negrita pesaba
-   lo mismo que el contenido, y en una tabla de dos columnas eso deja la vista
-   sin saber dónde empieza la respuesta. */
 th {
   font-weight: 600;
   width: 34%;
@@ -220,11 +191,6 @@ footer a { color: var(--marca); }
   td { padding-bottom: 12px; border-bottom: 1px solid var(--borde); }
 }
 
-/* --- Navegación dentro del documento ---------------------------------
-   Lo que le falta a casi todas las políticas: poder ir a lo que buscas.
-   Un texto legal largo sin índice se lee entero o no se lee, y lo segundo
-   es lo que pasa siempre. */
-
 .indice {
   background: var(--superficie);
   border: 1px solid var(--borde);
@@ -247,9 +213,6 @@ footer a { color: var(--marca); }
   break-inside: avoid;
 }
 
-/* El número en una pastilla verde, no el punto de la lista. Doce renglones
-   grises seguidos no se escanean; doce números sí, y además dicen cuántas
-   secciones hay antes de empezar a leer. */
 .indice a {
   display: flex;
   align-items: flex-start;
@@ -278,8 +241,6 @@ footer a { color: var(--marca); }
 }
 .indice a:hover { background: var(--fondo); }
 
-/* El rótulo que agrupa varias secciones bajo un mismo tema. En mayúscula
-   pequeña y gris: ordena sin competir con los títulos. */
 .grupo, .rotulo {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
@@ -291,9 +252,6 @@ footer a { color: var(--marca); }
 }
 .rotulo { margin: 0 0 10px; }
 
-/* La raya que sale del rótulo hasta el borde. Es lo que convierte cinco
-   etiquetas sueltas en cinco capítulos: sin ella, el documento es un río de
-   títulos del mismo tamaño y no se ve dónde cambia el tema. */
 .grupo {
   display: flex;
   align-items: center;
@@ -308,7 +266,6 @@ footer a { color: var(--marca); }
   background: var(--borde);
 }
 
-/* Anclas: que el título no quede pegado al borde al saltar. */
 h2 { scroll-margin-top: 16px; }
 html { scroll-behavior: smooth; }
 
@@ -316,8 +273,6 @@ html { scroll-behavior: smooth; }
   .indice ol { columns: 1; }
 }
 
-/* La fecha de arriba, en pastilla. Suelta bajo el título parecía un pie de
-   foto; con el punto verde delante se lee como un estado: esto está vigente. */
 header .sello {
   display: inline-flex;
   align-items: center;
@@ -338,10 +293,6 @@ header .sello::before {
   background: #7FE3C4;
 }
 
-/* --- Volver arriba ---------------------------------------------------
-   Un documento de este largo sin forma de volver obliga a arrastrar medio
-   minuto para releer el índice. Aparece a partir del primer scroll largo
-   para no estorbar a quien solo viene a leer el resumen. */
 .arriba {
   position: fixed;
   right: 18px;
@@ -369,10 +320,6 @@ header .sello::before {
   transform: none;
 }
 
-/* --- El pie -----------------------------------------------------------
-   Tres columnas: quién hace esto, a dónde más ir, y cómo dar con una
-   persona. Lo que no hay —App Store, redes, blog— no se inventa: un pie
-   lleno de enlaces muertos se nota más que uno corto. */
 footer {
   border-top: 1px solid var(--borde);
   background: var(--superficie);
@@ -381,9 +328,6 @@ footer {
   padding: 0;
 }
 
-/* Más ancho que la columna de lectura, a propósito. Al llegar al final, el
-   texto se acaba y el pie se abre: eso es lo que lo separa del documento en
-   vez de parecer un párrafo más. */
 .pie, .pie-abajo { max-width: 940px; }
 
 .pie {
@@ -415,34 +359,17 @@ footer {
 .pie-col a:hover { text-decoration: underline; }
 .pie .rotulo { margin: 3px 0 13px; }
 
-.play {
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  padding: 9px 17px 9px 14px;
-  border-radius: 12px;
-  background: var(--texto);
-  color: #fff;
-  text-decoration: none;
+.insignia-play {
+  display: inline-block;
+  line-height: 0;
+  border-radius: 9px;
+  transition: transform .15s;
 }
-.play:hover { background: #000; }
-.play svg { width: 17px; height: 19px; flex: none; }
-.play svg.wa { width: 20px; height: 20px; }
-.play small {
-  display: block;
-  font-size: 10px;
-  letter-spacing: .6px;
-  text-transform: uppercase;
-  opacity: .68;
-  line-height: 1.4;
-}
-.play b {
-  display: block;
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.2;
-}
+.insignia-play img { height: 56px; width: auto; }
+.insignia-play:hover { transform: translateY(-1px); }
+.insignia-play:focus-visible { outline: 3px solid #A8EBCF; outline-offset: 3px; }
+.insignia-play.chica img { height: 40px; }
+.pie .insignia-play img { height: 46px; }
 
 .pie-abajo {
   display: flex;
@@ -450,8 +377,6 @@ footer {
   gap: 14px;
   border-top: 1px solid var(--borde);
   padding-top: 20px;
-  /* Hueco para el botón de volver arriba, que va fijo abajo a la derecha. Con
-     34px se comía el último renglón en el teléfono. */
   padding-bottom: 76px;
   font-size: 13.5px;
 }
@@ -461,11 +386,6 @@ footer {
   .pie { grid-template-columns: 1fr; gap: 30px; }
   .pie-abajo { flex-direction: column; gap: 6px; }
 }
-
-/* --- La portada ------------------------------------------------------
-   Texto a un lado y la pantalla de la app al otro. Una página de producto
-   que solo tiene texto no convence a nadie de instalar nada: lo primero
-   que quiere ver quien llega es si esto se parece a lo que necesita. */
 
 header.grande { padding: 50px 0 56px; }
 
@@ -486,10 +406,6 @@ header.grande { padding: 50px 0 56px; }
   font-size: 13px;
   opacity: .8;
 }
-/* El teléfono de la portada, con el mismo marco que las capturas de Play y
-   de los pasos (tool/pasos.dart): oscuro, sencillo, y con los botones de los
-   lados apenas asomando. Los botones van en el envoltorio y no en la caja,
-   porque la caja recorta lo que se sale. */
 .telefono {
   position: relative;
 }
@@ -500,7 +416,6 @@ header.grande { padding: 50px 0 56px; }
   width: 3px;
   background: #1F2328;
 }
-/* Dos a la izquierda (el volumen), hechos con un solo degradado. */
 .telefono::before {
   left: -3px;
   top: 20%;
@@ -508,7 +423,6 @@ header.grande { padding: 50px 0 56px; }
   border-radius: 2px 0 0 2px;
   background: linear-gradient(#1F2328 0 44%, transparent 44% 56%, #1F2328 56%);
 }
-/* Uno a la derecha (el de encender). */
 .telefono::after {
   right: -3px;
   top: 25%;
@@ -532,30 +446,19 @@ header.grande { padding: 50px 0 56px; }
   height: auto;
 }
 
-/* La caja de la portada, por piezas. Debajo va la caja vacía, y encima cada
-   pieza en el sitio exacto donde la pintó la app: salen de
-   tool/pasos.dart junto con sus medidas, en porcentajes de la imagen. Sin
-   JavaScript —o con el movimiento reducido— se ven todas quietas y la caja
-   queda llena, igual que la imagen de siempre. */
 .caja-capas {
   position: absolute;
   inset: 0;
-  /* Un píxel de la imagen original, que mide 640 de ancho. */
   --px: calc(100cqw / 640);
 }
 .caja-capas > * { position: absolute; }
 
-/* Cada fila es su tarjeta, con la imagen llena dentro corrida hasta que
-   asoma justo esa fila. Así el navegador baja una sola imagen, y la fila
-   entera —con su visto— crece desde su centro, entra y se agranda bajo el
-   mouse como una sola pieza. */
 .caja-fila {
   left: var(--x);
   top: var(--y);
   width: var(--w);
   height: var(--h);
   overflow: hidden;
-  /* El radio de las tarjetas de la app, 16 puntos. */
   border-radius: calc(24.9 * var(--px));
   pointer-events: none;
   transition: transform .18s ease, box-shadow .18s ease;
@@ -586,7 +489,6 @@ header.grande { padding: 50px 0 56px; }
   }
 }
 
-/* La cámara es la imagen llena recortada a su sitio, con su sombra. */
 .caja-camara {
   inset: 0;
   width: 100%;
@@ -610,8 +512,6 @@ header.grande { padding: 50px 0 56px; }
   opacity: 0;
 }
 
-/* Las cifras no están en la imagen: se escriben aquí, con la letra de la
-   app, para poder contar. */
 .caja-total,
 .caja-pie,
 .caja-subtotal {
@@ -628,7 +528,6 @@ header.grande { padding: 50px 0 56px; }
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: #fff;
-  /* Al sumar late un poco, y crece hacia la derecha como crece la cifra. */
   transform-origin: left center;
 }
 .caja-pie {
@@ -642,10 +541,6 @@ header.grande { padding: 50px 0 56px; }
   color: #6C757D;
 }
 
-/* El detalle de un comprobante, que entra por la derecha dentro del mismo
-   teléfono, como en la app. Encima, recortadas de la misma imagen, las
-   piezas que crecen al llegar: la tarjeta del aviso del banco, la etiqueta
-   de por dónde avisó, y el aviso de repetido. */
 .caja-detalle {
   position: absolute;
   inset: 0;
@@ -689,7 +584,6 @@ header.grande { padding: 50px 0 56px; }
 }
 .detalle-volver:focus-visible { outline: 2px solid var(--marca); }
 
-/* La pista de debajo: en un celular nadie adivina que la caja se toca. */
 .portada-pista {
   margin: 14px 0 0;
   text-align: center;
@@ -708,14 +602,9 @@ header.grande { padding: 50px 0 56px; }
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  /* Con ancho dicho: la caja se mide a sí misma para escalar las cifras, y
-     así ya no le da ancho a quien la centra. Sin esto se encogía a nada. */
   .portada-foto { width: 100%; max-width: 262px; margin: 4px auto 0; }
 }
 
-/* El botón de instalar. Blanco sobre el verde de la cabecera, verde sobre
-   el fondo claro: en los dos sitios es lo que más contrasta de la página,
-   que es justo lo que tiene que ser. */
 .boton {
   display: inline-flex;
   align-items: center;
@@ -741,13 +630,6 @@ header.grande { padding: 50px 0 56px; }
 }
 .boton.verde:hover { background: #0C5A47; }
 
-/* --- Los cuatro pasos -------------------------------------------------
-   Una tarjeta por paso, con la pantalla de la app al lado, como las guías
-   de Nequi que la gente ya conoce: la imagen dice en un vistazo lo que el
-   texto tardaba cuatro renglones. La imagen cambia de lado de una tarjeta a
-   la siguiente para que se lean como una secuencia y no como una lista. En
-   el teléfono también van lado a lado: así lo hace Nequi, y una debajo de
-   otra quedarían enormes. */
 .pasos {
   list-style: none;
   margin: 14px 0 0;
@@ -805,7 +687,6 @@ header.grande { padding: 50px 0 56px; }
   text-transform: uppercase;
 }
 
-/* Dos tarjetas en paralelo: los dos lados del mismo trato. */
 .duo {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -814,22 +695,13 @@ header.grande { padding: 50px 0 56px; }
 }
 .duo .tarjeta { margin: 0; padding: 22px 22px 10px; }
 
-
 @media (max-width: 560px) {
   .duo { grid-template-columns: 1fr; }
 }
 
-/* El corte del titular es para pantalla ancha. En el teléfono dejaba un
-   renglón huérfano con dos palabras, y ahí es mejor que el texto fluya. */
 @media (max-width: 620px) {
   .solo-ancho { display: none; }
 }
-
-/* --- La página de inicio, por partes ---------------------------------
-   Cada parte contesta la pregunta que quien baja tiene en la cabeza en ese
-   momento —¿esto es para mí?, ¿cómo funciona?, ¿cómo sé que entró?, ¿y mis
-   datos?—, con una idea y poco texto. El detalle queda a un toque, en un
-   plegable o en la política, para quien lo quiera. */
 
 .icono {
   font-family: 'Lucide';
@@ -838,15 +710,11 @@ header.grande { padding: 50px 0 56px; }
   line-height: 1;
 }
 
-/* Titulares a dos tonos: la parte que importa, en verde. Más grandes que en
-   las páginas de texto, porque aquí se leen de pasada. */
 .titular {
   font-size: 26px;
   line-height: 1.22;
   margin: 56px 0 16px;
 }
-/* Lo primero después de la portada respira: pegado al verde parecía parte
-   de ella. */
 section:first-child .titular { margin-top: 52px; }
 .acento { color: #15845F; }
 header .acento { color: #A8EBCF; }
@@ -856,7 +724,6 @@ header .acento { color: #A8EBCF; }
 
 .entrada { font-size: 17px; }
 
-/* ¿Te suena? */
 .dolores {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -882,10 +749,6 @@ header .acento { color: #A8EBCF; }
   color: var(--marca);
   font-size: 20px;
 }
-/* Las ilustraciones, con el mismo trazo y los mismos garabatos del ícono.
-   Reemplazan al ícono en un cuadrito verde, que es lo que trae cualquier
-   plantilla: con eso la página se parecía a todas. Vienen con el verde
-   clarito de fondo ya puesto; ver tool/ilustraciones_sitio.py en la app. */
 .dolor .ilustracion,
 .extra .ilustracion {
   display: block;
@@ -908,7 +771,6 @@ header .acento { color: #A8EBCF; }
 }
 .dolor strong { color: var(--texto); font-weight: 600; }
 
-/* Por dónde avisa el banco. */
 .caminos {
   list-style: none;
   display: flex;
@@ -931,9 +793,24 @@ header .acento { color: #A8EBCF; }
 }
 .caminos .icono { color: var(--marca); font-size: 17px; }
 
-/* Los plegables, como las preguntas de Nu: la pregunta a la vista, la
-   respuesta para quien la abra, y un + que se vuelve −. Son <details>: se
-   abren sin JavaScript y los lectores de pantalla ya saben qué son. */
+.bloque {
+  margin-top: 44px;
+  padding: 34px 32px 20px;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 22px;
+}
+.bloque + .bloque { margin-top: 20px; }
+.bloque .titular { margin-top: 0; }
+.bloque .plegables {
+  margin: 24px -14px 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--borde);
+}
+@media (max-width: 560px) {
+  .bloque { padding: 26px 20px 14px; border-radius: 18px; }
+  .bloque .plegables { margin-left: -10px; margin-right: -10px; }
+}
 .plegables,
 .preguntas {
   display: grid;
@@ -989,8 +866,6 @@ header .acento { color: #A8EBCF; }
   font-size: 15px;
 }
 
-/* Y además: rejilla en pantalla ancha; en el teléfono se desliza de lado y
-   la siguiente tarjeta asoma, que es lo que dice que hay más. */
 .carrusel {
   list-style: none;
   display: grid;
@@ -1015,7 +890,6 @@ header .acento { color: #A8EBCF; }
   .extra { flex: 0 0 72%; scroll-snap-align: start; }
 }
 
-/* Tus cuentas son tuyas: tres insignias en vez de una lista. */
 .insignias {
   list-style: none;
   display: grid;
@@ -1050,10 +924,6 @@ header .acento { color: #A8EBCF; }
   .insignias b { margin-top: 0; }
 }
 
-/* Pruébala: la conversación de WhatsApp por la que se entra, sobre el verde
-   de la cabecera y con los garabatos del ícono. Era una caja verde clarita
-   con tres pasos numerados y un botón: lo mismo que en cualquier página, y
-   justo en el sitio donde se decide. */
 .llamada {
   position: relative;
   overflow: hidden;
@@ -1076,8 +946,7 @@ header .acento { color: #A8EBCF; }
   opacity: .22;
   pointer-events: none;
 }
-.llamada-texto,
-.chat-lugar { position: relative; }
+.llamada-texto { position: relative; }
 .llamada h2 {
   margin: 0 0 10px;
   color: #fff;
@@ -1093,126 +962,24 @@ header .acento { color: #A8EBCF; }
 }
 .llamada .dato a { color: #fff; }
 
-/* El chat. Colores de la marca, no los de WhatsApp: se entiende que es una
-   conversación por la forma, sin copiarle la cara a nadie. Un poco
-   inclinado, como el recibo del ícono. */
-.chat-lugar {
-  justify-self: center;
-  width: 100%;
-  max-width: 300px;
-}
-.chat {
-  position: relative;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #EAF3EE;
-  color: var(--texto);
-  font-size: 14px;
-  line-height: 1.42;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, .28);
-  transform: rotate(2deg);
-}
-.chat-cabeza {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  background: #fff;
-  border-bottom: 1px solid var(--borde);
-}
-/* El punto verde de «en línea»: lo que más rápido dice que esto es un chat. */
-.chat-avatar {
-  position: relative;
-  flex: none;
-  width: 34px;
-  height: 34px;
-}
-.chat-avatar img { display: block; border-radius: 50%; }
-.chat-avatar::after {
-  content: '';
-  position: absolute;
-  right: -1px;
-  bottom: -1px;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: #2FC26B;
-  border: 2px solid #fff;
-}
-.chat-enlace img { flex: none; border-radius: 10px; }
-.chat-cabeza b,
-.chat-enlace b {
-  display: block;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  line-height: 1.25;
-}
-.chat-cabeza div span,
-.chat-enlace span {
-  display: block;
-  font-size: 12px;
-  color: var(--texto-suave);
-}
-.chat-cuerpo {
+.llamada-cuadri {
   display: grid;
-  gap: 8px;
-  padding: 14px 12px 16px;
-  /* El fondo de garabatos tenues de los chats, pero con lo nuestro:
-     recibos, el visto, una moneda, un teléfono y brillos. Se reconoce como
-     chat de un vistazo sin copiarle el dibujo a nadie. */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%23CFE3D8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 14l24 4-5 30-4-3-4 3-4-3-4 3-4-3-5 1z'/%3E%3Cpath d='M23 26l14 2M22 33l12 2'/%3E%3Ccircle cx='110' cy='26' r='10'/%3E%3Cpath d='M105 26l4 4 7-8'/%3E%3Cpath d='M76 64c1 7 3 9 10 10-7 1-9 3-10 10-1-7-3-9-10-10 7-1 9-3 10-10z'/%3E%3Crect x='16' y='92' width='22' height='36' rx='5' transform='rotate%28-10 27 110%29'/%3E%3Cpath d='M23 100l9-1'/%3E%3Ccircle cx='118' cy='112' r='12'/%3E%3Cpath d='M122 106c-2-2-9-2-9 2s9 2 9 6-7 4-9 1M118 102v20'/%3E%3Ccircle cx='64' cy='134' r='3'/%3E%3Ccircle cx='146' cy='68' r='2.5'/%3E%3Cpath d='M54 34c5-5 10 5 15 0s10 5 15 0'/%3E%3Cpath d='M96 140l4-6M104 146l7-2'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 160px 160px;
+  place-items: center;
 }
-.burbuja {
-  margin: 0;
-  max-width: 88%;
-  padding: 8px 11px;
-  border-radius: 13px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .07);
+.llamada-cuadri::before {
+  content: "";
+  grid-area: 1 / 1;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, 0) 70%);
 }
-.burbuja.tuya {
-  justify-self: end;
-  background: #D2F2E3;
-  border-top-right-radius: 4px;
+.llamada-cuadri img {
+  grid-area: 1 / 1;
+  position: relative;
+  height: 280px;
+  width: auto;
 }
-.burbuja.nuestra {
-  justify-self: start;
-  background: #fff;
-  border-top-left-radius: 4px;
-}
-.burbuja i { font-style: normal; color: var(--marca); font-weight: 600; }
-.leido {
-  display: block;
-  text-align: right;
-  margin-top: 1px;
-  font-size: 11px;
-  letter-spacing: -2px;
-  color: #15845F;
-}
-.chat-enlace {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0 0 7px;
-  padding: 8px;
-  border-radius: 10px;
-  background: #F1F5F3;
-}
-
-/* Los garabatos de alrededor del chat, con el trazo blanco del ícono. */
-.garabato {
-  position: absolute;
-  fill: none;
-  stroke: #fff;
-  stroke-width: 2.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  opacity: .6;
-  pointer-events: none;
-}
-.garabato-arriba { width: 38px; height: 38px; top: -30px; left: -30px; }
-.garabato-lado { width: 38px; height: 38px; top: 40%; right: -36px; }
-.garabato-abajo { width: 58px; height: 38px; bottom: -18px; left: -40px; }
 
 @media (max-width: 640px) {
   .llamada {
@@ -1220,7 +987,7 @@ header .acento { color: #A8EBCF; }
     gap: 30px;
     padding: 30px 22px 34px;
   }
-  .chat { transform: rotate(1.5deg); }
+  .llamada-cuadri img { height: 220px; }
 }
 
 .boton.chico {
@@ -1231,7 +998,6 @@ header .acento { color: #A8EBCF; }
 }
 .boton.chico svg.wa { width: 16px; height: 16px; }
 
-/* La barra de arriba, que aparece cuando la portada sale de la vista. */
 .barra {
   position: fixed;
   top: 0;
@@ -1246,7 +1012,6 @@ header .acento { color: #A8EBCF; }
   transition: transform .25s ease;
 }
 .barra.verse { transform: none; }
-/* Lo que se abre con un enlace queda debajo de la barra, no tapado por ella. */
 .titular, #caja, #probar { scroll-margin-top: 76px; }
 .barra-dentro {
   display: flex;

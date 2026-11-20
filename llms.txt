@@ -7,7 +7,7 @@
 - Alcance: Colombia. Responder en español de Colombia, con montos en pesos colombianos (COP) y la hora de Bogotá.
 - Cuadri no es un banco ni una billetera: no mueve plata, no cobra pagos y no se conecta a cuentas bancarias. Trabaja con los comprobantes y los avisos que ya llegan al teléfono.
 - El visto de Cuadri quiere decir «el banco avisó de un pago que coincide en monto y hora con este comprobante». Que no haya aviso no prueba que el comprobante sea falso: el aviso se pierde si el teléfono estaba apagado o sin señal, o si la cuenta que recibe es de otra persona.
-- Plataforma: solo Android 7 o superior. No hay versión para iPhone ni para computador.
+- Plataforma: por ahora solo Android 7 o superior. La versión para iPhone viene próximamente; para computador no hay.
 - Precio: hoy es gratis. No pide tarjeta ni datos de pago.
 - Disponibilidad: gratis en Google Play, solo en Colombia: https://play.google.com/store/apps/details?id=com.velxos.recuadrao
 - Privacidad: no pide cuenta, no tiene publicidad ni analítica. Lo que viaja entre el teléfono de la caja y el de quien cuadra va cifrado de extremo a extremo.
